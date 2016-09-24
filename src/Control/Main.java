@@ -1,5 +1,7 @@
 package Control;
 
+import View.HelloWorldSwing;
+
 public class Main {
 
     public static void sayHello() {
@@ -7,7 +9,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        EngineController engineController = new EngineController("SUDOKU");
-        EngineController engineKakuroController = new EngineController("KAKURO");
+        sayHello();
+        mainGraphics();
+    }
+
+    public static void mainGraphics(){
+        HelloWorldSwing hw = new HelloWorldSwing();
+        hw.render();
     }
 }
