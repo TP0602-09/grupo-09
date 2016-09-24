@@ -1,7 +1,7 @@
 package Control;
+import View.CellVIew;
 
-import View.HelloWorldSwing;
-
+import javax.swing.*;
 public class Main {
 
     public static void sayHello() {
@@ -14,7 +14,12 @@ public class Main {
     }
 
     public static void mainGraphics(){
-        HelloWorldSwing hw = new HelloWorldSwing();
-        hw.render();
+        ViewController vc = new ViewController();
+
+        JLabel label = new JLabel("Hello World");
+        vc.renderView(label);
+
+        CellVIew cell = new CellVIew();
+        vc.renderView(cell);
     }
 }
