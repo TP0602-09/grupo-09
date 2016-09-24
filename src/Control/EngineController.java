@@ -4,10 +4,21 @@ import Model.Game;
 import Model.GameKakuro;
 import Model.GameSudoku;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by mariagustina on 22/09/16.
  */
 public class EngineController {
+
+    private static final Map<String, Game> juegos;
+    static
+    {
+        juegos = new HashMap<String, Game>();
+        juegos.put("SUDOKU", new GameSudoku());
+        juegos.put("KAKURO", new GameKakuro());
+    }
 
     public EngineController(String gameType) {
         Game game = createGame(gameType);
@@ -17,17 +28,6 @@ public class EngineController {
 
     public Game createGame(String gameType) {
 
-        if(gameType == null) {
-            return null;
-        }
-
-        if(gameType.equalsIgnoreCase("SUDOKU")) {
-            return new GameSudoku();
-
-        } else if(gameType.equalsIgnoreCase("KAKURO")) {
-            return new GameKakuro();
-        }
-
-        return null;
+        return juegos.get(gameType);
     }
 }
