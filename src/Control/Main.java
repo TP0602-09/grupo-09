@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Main {
 
     public static void sayHello() {
-        System.out.println("Hello world");
+        System.out.println("Welcome to Nikoli's Game Generator Engine");
     }
 
     public static void main(String[] args) {
