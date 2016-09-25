@@ -1,5 +1,5 @@
 package Control;
-import View.CellVIew;
+import View.CellView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,7 +37,7 @@ public class ViewController {
 
         while(itr.hasNext()) {
             Object cell = itr.next();
-            this.addCellToMainPane((CellVIew)cell);
+            this.addCellToMainPane((CellView)cell);
         }
     }
 
@@ -45,8 +45,8 @@ public class ViewController {
         this.mainPane.add(viewToDraw);
     }
 
-    public void addCellToMainPane(CellVIew cellVIew){
-        this.mainPane.add(cellVIew);
+    public void addCellToMainPane(CellView cellView){
+        this.mainPane.add(cellView);
 
     }
     public void render(){

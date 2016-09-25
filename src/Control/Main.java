@@ -1,5 +1,7 @@
 package Control;
-import View.CellVIew;
+import View.CellView;
+import View.DataCellView;
+import View.EditableCellView;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -16,32 +18,37 @@ public class Main {
     }
 
     public static void mainGraphics(){
-        ViewController vc = new ViewController(3);
+        ViewController vc = new ViewController(4);
 
         JLabel label = new JLabel("Sudoku");
      //   vc.addElementToMainPane(label);
 
         //creo las celdas de mentira por ahora
-        ArrayList cellsArray = new ArrayList<CellVIew>();
+        ArrayList cellsArray = new ArrayList<EditableCellView>();
 
-        CellVIew cell = new CellVIew(1,1);
+        CellView cell = new EditableCellView(1,1);
         cellsArray.add(cell);
-        CellVIew cell2 = new CellVIew(1,2);
+        CellView cell2 = new EditableCellView(1,2);
         cellsArray.add(cell2);
-        CellVIew cell3 = new CellVIew(2,1);
+        CellView cell3 = new EditableCellView(1,3);
         cellsArray.add(cell3);
-        CellVIew cell4 = new CellVIew(2,2);
+        CellView cell4 = new EditableCellView(1,4);
         cellsArray.add(cell4);
-        CellVIew cell5 = new CellVIew(1,1);
+        CellView cell5 = new EditableCellView(2,1);
         cellsArray.add(cell5);
-        CellVIew cell6 = new CellVIew(1,2);
+        CellView cell6 = new EditableCellView(2,2);
         cellsArray.add(cell6);
-        CellVIew cell7 = new CellVIew(2,1);
+        CellView cell7 = new EditableCellView(2,3);
         cellsArray.add(cell7);
-        CellVIew cell8 = new CellVIew(2,2);
+        CellView cell8 = new EditableCellView(2,4);
         cellsArray.add(cell8);
-        CellVIew cell9 = new CellVIew(2,2);
+        CellView cell9 = new EditableCellView(3,1);
         cellsArray.add(cell9);
+        CellView cell10 = new DataCellView(3,2,6);
+        cellsArray.add(cell10);
+        CellView cell11 = new DataCellView(3,3,0);
+        cellsArray.add(cell11);
+
 
         vc.setCells(cellsArray);
 

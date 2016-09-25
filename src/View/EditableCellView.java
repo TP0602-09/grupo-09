@@ -8,27 +8,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CellVIew extends JPanel implements ActionListener {
+public class EditableCellView extends CellView implements ActionListener {
 
     //Fields for data entry
     private JFormattedTextField cell;
-    public int x; //posicion (1,1) ; (1,2) ; (2,1)..etc
-    public int y;
 
-    public CellVIew(int x,int y) {
+    public EditableCellView(int x, int y) {
 
-        super(new BorderLayout());
-        this.x=x;
-        this.y=y;
-        // setUpFormats();
+        //super(new BorderLayout());
+        //
+        super(x,y);
 
         //Create the text field and set it up.
         cell = new JFormattedTextField();
-//        amountField.setValue(new Double(amount));
         cell.setPreferredSize( new Dimension( 20, 20 ) );
         cell.setHorizontalAlignment(SwingConstants.CENTER);
         cell.setEnabled(true);
-        //cell.addPropertyChangeListener("value", this);
         cell.addActionListener(this);
         cell.setBackground(new Color(239, 255, 165));
 
@@ -38,10 +33,8 @@ public class CellVIew extends JPanel implements ActionListener {
         fieldPane.setBackground(Color.blue);
         fieldPane.add(cell);
         fieldPane.setMaximumSize( fieldPane.getPreferredSize() );
-        //Put the panels in this panel, labels on left,
-        //text fields on right.
-        //setBorder(BorderFactory.createLineBorder(Color.black));
         add(fieldPane);
+
     }
 
 
