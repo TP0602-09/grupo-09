@@ -18,11 +18,12 @@ public class ViewController {
         mainPane.setOpaque(true);
         mainPane.setBackground(new Color(255, 0, 0));
         mainPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
-        mainPane.add(Box.createRigidArea(new Dimension(0, 5)));
-        mainPane.add(Box.createRigidArea(new Dimension(0, 5)));
-        mainPane.add(Box.createGlue());
+//        mainPane.add(Box.createRigidArea(new Dimension(0, 5)));
+ //       mainPane.add(Box.createRigidArea(new Dimension(0, 5)));
+  //      mainPane.add(Box.createGlue());
 
     }
+
     public void addElementToMainPane(Container viewToDraw){
         this.mainPane.add(viewToDraw);
     }
@@ -38,8 +39,9 @@ public class ViewController {
     private void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("ViewController");
+        frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        
         frame.setContentPane(this.mainPane);
 
         //Display the window.

@@ -13,7 +13,7 @@ public class CellVIew extends JPanel implements PropertyChangeListener {
     //Fields for data entry
     private JFormattedTextField cell;
 
-    public CellVIew() {
+    public  CellVIew() {
 
         super(new BorderLayout());
        // setUpFormats();
@@ -21,20 +21,23 @@ public class CellVIew extends JPanel implements PropertyChangeListener {
         //Create the text field and set it up.
         cell = new JFormattedTextField();
 //        amountField.setValue(new Double(amount));
-        cell.setColumns(1);
+        cell.setPreferredSize( new Dimension( 20, 20 ) );
+     // cell.setColumns(2);
         cell.setHorizontalAlignment(SwingConstants.CENTER);
         cell.setEnabled(true);
         cell.addPropertyChangeListener("value", this);
-
+        cell.setBackground(new Color(239, 255, 165));
 
         //Layout the text fields in a panel.
-        JPanel fieldPane = new JPanel(new GridLayout(0,1));
+        JPanel fieldPane = new JPanel(new BorderLayout());
+        fieldPane.setPreferredSize(new Dimension(30,30));
+        fieldPane.setBackground(Color.blue);
         fieldPane.add(cell);
-
+        fieldPane.setMaximumSize( fieldPane.getPreferredSize() );
         //Put the panels in this panel, labels on left,
         //text fields on right.
-        setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
-        add(fieldPane, BorderLayout.LINE_END);
+        //setBorder(BorderFactory.createLineBorder(Color.black));
+        add(fieldPane);
     }
 
     /** Called when a field's "value" property changes. */
