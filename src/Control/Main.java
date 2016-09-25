@@ -19,7 +19,7 @@ public class Main {
     }
 
     public static void mainGraphics(){
-        ViewController vc = new ViewController(4);
+        ViewController vc = new ViewController(5);
 
         JLabel label = new JLabel("Sudoku");
      //   vc.addElementToMainPane(label);
@@ -49,8 +49,18 @@ public class Main {
         cellsArray.add(cell10);
         CellView cell11 = new DataCellView(3,3,0);
         cellsArray.add(cell11);
-        CellView cell12 = new DoubleDataCellView(3,3,2,2);
+        CellView cell12 = new DoubleDataCellView(3,3,48,25);
         cellsArray.add(cell12);
+        CellView cell13 = new DoubleDataCellView(3,3,0,25);
+        cellsArray.add(cell13);
+        CellView cell14 = new DoubleDataCellView(3,3,0,9);
+        cellsArray.add(cell14);
+        CellView cell15 = new DoubleDataCellView(3,3,48,0);
+        cellsArray.add(cell15);
+        CellView cell16 = new DoubleDataCellView(3,3,4,0);
+        cellsArray.add(cell16);
+        CellView cell17 = new DoubleDataCellView(3,3,3,6);
+        cellsArray.add(cell17);
 
         vc.setCells(cellsArray);
 
