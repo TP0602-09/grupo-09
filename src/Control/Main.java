@@ -1,6 +1,7 @@
 package Control;
 import View.CellView;
 import View.DataCellView;
+import View.DoubleDataCellView;
 import View.EditableCellView;
 
 import javax.swing.*;
@@ -48,7 +49,8 @@ public class Main {
         cellsArray.add(cell10);
         CellView cell11 = new DataCellView(3,3,0);
         cellsArray.add(cell11);
-
+        CellView cell12 = new DoubleDataCellView(3,3,2,2);
+        cellsArray.add(cell12);
 
         vc.setCells(cellsArray);
 
