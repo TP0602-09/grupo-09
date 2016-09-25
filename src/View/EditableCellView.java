@@ -15,8 +15,6 @@ public class EditableCellView extends CellView implements ActionListener {
 
     public EditableCellView(int x, int y) {
 
-        //super(new BorderLayout());
-        //
         super(x,y);
 
         //Create the text field and set it up.

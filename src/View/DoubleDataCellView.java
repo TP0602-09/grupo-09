@@ -6,12 +6,8 @@ import java.awt.*;
  */
 public class DoubleDataCellView extends CellView {
 
-    private JPanel leftTriangle;
-    private JPanel rightTriangle;
-
     public DoubleDataCellView(int x, int y,int value1,int value2) {
         super(x,y);
-
 
         JPanel panel = this.getJpanel(value1,value2);
 
