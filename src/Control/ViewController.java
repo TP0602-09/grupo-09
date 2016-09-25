@@ -3,6 +3,9 @@ import View.CellVIew;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 
 public class ViewController {
     /**
@@ -11,6 +14,7 @@ public class ViewController {
      * event-dispatching thread.
      */
     private JPanel mainPane;
+    private ArrayList cells;
 
     public ViewController (int numberOfRows){
         createMainPain(numberOfRows);
@@ -25,6 +29,16 @@ public class ViewController {
         mainPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
     }
 
+    public  void setCells(ArrayList cells){
+        this.cells = cells;
+        // Use iterator to display contents of al
+        Iterator itr = cells.iterator();
+
+        while(itr.hasNext()) {
+            Object cell = itr.next();
+            this.addCellToMainPane((CellVIew)cell);
+        }
+    }
 
     public void addElementToMainPane(Container viewToDraw){
         this.mainPane.add(viewToDraw);
