@@ -1,123 +1,194 @@
 {
   "name": "sudoku",
-  "rows": 9,
-  "columns": 9,
-  "rules": [],
-  "cells": [
-    {
-      "row": 1,
-      "column": 7,
-      "value": 7
-    },
-    {
-      "row": 1,
-      "column": 8,
-      "value": 3
-    },
-    {
-      "row": 2,
-      "column": 2,
-      "value": 9
-    },
-    {
-      "row": 2,
-      "column": 3,
-      "value": 4
-    },
-    {
-      "row": 3,
-      "column": 6,
-      "value": 7
-    },
-    {
-      "row": 3,
-      "column": 7,
-      "value": 8
-    },
-    {
-      "row": 3,
-      "column": 9,
-      "value": 1
-    },
-    {
-      "row": 4,
-      "column": 1,
-      "value": 5
-    },
-    {
-      "row": 4,
-      "column": 2,
-      "value": 3
-    },
-    {
-      "row": 4,
-      "column": 3,
-      "value": 9
-    },
-    {
-      "row": 4,
-      "column": 7,
-      "value": 6
-    },
-    {
-      "row": 5,
-      "column": 4,
-      "value": 4
-    },
-    {
-      "row": 5,
-      "column": 6,
-      "value": 5
-    },
-    {
-      "row": 5,
-      "column": 7,
-      "value": 2
-    },
-    {
-      "row": 6,
-      "column": 1,
-      "value": 1
-    },
-    {
-      "row": 6,
-      "column": 6,
-      "value": 9
-    },
-    {
-      "row": 7,
-      "column": 1,
-      "value": 3
-    },
-    {
-      "row": 7,
-      "column": 2,
-      "value": 7
-    },
-    {
-      "row": 7,
-      "column": 5,
-      "value": 5
-    },
-    {
-      "row": 7,
-      "column": 6,
-      "value": 6
-    },
-    {
-      "row": 8,
-      "column": 3,
-      "value": 6
-    },
-    {
-      "row": 9,
-      "column": 4,
-      "value": 1
-    },
-    {
-      "row": 9,
-      "column": 9,
-      "value": 3
-    }
-  ]
+  "game": {
+    "rows": 9,
+    "columns": 9,
+    "cells": [
+      {
+        "pos": [
+          1,
+          7
+        ],
+        "type": "dat",
+        "value": 7
+      },
+      {
+        "pos": [
+          1,
+          8
+        ],
+        "type": "dat",
+        "value": 3
+      },
+      {
+        "pos": [
+          2,
+          2
+        ],
+        "type": "dat",
+        "value": 9
+      },
+      {
+        "pos": [
+          2,
+          3
+        ],
+        "type": "dat",
+        "value": 4
+      },
+      {
+        "pos": [
+          3,
+          6
+        ],
+        "type": "dat",
+        "value": 7
+      },
+      {
+        "pos": [
+          3,
+          7
+        ],
+        "type": "dat",
+        "value": 8
+      },
+      {
+        "pos": [
+          3,
+          9
+        ],
+        "type": "dat",
+        "value": 1
+      },
+      {
+        "pos": [
+          4,
+          1
+        ],
+        "type": "dat",
+        "value": 5
+      },
+      {
+        "pos": [
+          4,
+          2
+        ],
+        "type": "dat",
+        "value": 3
+      },
+      {
+        "pos": [
+          4,
+          3
+        ],
+        "type": "dat",
+        "value": 9
+      },
+      {
+        "pos": [
+          4,
+          7
+        ],
+        "type": "dat",
+        "value": 6
+      },
+      {
+        "pos": [
+          5,
+          4
+        ],
+        "type": "dat",
+        "value": 4
+      },
+      {
+        "pos": [
+          5,
+          6
+        ],
+        "type": "dat",
+        "value": 5
+      },
+      {
+        "pos": [
+          5,
+          7
+        ],
+        "type": "dat",
+        "value": 2
+      },
+      {
+        "pos": [
+          6,
+          1
+        ],
+        "type": "dat",
+        "value": 1
+      },
+      {
+        "pos": [
+          6,
+          6
+        ],
+        "type": "dat",
+        "value": 9
+      },
+      {
+        "pos": [
+          7,
+          1
+        ],
+        "type": "dat",
+        "value": 3
+      },
+      {
+        "pos": [
+          7,
+          2
+        ],
+        "type": "dat",
+        "value": 7
+      },
+      {
+        "pos": [
+          7,
+          5
+        ],
+        "type": "dat",
+        "value": 5
+      },
+      {
+        "pos": [
+          7,
+          6
+        ],
+        "type": "dat",
+        "value": 6
+      },
+      {
+        "pos": [
+          8,
+          3
+        ],
+        "type": "dat",
+        "value": 6
+      },
+      {
+        "pos": [
+          9,
+          4
+        ],
+        "type": "dat",
+        "value": 1
+      },
+      {
+        "pos": [
+          9,
+          9
+        ],
+        "type": "dat",
+        "value": 3
+      }
+    ],
+    "rules": []
+  }
 }
