@@ -6,5 +6,6 @@ package Model;
 public class DataCell extends Cell {
     public DataCell(int x, int y){
         super(x,y);
+        this.canChangeValue = false;
     }
 }
