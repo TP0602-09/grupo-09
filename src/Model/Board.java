@@ -30,6 +30,7 @@ public class Board {
             Object cellDic = itr.next(); //diccionario de la celda que trae del json
             Map mapCell = (Map)cellDic;
             ArrayList<String> position = (ArrayList<String>)mapCell.get("pos");
+            System.out.print(position);
             String type = mapCell.get("type").toString();
             int value = Integer.parseInt(mapCell.get("value").toString());
             Cell cellInstance = factoryCellCreator(position,type,value);
@@ -51,8 +52,8 @@ public class Board {
     }
 
     private Cell factoryCellCreator(ArrayList<String> position,String type,int value){
-        int posx = Integer.parseInt(position.get(0));
-        int posy = Integer.parseInt(position.get(1));
+        int posx = 1;//String.valueOf(position.get(1));
+        int posy = 1;//Integer.parseInt(position.get(2));
         Position pos = new Position(posx,posy);
         Cell cell;
         if (type == "dat"){
@@ -66,12 +67,12 @@ public class Board {
         return cell;
     }
 
-    private int getRows(){
+    public int getRows(){
         return this.rows;
     }
 
-    private int getCols(){
-        return this.cols;
+    public HashMap<Position,Cell> getCells(){
+        return this.cells;
     }
 
 }

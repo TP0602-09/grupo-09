@@ -4,6 +4,7 @@ import Model.Game;
 import Model.GameKakuro;
 import Model.GameSudoku;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +13,8 @@ import java.util.Map;
  */
 public class EngineController {
 
+    private ViewController viewController;
+    private Game game;
     private static final Map<String, Game> juegos;
     static
     {
@@ -21,8 +24,18 @@ public class EngineController {
     }
 
     public EngineController(String gameType) {
-        Game game = createGame(gameType);
-        game.startGame();
+        this.game = createGame(gameType);
+        this.game.startGame();
+        this.initializeViews();
+
+    }
+
+    private void initializeViews(){
+        int numberOfRows = this.game.board.getRows();
+        this.viewController = new ViewController(numberOfRows);
+        ArrayList cellsArray = new ArrayList(game.board.getCells().values());
+        this.viewController.setCells(cellsArray);
+        this.viewController.render();
 
     }
 

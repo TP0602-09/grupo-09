@@ -4,7 +4,6 @@ import View.DataCellView;
 import View.DoubleDataCellView;
 import View.EditableCellView;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class Main {
@@ -15,19 +14,17 @@ public class Main {
 
     public static void main(String[] args) {
         sayHello();
-        mainGraphics();
+        //mainGraphics();
+        mainGame();
     }
 
     public static void mainGame(){
-        //POR AHORA VOY A SIMULAR QUE LEVANTE EL JUEGO DEL JSON
+        EngineController ec = new EngineController("SUDOKU");
 
     }
 
     public static void mainGraphics(){
         ViewController vc = new ViewController(5);
-
-        JLabel label = new JLabel("Sudoku");
-     //   vc.addElementToMainPane(label);
 
         //creo las celdas de mentira por ahora
         ArrayList cellsArray = new ArrayList<EditableCellView>();

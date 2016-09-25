@@ -1,5 +1,9 @@
 package Control;
+import Model.Cell;
+import Model.DataCell;
 import View.CellView;
+import View.DataCellView;
+import View.EditableCellView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +22,7 @@ public class ViewController {
     private ArrayList cells;
 
     public ViewController (int numberOfRows){
+        this.cells = new ArrayList();
         createMainPain(numberOfRows);
     }
 
@@ -31,13 +36,25 @@ public class ViewController {
     }
 
     public  void setCells(ArrayList cells){
-        this.cells = cells;
-        // Use iterator to display contents of al
+        factoryCellsCreator(cells);
+    }
+
+    public void factoryCellsCreator(ArrayList cells){
         Iterator itr = cells.iterator();
 
         while(itr.hasNext()) {
             Object cell = itr.next();
-            this.addCellToMainPane((CellView)cell);
+            Cell cellObj = (Cell)cell;
+            CellView cellView;
+            int posX = cellObj.getPosition().getX();
+            int posY = cellObj.getPosition().getY();
+            if (cellObj instanceof DataCell){
+                cellView =  new DataCellView(posX,posY,cellObj.getValue());
+            }else{
+                cellView = new EditableCellView(posX,posY);
+            }
+            this.addCellToMainPane(cellView);
+            this.cells.add(cellView);
         }
     }
 

@@ -8,7 +8,7 @@ public abstract class Game {
     public Board board;
 
     public  abstract void Game();
-    public abstract void getConfiguration();
+    public abstract void startConfiguration();
     public abstract void startGame();
 
 }

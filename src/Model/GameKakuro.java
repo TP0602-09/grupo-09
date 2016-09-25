@@ -9,7 +9,7 @@ public class GameKakuro extends Game {
 
     }
 
-    public void getConfiguration(){
+    public void startConfiguration(){
         System.out.println("Configuracion, aca le pasamos lo que levanta del json inicial");
     }
     public void startGame(){

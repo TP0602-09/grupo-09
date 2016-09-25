@@ -5,11 +5,11 @@ import java.util.ArrayList;
  * Created by mariagustina on 22/09/16.
  */
 public class GameSudoku extends Game{
+
     public void Game(){
-        getConfiguration();
     }
 
-    public void getConfiguration(){
+    public void startConfiguration(){
 
         System.out.println("Configuracion, aca le pasamos lo que levanta del json inicial");
 
@@ -33,13 +33,16 @@ public class GameSudoku extends Game{
         position2.add(1);
         position2.add(8);
         cellMap2.put("pos", position2);
-        cellMap1.put("type", "dat");
+        cellMap2.put("type", "dat");
+        cellMap2.put("value",3);
         arrayDic.add(cellMap2);
 
         this.board = new Board(9,9,arrayDic);
 
     }
+
     public void startGame(){
         System.out.println("Welcome to Sudoku");
+        startConfiguration();
     }
 }
