@@ -11,13 +11,13 @@ import java.util.Map;
 public class Board {
 
     private ArrayList<HashMap> dicCells;
-    private HashMap<Position,Cell> cells;
+    private HashMap<Integer,Cell> cells;
 
     private int rows;
     private int cols;
 
     public Board (int rows,int cols,ArrayList<HashMap>dicCells){
-        cells = new HashMap<Position, Cell>();
+        cells = new HashMap<Integer, Cell>();
         this.rows = rows;
         this.cols = cols;
         this.dicCells = dicCells;
@@ -26,6 +26,7 @@ public class Board {
 
     private void createCells(){
         Iterator itr = dicCells.iterator();
+        int count = 1;
         while(itr.hasNext()) {
             Object cellDic = itr.next(); //diccionario de la celda que trae del json
             Map mapCell = (Map)cellDic;
@@ -34,7 +35,8 @@ public class Board {
             String type = mapCell.get("type").toString();
             int value = Integer.parseInt(mapCell.get("value").toString());
             Cell cellInstance = factoryCellCreator(position,type,value);
-            this.cells.put(cellInstance.getPosition(),cellInstance);
+            this.cells.put(count,cellInstance);
+            count++;
         }
         this.createEditableCells();
     }
@@ -42,18 +44,19 @@ public class Board {
     private void createEditableCells(){
         for (int i = 1; i <= this.rows; i++){
             for (int j = 1; j <= this.cols; j++){
+                int positionInMap = i + this.cols*(j-1);
                 Position pos = new Position(i,j);
-                if (this.cells.get(pos) == null){
+                if (this.cells.get(positionInMap) == null){
                     Cell cell = new EditableCell(pos);
-                    this.cells.put(pos,cell);
+                    this.cells.put(positionInMap,cell);
                 }
             }
         }
     }
 
     private Cell factoryCellCreator(ArrayList<String> position,String type,int value){
-        int posx = 1;//String.valueOf(position.get(1));
-        int posy = 1;//Integer.parseInt(position.get(2));
+        int posx = 1;//IntegerStringConverter.fromString("a");//.getInteger("1");//StringToIntTable(position.get(1));//Integer.parseInt(position.get(1).toString().trim());
+        int posy = 1;//Integer.parseInt(position.get(2).toString().trim());
         Position pos = new Position(posx,posy);
         Cell cell;
         if (type == "dat"){
@@ -71,7 +74,7 @@ public class Board {
         return this.rows;
     }
 
-    public HashMap<Position,Cell> getCells(){
+    public HashMap<Integer,Cell> getCells(){
         return this.cells;
     }
 
