@@ -8,10 +8,26 @@ public class ViewController {
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    private Container viewToDraw;
+    private JPanel mainPane;
 
-    public void renderView(Container viewToDraw){
-        this.viewToDraw = viewToDraw;
+    public ViewController (){
+
+        //creo el mainPane
+        mainPane = new JPanel();
+        mainPane.setLayout(new BoxLayout(mainPane, BoxLayout.PAGE_AXIS));
+        mainPane.setOpaque(true);
+        mainPane.setBackground(new Color(255, 0, 0));
+        mainPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+        mainPane.add(Box.createRigidArea(new Dimension(0, 5)));
+        mainPane.add(Box.createRigidArea(new Dimension(0, 5)));
+        mainPane.add(Box.createGlue());
+
+    }
+    public void addElementToMainPane(Container viewToDraw){
+        this.mainPane.add(viewToDraw);
+    }
+
+    public void render(){
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
@@ -24,8 +40,7 @@ public class ViewController {
         JFrame frame = new JFrame("ViewController");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Container principalContainer = frame.getContentPane();
-        principalContainer.add(this.viewToDraw);
+        frame.setContentPane(this.mainPane);
 
         //Display the window.
         frame.pack();

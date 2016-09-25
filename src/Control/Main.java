@@ -17,9 +17,14 @@ public class Main {
         ViewController vc = new ViewController();
 
         JLabel label = new JLabel("Hello World");
-        vc.renderView(label);
+        vc.addElementToMainPane(label);
 
         CellVIew cell = new CellVIew();
-        vc.renderView(cell);
+        vc.addElementToMainPane(cell);
+
+        CellVIew cell2 = new CellVIew();
+        vc.addElementToMainPane(cell2);
+
+        vc.render();
     }
 }
