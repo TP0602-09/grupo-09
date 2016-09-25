@@ -6,5 +6,7 @@ package Model;
 public class EditableCell extends Cell {
     public EditableCell(int x, int y){
         super(x,y);
+        this.setValue(0);
+        this.canChangeValue = true;
     }
 }
