@@ -3,7 +3,7 @@ package Model;
 /**
  * Created by mariagustina on 22/09/16.
  */
-public class GameKakuro implements Game {
+public class GameKakuro extends Game {
 
     public void Game(){
 

@@ -8,8 +8,8 @@ public abstract class Cell {
     private int value;
     public boolean canChangeValue;
 
-    public Cell(int x,int y){
-        this.pos = new Position(x,y);
+    public Cell(Position pos){
+        this.pos = pos;
     }
 
     public void setValue(int value){
