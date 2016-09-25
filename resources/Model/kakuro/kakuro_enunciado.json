@@ -1,176 +1,262 @@
 {
   "name": "kakuro",
-  "rows": 8,
-  "columns": 8,
-  "rules": [],
-  "cells": [
-    {
-      "row": 1,
-      "column": 1,
-      "valueRow": 0,
-      "valueColumn": 0
-    },
-    {
-      "row": 1,
-      "column": 2,
-      "valueRow": 0,
-      "valueColumn": 23
-    },
-    {
-      "row": 1,
-      "column": 3,
-      "valueRow": 0,
-      "valueColumn": 30
-    },
-    {
-      "row": 1,
-      "column": 4,
-      "valueRow": 0,
-      "valueColumn": 0
-    },
-    {
-      "row": 1,
-      "column": 5,
-      "valueRow": 0,
-      "valueColumn": 0
-    },
-    {
-      "row": 1,
-      "column": 6,
-      "valueRow": 0,
-      "valueColumn": 27
-    },
-    {
-      "row": 1,
-      "column": 7,
-      "valueRow": 0,
-      "valueColumn": 12
-    },
-    {
-      "row": 1,
-      "column": 8,
-      "valueRow": 0,
-      "valueColumn": 16
-    },
-    {
-      "row": 2,
-      "column": 1,
-      "valueRow": 16,
-      "valueColumn": 0
-    },
-    {
-      "row": 2,
-      "column": 4,
-      "valueRow": 0,
-      "valueColumn": 0
-    },
-    {
-      "row": 2,
-      "column": 5,
-      "valueRow": 24,
-      "valueColumn": 17
-    },
-    {
-      "row": 3,
-      "column": 1,
-      "valueRow": 17,
-      "valueColumn": 0
-    },
-    {
-      "row": 3,
-      "column": 4,
-      "valueRow": 29,
-      "valueColumn": 15
-    },
-    {
-      "row": 4,
-      "column": 1,
-      "valueRow": 35,
-      "valueColumn": 0
-    },
-    {
-      "row": 4,
-      "column": 7,
-      "valueRow": 0,
-      "valueColumn": 12
-    },
-    {
-      "row": 4,
-      "column": 8,
-      "valueRow": 0,
-      "valueColumn": 0
-    },
-    {
-      "row": 5,
-      "column": 1,
-      "valueRow": 0,
-      "valueColumn": 0
-    },
-    {
-      "row": 5,
-      "column": 2,
-      "valueRow": 7,
-      "valueColumn": 0
-    },
-    {
-      "row": 5,
-      "column": 5,
-      "valueRow": 8,
-      "valueColumn": 7
-    },
-    {
-      "row": 5,
-      "column": 1,
-      "valueRow": 0,
-      "valueColumn": 7
-    },
-    {
-      "row": 6,
-      "column": 1,
-      "valueRow": 0,
-      "valueColumn": 0
-    },
-    {
-      "row": 6,
-      "column": 2,
-      "valueRow": 0,
-      "valueColumn": 11
-    },
-    {
-      "row": 6,
-      "column": 3,
-      "valueRow": 16,
-      "valueColumn": 10
-    },
-    {
-      "row": 7,
-      "column": 1,
-      "valueRow": 21,
-      "valueColumn": 0
-    },
-    {
-      "row": 7,
-      "column": 6,
-      "valueRow": 5,
-      "valueColumn": 0
-    },
-    {
-      "row": 8,
-      "column": 1,
-      "valueRow": 6,
-      "valueColumn": 0
-    },
-    {
-      "row": 8,
-      "column": 5,
-      "valueRow": 0,
-      "valueColumn": 0
-    },
-    {
-      "row": 8,
-      "column": 6,
-      "valueRow": 3,
-      "valueColumn": 0
-    }
-  ]
+  "game": {
+    "rows": 8,
+    "columns": 8,
+    "cells": [
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          1,
+          2
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 23
+      },
+      {
+        "pos": [
+          1,
+          3
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 30
+      },
+      {
+        "pos": [
+          1,
+          4
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          1,
+          5
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          1,
+          6
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 27
+      },
+      {
+        "pos": [
+          1,
+          7
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 12
+      },
+      {
+        "pos": [
+          1,
+          8
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 16
+      },
+      {
+        "pos": [
+          2,
+          1
+        ],
+        "type": "Double",
+        "value_r": 16,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          2,
+          4
+        ],
+        "type": "Double",
+        "valueRow": 0,
+        "valueColumn": 0
+      },
+      {
+        "pos": [
+          2,
+          5
+        ],
+        "type": "Double",
+        "value_r": 24,
+        "value_c": 17
+      },
+      {
+        "pos": [
+          3,
+          1
+        ],
+        "type": "Double",
+        "value_r": 17,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          3,
+          4
+        ],
+        "type": "Double",
+        "value_r": 29,
+        "value_c": 15
+      },
+      {
+        "pos": [
+          4,
+          1
+        ],
+        "type": "Double",
+        "value_r": 35,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          4,
+          7
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 12
+      },
+      {
+        "pos": [
+          4,
+          8
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          5,
+          1
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          5,
+          2
+        ],
+        "type": "Double",
+        "value_r": 7,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          5,
+          5
+        ],
+        "type": "Double",
+        "value_r": 8,
+        "value_c": 7
+      },
+      {
+        "pos": [
+          5,
+          1
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 7
+      },
+      {
+        "pos": [
+          6,
+          1
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          6,
+          2
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 11
+      },
+      {
+        "pos": [
+          6,
+          3
+        ],
+        "type": "Double",
+        "value_r": 16,
+        "value_c": 10
+      },
+      {
+        "pos": [
+          7,
+          1
+        ],
+        "type": "Double",
+        "value_r": 21,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          7,
+          6
+        ],
+        "type": "Double",
+        "value_r": 5,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          8,
+          1
+        ],
+        "type": "Double",
+        "value_r": 6,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          8,
+          5
+        ],
+        "type": "Double",
+        "value_r": 0,
+        "value_c": 0
+      },
+      {
+        "pos": [
+          8,
+          6
+        ],
+        "type": "Double",
+        "value_r": 3,
+        "value_c": 0
+      }
+    ],
+    "rules": []
+  }
 }
