@@ -12,17 +12,20 @@ public class CellVIew extends JPanel implements PropertyChangeListener {
 
     //Fields for data entry
     private JFormattedTextField cell;
+    public int x; //posicion (1,1) ; (1,2) ; (2,1)..etc
+    public int y;
 
-    public  CellVIew() {
+    public CellVIew(int x,int y) {
 
         super(new BorderLayout());
-       // setUpFormats();
+        this.x=x;
+        this.y=y;
+        // setUpFormats();
 
         //Create the text field and set it up.
         cell = new JFormattedTextField();
 //        amountField.setValue(new Double(amount));
         cell.setPreferredSize( new Dimension( 20, 20 ) );
-     // cell.setColumns(2);
         cell.setHorizontalAlignment(SwingConstants.CENTER);
         cell.setEnabled(true);
         cell.addPropertyChangeListener("value", this);
@@ -68,14 +71,6 @@ public class CellVIew extends JPanel implements PropertyChangeListener {
         frame.setVisible(true);
     }
     */
-    public void render(JFrame frame){
-        //Add contents to the window.
-        frame.add(new CellVIew());
-
-        //Display the window.
-        frame.pack();
-        frame.setVisible(true);
-    }
 
    /* public static void main(String[] args) {
         //Schedule a job for the event dispatch thread:
