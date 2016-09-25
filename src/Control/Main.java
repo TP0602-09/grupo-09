@@ -18,6 +18,11 @@ public class Main {
         mainGraphics();
     }
 
+    public static void mainGame(){
+        //POR AHORA VOY A SIMULAR QUE LEVANTE EL JUEGO DEL JSON
+
+    }
+
     public static void mainGraphics(){
         ViewController vc = new ViewController(5);
 
