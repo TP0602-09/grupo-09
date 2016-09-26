@@ -1,19 +1,9 @@
 package Model;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.util.ArrayList;
-
 /**
  * Created by Ignacio on 25/9/2016.
  */
+/*
 public class KakuroBoardFactory extends BoardFactory {
     private static  final String ROWS = "rows";
     private static  final String COLUMNS = "columns";
@@ -74,3 +64,4 @@ public class KakuroBoardFactory extends BoardFactory {
         return (JSONObject) root.get(GAME);
     }
 }
+*/

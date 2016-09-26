@@ -1,7 +1,6 @@
 package Model;
 
-import Model.*;
-
+/*
 
 import java.io.*;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import org.json.simple.parser.ParseException;
 
 /**
  * Created by Ignacio on 25/9/2016.
- */
+ *//*
 public class SudokuBoardFactory extends BoardFactory {
     private static final String VALUE ="value";
     private static  final String ROWS = "rows";
@@ -67,4 +66,4 @@ public class SudokuBoardFactory extends BoardFactory {
         JSONObject root = (JSONObject)rootObject;
         return (JSONObject) root.get(GAME);
     }
-}
+}*/
