@@ -22,4 +22,9 @@ public class Board {
         this.sectors = sectors;
     }
 
+    public int getRows() {
+        return this.rows;
+    }
+
+
 }

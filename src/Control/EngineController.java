@@ -1,9 +1,6 @@
 package Control;
 
-import Model.Cell;
-import Model.Game;
-import Model.GameKakuro;
-import Model.GameSudoku;
+import Model.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -31,9 +28,9 @@ public class EngineController {
     }
 
     private void initializeViews(){
-        int numberOfRows = this.game.board.getRows();
+        int numberOfRows = this.game.getBoard().getRows();
         this.viewController = new ViewController(numberOfRows);
-        HashMap<Integer, Cell> cellsArray = new HashMap<Integer, Cell>(game.board.getCells());
+        HashMap<Position, Cell> cellsArray = new HashMap<Integer, Cell>(game.getBoard().getCells());
         this.viewController.setCells(cellsArray);
         this.viewController.render();
 

@@ -12,7 +12,8 @@ public abstract class Game {
     private CellLoader cellLoader;
     private SectorLoader sectorLoader;
 
-    public  abstract void Game();
+    public abstract void Game();
+
     public void startConfiguration(){
         getInstanceOfLoaders();
         HashMap<Position,Cell> cells = cellLoader.loadCells();
@@ -27,4 +28,7 @@ public abstract class Game {
         this.sectorLoader = SectorLoader.getInstance();
     }
 
+    public Board getBoard() {
+        return this.board;
+    }
 }
