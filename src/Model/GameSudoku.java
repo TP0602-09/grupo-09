@@ -6,7 +6,11 @@ import java.util.ArrayList;
  */
 public class GameSudoku extends Game{
 
-    public void Game(){
+    private RuleNotSameNumber ruleNotSameNumber;
+
+    public GameSudoku(){
+        super();
+        this.ruleNotSameNumber = new RuleNotSameNumber();
     }
 
     public void startConfiguration(){
@@ -239,5 +243,37 @@ public class GameSudoku extends Game{
     public void startGame(){
         System.out.println("Welcome to Sudoku");
         startConfiguration();
+    }
+
+    public boolean validate(Cell cell){
+        this.board.setCell(cell);
+
+        ArrayList<Cell> sectionRow = getSectionForRow(cell);
+        boolean rowValid = this.ruleNotSameNumber.validateSection(sectionRow);
+        if(!rowValid){
+            System.out.println("Numero invalido en fila!");
+            return false;
+        }
+
+        ArrayList<Cell> sectionCol = getSectionForCol(cell);
+        boolean colValid = this.ruleNotSameNumber.validateSection(sectionCol);
+        if(!colValid){
+            System.out.println("Numero invalido en columna!");
+            return false;
+        }
+
+        return true;
+    }
+
+    private ArrayList<Cell> getSectionForRow(Cell cell){
+        int row = cell.getPosition().getX();
+        ArrayList<Cell> cells = this.board.getCellsForRowOrCol(row,true);
+        return cells;
+    }
+
+    private ArrayList<Cell> getSectionForCol(Cell cell){
+        int col = cell.getPosition().getY();
+        ArrayList<Cell> cells = this.board.getCellsForRowOrCol(col,false);
+        return cells;
     }
 }

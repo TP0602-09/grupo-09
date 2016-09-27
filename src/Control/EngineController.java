@@ -36,6 +36,7 @@ public class EngineController {
         HashMap<Integer, Cell> cellsArray = new HashMap<Integer, Cell>(game.board.getCells());
         this.viewController.setCells(cellsArray);
         this.viewController.render();
+        this.viewController.setGame(this.game);
 
     }
 

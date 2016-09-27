@@ -1,7 +1,9 @@
 package Control;
 import Model.Cell;
 import Model.DataCell;
+import Model.Game;
 import Model.Position;
+import Model.EditableCell;
 import View.CellView;
 import View.DataCellView;
 import View.EditableCellView;
@@ -20,6 +22,7 @@ public class ViewController implements Observer{
      * this method should be invoked from the
      * event-dispatching thread.
      */
+    private Game game;
     private JPanel mainPane;
     private HashMap<Integer,CellView> cells;
 
@@ -95,7 +98,6 @@ public class ViewController implements Observer{
         ArrayList<Object> message = (ArrayList<Object>)arg;
         Integer value = (Integer)message.get(0);
         Position pos  = (Position)message.get(1);
-        System.out.println("El controlador recibe:  ");
         System.out.print("Valor : ");
         System.out.print(value);
         System.out.print(" Posicion: [ ");
@@ -104,5 +106,22 @@ public class ViewController implements Observer{
         System.out.print(pos.getY());
         System.out.println(" ]");
 
+        Cell recievedCell = new EditableCell(pos);
+        recievedCell.setValue(value);
+        this.game.validate(recievedCell);
+
+    }
+
+    public void imprimirPosisicion(Position pos){
+        System.out.print(" Posicion: [ ");
+        System.out.print(pos.getX());
+        System.out.print(" , ");
+        System.out.print(pos.getY());
+        System.out.println(" ]");
+
+    }
+
+    public void setGame(Game game){
+        this.game = game;
     }
 }

@@ -75,6 +75,48 @@ public class Board {
         return cell;
     }
 
+    private Integer getPositionInMap(Position position){
+        int i = position.getX();
+        int j = position.getY();
+        Integer positionInMap =  i + this.cols*(j-1);
+        return positionInMap;
+    }
+
+    private Cell getCellAtPosition(Position position){
+        Integer positionInMap = this.getPositionInMap(position);
+        return this.cells.get(positionInMap);
+    }
+
+    public ArrayList<Cell> getCellsForRowOrCol(int row,boolean isGettingRow){
+        ArrayList<Cell> cellRows = new ArrayList<Cell>();
+        for(int i = 1; i <= this.rows ; i++){
+            Position pos = (isGettingRow) ? new Position(row,i) : new Position(i,row);
+            Cell cellToAdd = this.getCellAtPosition(pos);
+            cellRows.add(cellToAdd);
+        }
+        return cellRows;
+    }
+
+    public void setCell(Cell cell){
+        Position position = cell.getPosition();
+        Integer positionInMap = this.getPositionInMap(position);
+        System.out.print("Se coloca la celda ");
+        System.out.print(cell.getValue());
+        System.out.print(" Posicion: ");
+        System.out.print(position.getX());
+        System.out.print(" , ");
+        System.out.println(position.getY());
+        this.cells.put(positionInMap,cell);
+    }
+
+    public void imprimirPosisicion(Position pos){
+        System.out.print(" Posicion: [ ");
+        System.out.print(pos.getX());
+        System.out.print(" , ");
+        System.out.print(pos.getY());
+        System.out.println(" ]");
+
+    }
     public int getRows(){
         return this.rows;
     }
