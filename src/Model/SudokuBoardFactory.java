@@ -10,9 +10,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-/**
- * Created by Ignacio on 25/9/2016.
- */
 public class SudokuBoardFactory extends BoardFactory {
     private static final String VALUE = "value";
     private static final String ROWS = "rows";
@@ -28,9 +25,12 @@ public class SudokuBoardFactory extends BoardFactory {
     public Board create() {
         try {
             JSONObject gameObject = getGameObject();
-            int rows = ((Long) gameObject.get(ROWS)).intValue();
-            int columns = ((Long) gameObject.get(COLUMNS)).intValue();
-            JSONArray cellsObjects = (JSONArray) gameObject.get(CELLS);
+            int rows = 0;
+            rows = getRows(gameObject, rows);
+            int columns = 0;
+            columns = getColumns(gameObject, columns);
+            JSONArray cellsObjects = (JSONArray)
+                    (gameObject != null ? gameObject.get(CELLS) : null);
             ArrayList<HashMap> cells = new ArrayList<>();
             buildCells(cellsObjects, cells);
             return new Board(rows, columns, cells);
@@ -40,7 +40,21 @@ public class SudokuBoardFactory extends BoardFactory {
         }
     }
 
-    private void buildCells(JSONArray cellsObjects, ArrayList cells) {
+    private int getColumns(JSONObject gameObject, int columns) {
+        if (gameObject != null) {
+            columns = ((Long) gameObject.get(COLUMNS)).intValue();
+        }
+        return columns;
+    }
+
+    private int getRows(JSONObject gameObject, int rows) {
+        if (gameObject != null) {
+            rows = ((Long) gameObject.get(ROWS)).intValue();
+        }
+        return rows;
+    }
+
+    private void buildCells(JSONArray cellsObjects, ArrayList<HashMap> cells) {
         for (Object cell : cellsObjects) {
             JSONObject cellObject = (JSONObject) cell;
             if (cellObject.get(TYPE).equals(DAT)) {
@@ -49,15 +63,16 @@ public class SudokuBoardFactory extends BoardFactory {
         }
     }
 
-    private void parsePosition(ArrayList cells, JSONObject cellObject) {
+    private void parsePosition(ArrayList<HashMap> cells, JSONObject cellObject) {
         JSONArray posObject = (JSONArray) cellObject.get(POS);
-        HashMap map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
         ArrayList<String> array = generatePosition(posObject);
         parseTypeAndValues(cellObject, map, array);
         cells.add(map);
     }
 
-    private void parseTypeAndValues(JSONObject cellObject, HashMap map, ArrayList<String> array) {
+    private void parseTypeAndValues(JSONObject cellObject, HashMap<String, Object> map,
+                                    ArrayList<String> array) {
         int value = ((Long) cellObject.get(VALUE)).intValue();
         map.put(POS, array);
         map.put(VALUE, value);
