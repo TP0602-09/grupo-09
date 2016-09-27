@@ -1,14 +1,17 @@
 package Model;
 
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SudokuBoardFactory extends BoardFactory {
     private static final String VALUE = "value";
@@ -30,10 +33,10 @@ public class SudokuBoardFactory extends BoardFactory {
             int columns = 0;
             columns = getColumns(gameObject, columns);
             JSONArray cellsObjects = getJsonArray(gameObject);
-            ArrayList<HashMap> cells = new ArrayList<>();
+            ArrayList<HashMap> cells = new ArrayList<HashMap>();
             buildCells(cellsObjects, cells);
             return new Board(rows, columns, cells);
-        } catch (ParseException | NullPointerException e) {
+        } catch (ParseException e) {
             e.printStackTrace();
             return null;
         }
@@ -69,7 +72,7 @@ public class SudokuBoardFactory extends BoardFactory {
 
     private void parsePosition(ArrayList<HashMap> cells, JSONObject cellObject) {
         JSONArray posObject = (JSONArray) cellObject.get(POS);
-        HashMap<String, Object> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<String, Object>();
         ArrayList<String> array = generatePosition(posObject);
         parseTypeAndValues(cellObject, map, array);
         cells.add(map);
@@ -84,7 +87,7 @@ public class SudokuBoardFactory extends BoardFactory {
     }
 
     private ArrayList<String> generatePosition(JSONArray posObject) {
-        ArrayList<String> array = new ArrayList<>();
+        ArrayList<String> array = new ArrayList<String>();
         array.add(posObject.get(0).toString());
         array.add(posObject.get(1).toString());
         return array;

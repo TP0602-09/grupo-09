@@ -40,7 +40,7 @@ public class KakuroBoardFactory extends BoardFactory {
             ArrayList<HashMap> cells = new ArrayList();
             buildCells(cellsObjects, cells);
             return new Board(rows, columns, cells);
-        } catch (ParseException | NullPointerException e) {
+        } catch (ParseException e) {
             e.printStackTrace();
             return null;
         }
@@ -68,7 +68,7 @@ public class KakuroBoardFactory extends BoardFactory {
     }
 
     private ArrayList<String> parsePosition(JSONArray posObject) {
-        ArrayList<String> array = new ArrayList<>();
+        ArrayList<String> array = new ArrayList<String>();
         array.add(posObject.get(0).toString());
         array.add(posObject.get(1).toString());
         return array;
