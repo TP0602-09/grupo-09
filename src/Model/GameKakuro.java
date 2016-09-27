@@ -15,4 +15,9 @@ public class GameKakuro extends Game {
     public void startGame(){
         System.out.println("Welcome to Kakuro");
     }
+
+    public boolean validate(Cell cell){
+        //TODO
+        return true;
+    }
 }
