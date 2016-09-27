@@ -1,10 +1,10 @@
 package Control;
 
+import Model.Cell;
 import Model.Game;
 import Model.GameKakuro;
 import Model.GameSudoku;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +33,7 @@ public class EngineController {
     private void initializeViews(){
         int numberOfRows = this.game.board.getRows();
         this.viewController = new ViewController(numberOfRows);
-        ArrayList cellsArray = new ArrayList(game.board.getCells().values());
+        HashMap<Integer, Cell> cellsArray = new HashMap<Integer, Cell>(game.board.getCells());
         this.viewController.setCells(cellsArray);
         this.viewController.render();
 

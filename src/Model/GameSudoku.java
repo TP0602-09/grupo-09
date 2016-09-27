@@ -18,7 +18,7 @@ public class GameSudoku extends Game{
         ArrayList arrayDic = new ArrayList();
 
         //CELDA 1
-        HashMap cellMap1 = new HashMap<String, String>();
+        HashMap cellMap1 = new HashMap<String, Object>();
         ArrayList position = new ArrayList();
         position.add(1);
         position.add(7);
@@ -28,7 +28,7 @@ public class GameSudoku extends Game{
         arrayDic.add(cellMap1);
 
         //CELDA 2
-        HashMap cellMap2 = new HashMap<String, String>();
+        HashMap cellMap2 = new HashMap<String, Object>();
         ArrayList position2 = new ArrayList();
         position2.add(1);
         position2.add(8);

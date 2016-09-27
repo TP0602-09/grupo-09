@@ -64,7 +64,7 @@ public class Main {
         CellView cell17 = new DoubleDataCellView(3,3,3,6);
         cellsArray.add(cell17);
 
-        vc.setCells(cellsArray);
+     //   vc.setCells(cellsArray);
 
         vc.render();
     }

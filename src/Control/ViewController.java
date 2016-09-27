@@ -7,8 +7,7 @@ import View.EditableCellView;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 
 
 
@@ -19,10 +18,10 @@ public class ViewController {
      * event-dispatching thread.
      */
     private JPanel mainPane;
-    private ArrayList cells;
+    private HashMap<Integer,CellView> cells;
 
     public ViewController (int numberOfRows){
-        this.cells = new ArrayList();
+        this.cells = new HashMap<Integer, CellView>();
         createMainPain(numberOfRows);
     }
 
@@ -35,16 +34,14 @@ public class ViewController {
         mainPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
     }
 
-    public  void setCells(ArrayList cells){
+    public  void setCells(HashMap<Integer, Cell> cells){
         factoryCellsCreator(cells);
     }
 
-    public void factoryCellsCreator(ArrayList cells){
-        Iterator itr = cells.iterator();
-
-        while(itr.hasNext()) {
-            Object cell = itr.next();
-            Cell cellObj = (Cell)cell;
+    public void factoryCellsCreator(HashMap<Integer, Cell> cells){
+        Integer count = 1;
+        while(count <= cells.size()) {
+            Cell cellObj = cells.get(count);
             CellView cellView;
             int posX = cellObj.getPosition().getX();
             int posY = cellObj.getPosition().getY();
@@ -54,7 +51,8 @@ public class ViewController {
                 cellView = new EditableCellView(posX,posY);
             }
             this.addCellToMainPane(cellView);
-            this.cells.add(cellView);
+            this.cells.put(count,cellView);
+            count++;
         }
     }
 
