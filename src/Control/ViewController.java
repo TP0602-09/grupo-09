@@ -1,17 +1,20 @@
 package Control;
 import Model.Cell;
 import Model.DataCell;
+import Model.Position;
 import View.CellView;
 import View.DataCellView;
 import View.EditableCellView;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
 
 
-
-public class ViewController {
+public class ViewController implements Observer{
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -47,8 +50,12 @@ public class ViewController {
             int posY = cellObj.getPosition().getY();
             if (cellObj instanceof DataCell){
                 cellView =  new DataCellView(posX,posY,cellObj.getValue());
+                //TODO: CREAR FACTORY KAKURO
             }else{
                 cellView = new EditableCellView(posX,posY);
+                EditableCellView cellReference = (EditableCellView )cellView;
+                cellReference.observableCell.addObserver(this);
+
             }
             this.addCellToMainPane(cellView);
             this.cells.put(count,cellView);
@@ -84,4 +91,18 @@ public class ViewController {
         frame.setVisible(true);
     }
 
+    public void update(Observable o, Object arg) {
+        ArrayList<Object> message = (ArrayList<Object>)arg;
+        Integer value = (Integer)message.get(0);
+        Position pos  = (Position)message.get(1);
+        System.out.println("El controlador recibe:  ");
+        System.out.print("Valor : ");
+        System.out.print(value);
+        System.out.print(" Posicion: [ ");
+        System.out.print(pos.getX());
+        System.out.print(" , ");
+        System.out.print(pos.getY());
+        System.out.println(" ]");
+
+    }
 }

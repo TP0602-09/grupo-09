@@ -3,20 +3,24 @@
  */
 package View;
 
+import Model.Position;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class EditableCellView extends CellView implements ActionListener {
+public class EditableCellView extends CellView implements ActionListener{
 
     //Fields for data entry
     private JFormattedTextField cell;
+    public ObservableCell observableCell;
 
     public EditableCellView(int x, int y) {
 
         super(x,y);
 
+        this.observableCell = new ObservableCell();
         //Create the text field and set it up.
         cell = new JFormattedTextField();
         cell.setPreferredSize( new Dimension( 20, 20 ) );
@@ -37,12 +41,8 @@ public class EditableCellView extends CellView implements ActionListener {
 
 
     public void actionPerformed(ActionEvent e) {
-        String numero = e.getActionCommand();
-        Object s = e.getSource();
-
-        System.out.println("Se recibio el numero: ");
-        System.out.println(numero);
-        System.out.println("source");
-        System.out.println(s);
+        Integer numero = Integer.parseInt(e.getActionCommand());
+        Position pos = new Position(this.x,this.y);
+        this.observableCell.notifyObservers(numero,pos);
     }
 }
