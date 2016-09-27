@@ -32,13 +32,15 @@ public class Board {
         int count = 1;
         while(itr.hasNext()) {
             Object cellDic = itr.next(); //diccionario de la celda que trae del json
-            Map mapCell = (Map)cellDic;
-            ArrayList<Integer> position = (ArrayList<Integer>)mapCell.get("pos");
-            String type = mapCell.get("type").toString();
-            int value = Integer.parseInt(mapCell.get("value").toString());
-            Cell cellInstance = factoryCellCreator(position,type,value);
-            this.cells.put(position.get(1)+this.cols*(position.get(0)-1),cellInstance);
-            count++;
+            Map mapCell = (Map) cellDic;
+            if (mapCell.size() > 0) {
+                ArrayList<Integer> position = (ArrayList<Integer>) mapCell.get("pos");
+                String type = mapCell.get("type").toString();
+                int value = Integer.parseInt(mapCell.get("value").toString());
+                Cell cellInstance = factoryCellCreator(position, type, value);
+                this.cells.put(position.get(1) + this.cols * (position.get(0) - 1), cellInstance);
+                count++;
+            }
         }
         this.createEditableCells();
     }
