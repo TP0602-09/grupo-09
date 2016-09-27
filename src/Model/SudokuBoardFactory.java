@@ -29,8 +29,7 @@ public class SudokuBoardFactory extends BoardFactory {
             rows = getRows(gameObject, rows);
             int columns = 0;
             columns = getColumns(gameObject, columns);
-            JSONArray cellsObjects = (JSONArray)
-                    (gameObject != null ? gameObject.get(CELLS) : null);
+            JSONArray cellsObjects = getJsonArray(gameObject);
             ArrayList<HashMap> cells = new ArrayList<>();
             buildCells(cellsObjects, cells);
             return new Board(rows, columns, cells);
@@ -38,6 +37,11 @@ public class SudokuBoardFactory extends BoardFactory {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private JSONArray getJsonArray(JSONObject gameObject) {
+        Object gameJson =  gameObject != null ? gameObject.get(CELLS) : null;
+        return gameJson != null ? (JSONArray)gameJson:null;
     }
 
     private int getColumns(JSONObject gameObject, int columns) {
