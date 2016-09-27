@@ -5,8 +5,6 @@ import java.util.ArrayList;
 /**
  * Created by Lucía on 24/9/2016.
  */
-public class Rule {
-    public void validate(ArrayList<Cell> cells) throws InvalidMoveException {
-
-    }
+public abstract class Rule {
+    public abstract void validate(ArrayList<Cell> cells) throws InvalidMoveException;
 }
