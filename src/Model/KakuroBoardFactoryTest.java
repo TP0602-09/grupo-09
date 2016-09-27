@@ -7,9 +7,9 @@ package Model;
 
 public class KakuroBoardFactoryTest {
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         KakuroBoardFactory factory = new KakuroBoardFactory();
         Board board = factory.create();
         assert board != null;
-    }
+    }*/
 }

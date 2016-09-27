@@ -7,9 +7,9 @@ package Model;
 public class SudokuBoardFactoryTest {
 
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         SudokuBoardFactory factory = new SudokuBoardFactory();
         Board board = factory.create();
         assert board != null;
-    }
+    }*/
 }
