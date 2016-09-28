@@ -6,26 +6,28 @@ import java.util.HashMap;
 /**
  * Created by mariagustina on 22/09/16.
  */
-public abstract class Game {
+public class Game {
 
     private Board board;
     private CellLoader cellLoader;
     private SectorLoader sectorLoader;
+    private JsonParser jsonParser;
 
-    public abstract void Game();
+    public void Game(){
+        this.jsonParser = JsonParser.instance();
+        this.cellLoader = CellLoader.getInstance();
+        this.sectorLoader = SectorLoader.getInstance();
+    }
 
     public void startConfiguration(){
-        getInstanceOfLoaders();
-        HashMap<Position,Cell> cells = cellLoader.loadCells();
+        HashMap<Position,Cell> cells = cellLoader.loadCells(jsonParser.getCells());
         ArrayList<Sector> sectors = sectorLoader.loadSectors();
 
         this.board = new Board(9,9,cells, sectors);
     }
-    public abstract void startGame();
-
-    private void getInstanceOfLoaders() {
-        this.cellLoader = CellLoader.getInstance();
-        this.sectorLoader = SectorLoader.getInstance();
+    public void startGame(){
+        System.out.println("Welcome");
+        startConfiguration();
     }
 
     public Board getBoard() {

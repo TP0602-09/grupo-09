@@ -12,8 +12,8 @@ public abstract class Cell {
         this.pos = pos;
     }
 
-    public void setValue(int value){
-        this.value = value;
+    public void setValue(int... value){
+        this.value = value[0];
     }
 
     public int getValue(){
