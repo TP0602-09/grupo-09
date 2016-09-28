@@ -26,5 +26,6 @@ public class Board {
         return this.rows;
     }
 
+    public HashMap<Position,Cell> getCells() { return this.cells; }
 
 }

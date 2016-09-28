@@ -37,11 +37,11 @@ public class ViewController implements Observer{
         mainPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
     }
 
-    public  void setCells(HashMap<Integer, Cell> cells){
+    public  void setCells(HashMap<Position, Cell> cells){
         factoryCellsCreator(cells);
     }
 
-    public void factoryCellsCreator(HashMap<Integer, Cell> cells){
+    public void factoryCellsCreator(HashMap<Position, Cell> cells){
         Integer count = 1;
         while(count <= cells.size()) {
             Cell cellObj = cells.get(count);

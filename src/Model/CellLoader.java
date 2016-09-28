@@ -2,6 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Created by Lucía on 27/9/2016.
@@ -52,5 +53,35 @@ public class CellLoader {
         } else {
             return null;
         }
+    }
+
+    public HashMap<Position,Cell> fillWithEditableCell(HashMap<Position,Cell> cells, int rows, int cols) {
+        HashMap<Position,Cell> allCells = getMissingPositions(cells.keySet(), rows, cols);
+        allCells.putAll(cells);
+        return allCells;
+    }
+
+    private HashMap<Position,Cell> getMissingPositions(Set<Position> positions, int rows, int cols) {
+        HashMap<Position,Cell> newcells = new HashMap<Position,Cell>();
+
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= cols; j++) {
+                Position pos = new Position(i, j);
+                if (!positionFound(positions, pos)) {
+                    Cell cell = new EditableCell(pos);
+                    cell.setValue(0);
+                    newcells.put(pos, cell);
+                }
+            }
+        }
+
+        return newcells;
+    }
+
+    private boolean positionFound(Set<Position> positions, Position pos) {
+        for (Position aPos : positions) {
+            if (aPos.equals(pos)) return true;
+        }
+        return false;
     }
 }
