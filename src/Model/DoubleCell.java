@@ -10,11 +10,14 @@ public class DoubleCell extends Cell {
 
     public DoubleCell(Position pos){
         super(pos);
-        this.canChangeValue = false;
     }
     @Override
     public void setValue(int... values) {
         this.x = values[1];
         this.y = values[0];
+    }
+
+    public boolean canChangeValue() {
+        return false;
     }
 }

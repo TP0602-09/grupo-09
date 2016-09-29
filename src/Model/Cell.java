@@ -6,7 +6,6 @@ package Model;
 public abstract class Cell {
     private Position pos;
     private int value;
-    public boolean canChangeValue;
 
     public Cell(Position pos){
         this.pos = pos;
@@ -25,5 +24,7 @@ public abstract class Cell {
     public Position getPosition (){
         return this.pos;
     }
+
+    public boolean canChangeValue() {return true; }
 
 }
