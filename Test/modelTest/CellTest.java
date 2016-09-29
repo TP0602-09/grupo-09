@@ -30,13 +30,4 @@ public class CellTest {
         assertEquals(4, data.getValue());
     }
 
-    @Test
-    public void dataCantChangeValueTest() {
-        assertFalse(data.canChangeValue());
-    }
-
-    @Test
-    public void editableCanChangeValueTest() {
-        assertTrue(editable.canChangeValue());
-    }
 }

@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static junit.framework.TestCase.assertFalse
+import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class AllDifferentRuleTest {
@@ -19,7 +19,7 @@ public class AllDifferentRuleTest {
 
     @Test
     public void testValidateRuleWithValideData() {
-        ArrayList<Cell> cells = new ArrayList<>();
+        ArrayList<Cell> cells = new ArrayList<Cell>();
         DataCell cell1 = new DataCell(new Position(1, 1));
         EditableCell cell2 = new EditableCell(new Position(1, 2));
         EditableCell cell3 = new EditableCell(new Position(1, 3));
@@ -34,7 +34,7 @@ public class AllDifferentRuleTest {
 
 
     public void testValidateRuleWithInvalideData() {
-        ArrayList<Cell> cells = new ArrayList<>();
+        ArrayList<Cell> cells = new ArrayList<Cell>();
         DataCell cell1 = new DataCell(new Position(1, 1));
         EditableCell cell2 = new EditableCell(new Position(1, 2));
         EditableCell cell3 = new EditableCell(new Position(1, 3));
