@@ -5,9 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by Lucía on 27/9/2016.
- */
 public class CellLoader {
     private static CellLoader ourInstance = new CellLoader();
 

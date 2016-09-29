@@ -3,9 +3,6 @@ package Model;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by mariagustina on 22/09/16.
- */
 public class Game {
 
     private Board board;

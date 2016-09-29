@@ -9,7 +9,6 @@ public class GameKakuro extends Game {
     }
 
     public boolean validate(Cell cell){
-        //TODO
         return true;
     }
 }

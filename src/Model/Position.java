@@ -1,8 +1,5 @@
 package Model;
 
-/**
- * Created by mariagustina on 25/09/16.
- */
 public class Position {
 
     private int x;
@@ -28,8 +25,7 @@ public class Position {
 
         Position position = (Position) o;
 
-        if (x != position.x) return false;
-        return y == position.y;
+        return x == position.getX() && y == position.getY();
 
     }
 
