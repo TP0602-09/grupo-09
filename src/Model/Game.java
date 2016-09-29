@@ -30,11 +30,8 @@ public class Game {
         int rows = jsonParser.getRows();
         int cols = jsonParser.getColumns();
         HashMap<Position, Cell> allCells = cellLoader.fillWithEditableCell(cells, rows, cols);
-        //ArrayList<Sector> sectors = sectorLoader.loadSectors();
 
-
-
-        this.board = new Board(rows, cols, cells);
+        this.board = new Board(rows, cols, allCells);
     }
     public void startGame(){
         System.out.println("Welcome");
