@@ -51,6 +51,7 @@ public class JsonParser {
         reader = null;
         jsonPath = null;
         cells = null;
+        parseElements("resources/Model/sudoku/sudoku_enunciado.json");
     }
 
     public int getRows() {

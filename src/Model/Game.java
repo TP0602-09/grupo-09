@@ -1,7 +1,5 @@
 package Model;
 
-import javafx.geometry.Pos;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,14 +11,14 @@ public class Game {
 
     private Board board;
     protected CellLoader cellLoader;
-    private SectorLoader sectorLoader;
+    //private SectorLoader sectorLoader;
     private JsonParser jsonParser;
     private List<Rule> rules;
 
     public Game(ArrayList<Rule> rules){
         this.jsonParser = JsonParser.instance();
         this.cellLoader = CellLoader.getInstance();
-        this.sectorLoader = SectorLoader.getInstance();
+     //   this.sectorLoader = SectorLoader.getInstance();
         this.rules = rules;
 
     }

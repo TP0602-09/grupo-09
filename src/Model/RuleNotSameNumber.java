@@ -1,17 +1,17 @@
-package Model;
+/*package Model;
 
 import java.util.ArrayList;
 
 /**
  * Created by mariagustina on 26/09/16.
- */
+ *//*
 public class RuleNotSameNumber extends Rule {
 
     public boolean validateSection(ArrayList<Cell> cells){
        /* for (int i=0 ; i< cells.size();i++){
             imprimirPosisicion(cells.get(i).getPosition());
             System.out.println(cells.get(i).getValue());
-        }*/
+        }*//*
         return checkDuplicatedValues(cells);
     }
 
@@ -47,3 +47,4 @@ public class RuleNotSameNumber extends Rule {
 
     }
 }
+*/
