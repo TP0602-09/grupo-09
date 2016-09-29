@@ -26,6 +26,7 @@ public class ViewController implements Observer {
     private Game game;
     private JPanel mainPane;
     private HashMap<Integer, CellView> cells;
+    private JFrame frame;
 
     public ViewController(int numberOfRows) {
         this.cells = new HashMap<Integer, CellView>();
@@ -67,10 +68,6 @@ public class ViewController implements Observer {
         }
     }
 
-    public void addElementToMainPane(Container viewToDraw) {
-        this.mainPane.add(viewToDraw);
-    }
-
     public void addCellToMainPane(CellView cellView) {
         this.mainPane.add(cellView);
 
@@ -86,14 +83,14 @@ public class ViewController implements Observer {
 
     private void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("ViewController");
+        this.frame = new JFrame("ViewController");
         //  frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.setContentPane(this.mainPane);
+        this.frame.setContentPane(this.mainPane);
         //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+        this.frame.pack();
+        this.frame.setVisible(true);
     }
 
     public void update(Observable o, Object arg) {
@@ -110,14 +107,15 @@ public class ViewController implements Observer {
 
         Cell recievedCell = new EditableCell(pos);
         recievedCell.setValue(value);
-        if (this.game.isValid(recievedCell)) {
-            // TODO modificar value
+        //TODO: descomentar cuando este lo del juego
+        boolean isValid = true;//this.game.isValid(recievedCell);
+        if (isValid) {
+            System.out.println("Adelante! Este numero es valido");
         } else {
-            // TODO mostrar mensaje error
+            System.out.println("Lo sentimos, este valor es invalido, pruebe ingresando otro valor");
         }
-
     }
-
+    
     public void imprimirPosisicion(Position pos) {
         System.out.print(" Posicion: [ ");
         System.out.print(pos.getX());
