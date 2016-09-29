@@ -19,7 +19,7 @@ public class ObservableCell extends Observable {
         return message;
     }
 
-    public void changeMessage(ArrayList message) {
+    public void changeMessage(ArrayList<Object> message) {
         this.message = message;
         setChanged();
         notifyObservers(message);

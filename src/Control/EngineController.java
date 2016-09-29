@@ -1,11 +1,10 @@
 package Control;
 
-import Model.Cell;
-import Model.Game;
-import Model.GameKakuro;
-import Model.GameSudoku;
+import Model.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,12 +14,22 @@ public class EngineController {
 
     private ViewController viewController;
     private Game game;
+    private static final ArrayList<Rule> rulesSudoku;
+    static {
+        rulesSudoku = new ArrayList<Rule>();
+        rulesSudoku.add(AllDifferentRule.getInstance());
+    }
+    private static final ArrayList<Rule> rulesKakuro;
+    static {
+        rulesKakuro = new ArrayList<Rule>();
+        rulesKakuro.add(AllDifferentRule.getInstance());
+        rulesKakuro.add(SumOfNumbersEqXRule.getInstance());
+    }
     private static final Map<String, Game> juegos;
-    static
-    {
+    static {
         juegos = new HashMap<String, Game>();
-        juegos.put("SUDOKU", new GameSudoku());
-        juegos.put("KAKURO", new GameKakuro());
+        juegos.put("SUDOKU", new GameSudoku(rulesSudoku));
+        juegos.put("KAKURO", new GameKakuro(rulesKakuro));
     }
 
     public EngineController(String gameType) {
@@ -31,9 +40,9 @@ public class EngineController {
     }
 
     private void initializeViews(){
-        int numberOfRows = this.game.board.getRows();
+        int numberOfRows = this.game.getBoard().getRows();
         this.viewController = new ViewController(numberOfRows);
-        HashMap<Integer, Cell> cellsArray = new HashMap<Integer, Cell>(game.board.getCells());
+        HashMap<Position, Cell> cellsArray = game.getBoard().getCells();
         this.viewController.setCells(cellsArray);
         this.viewController.render();
         this.viewController.setGame(this.game);
