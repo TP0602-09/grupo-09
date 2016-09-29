@@ -11,7 +11,7 @@ public class Main {
     }
 
     public static void mainGame(){
-        EngineController ec = new EngineController("SUDOKU");
+        new EngineController("SUDOKU");
 
     }
 

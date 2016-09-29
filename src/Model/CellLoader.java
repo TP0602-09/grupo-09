@@ -27,8 +27,10 @@ public class CellLoader {
     }
 
     private Cell formatCell(HashMap<String, Object> cellMap) {
+        @SuppressWarnings("unchecked")
         Position pos = formatPosition((ArrayList<String>) cellMap.get("pos"));
         String type = (String) cellMap.get("type");
+        @SuppressWarnings("unchecked")
         Cell cell = createCell(pos, type, cellMap);
         return cell;
     }

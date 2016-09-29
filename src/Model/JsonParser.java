@@ -40,7 +40,7 @@ public class JsonParser {
     private List<HashMap<String, Object>> cells;
     private int rows;
     private int columns;
-    private String gameName;
+    protected String gameName;
     private Reader reader;
     private String jsonPath;
 
@@ -63,9 +63,9 @@ public class JsonParser {
         return columns;
     }
 
-    public String getGameName() {
+/*    public String getGameName() {
         return gameName;
-    }
+    }*/
 
     public List<HashMap<String, Object>> getCells() {
         return cells;

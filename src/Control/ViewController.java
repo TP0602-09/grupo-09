@@ -1,19 +1,16 @@
 package Control;
 
-import Model.Cell;
-import Model.DataCell;
-import Model.Game;
-import Model.Position;
-import Model.EditableCell;
+import Model.*;
 import View.CellView;
 import View.DataCellView;
 import View.EditableCellView;
 
 import javax.swing.*;
 import java.awt.*;
-
-import java.util.*;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Observable;
+import java.util.Observer;
 
 
 public class ViewController implements Observer {
@@ -24,8 +21,7 @@ public class ViewController implements Observer {
      */
     private Game game;
     private JPanel mainPane;
-    private HashMap<Integer, CellView> cells;
-    private JFrame frame;
+    protected HashMap<Integer, CellView> cells;
 
     public ViewController(int numberOfRows) {
         this.cells = new HashMap<Integer, CellView>();
@@ -54,15 +50,16 @@ public class ViewController implements Observer {
             int posY = cellObj.getPosition().getY();
             if (cellObj instanceof DataCell) {
                 cellView = new DataCellView(posX, posY, cellObj.getValue());
+                this.cells.put(count, cellView);
                 //TODO: CREAR FACTORY KAKURO
             } else {
                 cellView = new EditableCellView(posX, posY);
                 EditableCellView cellReference = (EditableCellView) cellView;
                 cellReference.observableCell.addObserver(this);
-
+                this.cells.put(count, cellReference);
             }
             this.addCellToMainPane(cellView);
-            this.cells.put(count, cellView);
+           // this.cells.put(count, cellView);
             count++;
         }
     }
@@ -82,18 +79,19 @@ public class ViewController implements Observer {
 
     private void createAndShowGUI() {
         //Create and set up the window.
-        this.frame = new JFrame("ViewController");
+        JFrame frame = new JFrame("ViewController");
         //  frame.setLayout(new BorderLayout());
-        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        this.frame.setContentPane(this.mainPane);
+        frame.setContentPane(this.mainPane);
         //Display the window.
-        this.frame.pack();
-        this.frame.setVisible(true);
+        frame.pack();
+        frame.setVisible(true);
     }
 
     public void update(Observable o, Object arg) {
-        List<Object> message = (ArrayList<Object>) arg;
+        @SuppressWarnings("unchecked")
+        ArrayList<Object> message = (ArrayList<Object>) arg;
         Integer value = (Integer) message.get(0);
         Position pos = (Position) message.get(1);
         System.out.print("Valor : ");
@@ -112,7 +110,7 @@ public class ViewController implements Observer {
             System.out.println("Lo sentimos, este valor es invalido, pruebe ingresando otro valor");
         }
     }
-
+/*
     public void imprimirPosisicion(Position pos) {
         System.out.print(" Posicion: [ ");
         System.out.print(pos.getX());
@@ -121,7 +119,7 @@ public class ViewController implements Observer {
         System.out.println(" ]");
 
     }
-
+*/
     public void setGame(Game game) {
         this.game = game;
     }

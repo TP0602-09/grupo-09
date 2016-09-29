@@ -1,5 +1,6 @@
 /**
  * Created by mariagustina on 24/09/16.
+ *
  */
 package View;
 
@@ -13,7 +14,7 @@ import java.awt.event.ActionListener;
 public class EditableCellView extends CellView implements ActionListener{
 
     //Fields for data entry
-    private JFormattedTextField cell;
+    private JTextField cell;
     public ObservableCell observableCell;
 
     public EditableCellView(int x, int y) {
@@ -28,6 +29,7 @@ public class EditableCellView extends CellView implements ActionListener{
         cell.setEnabled(true);
         cell.addActionListener(this);
         cell.setBackground(new Color(239, 255, 165));
+       // cell.getDocument().addDocumentListener();
 
         //Layout the text fields in a panel.
         JPanel fieldPane = new JPanel(new BorderLayout());

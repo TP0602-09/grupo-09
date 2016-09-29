@@ -5,6 +5,7 @@ import java.awt.*;
 
 /**
  * Created by mariagustina on 25/09/16.
+ *
  */
 public class DataCellView extends CellView{
     private JFormattedTextField cell;

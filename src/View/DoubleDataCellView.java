@@ -1,9 +1,11 @@
-package View;
+/*package View;
 import javax.swing.*;
 import java.awt.*;
 /**
  * Created by mariagustina on 25/09/16.
+ *
  */
+/*
 public class DoubleDataCellView extends CellView {
 
     public DoubleDataCellView(int x, int y,int value1,int value2) {
@@ -119,3 +121,4 @@ public class DoubleDataCellView extends CellView {
         return panel;
     }
 }
+*/

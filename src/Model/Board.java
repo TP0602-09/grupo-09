@@ -94,4 +94,7 @@ public class Board {
         return cells;
     }
 
+    public int getCols(){
+        return this.columns;
+    }
 }

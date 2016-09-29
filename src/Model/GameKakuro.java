@@ -8,7 +8,7 @@ public class GameKakuro extends Game {
         super(rules);
     }
 
-    public boolean validate(Cell cell){
+    /*public boolean validate(Cell cell){
         return true;
-    }
+    }*/
 }

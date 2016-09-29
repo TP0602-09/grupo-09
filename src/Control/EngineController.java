@@ -6,10 +6,11 @@ import java.util.*;
 
 /**
  * Created by mariagustina on 22/09/16.
+ *
  */
 public class EngineController {
 
-    private ViewController viewController;
+
     private Game game;
     private static final List<Rule> rulesSudoku;
     static {
@@ -38,8 +39,8 @@ public class EngineController {
 
     private void initializeViews(){
         int numberOfRows = this.game.getBoard().getRows();
-        this.viewController = new ViewController(numberOfRows);
-        this.viewController.setGame(this.game);
+        ViewController viewController = new ViewController(numberOfRows);
+        viewController.setGame(this.game);
         HashMap<Position, Cell> cellsArray = game.getBoard().getCells();
         Iterator it = cellsArray.entrySet().iterator();
         HashMap<Integer,Cell> cellsViewArray = initializeViewBoard();
@@ -54,10 +55,11 @@ public class EngineController {
         }
 
         //HashMap<Position, Cell> cellsArray = game.getBoard().getCells();
-        this.viewController.setCells(cellsViewArray);
-        this.viewController.render();
+        this.game.getBoard().getCols();
+        viewController.setCells(cellsViewArray);
+        viewController.render();
     }
-
+/*
     public void imprimirCelda(Cell cell) {
 
 
@@ -71,7 +73,7 @@ public class EngineController {
         System.out.println(" ]");
 
     }
-
+*/
     public HashMap<Integer,Cell> initializeViewBoard(){
         HashMap<Integer,Cell> cellsViewArray = new HashMap<Integer,Cell>();
         int counter = 1;

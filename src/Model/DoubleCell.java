@@ -2,8 +2,8 @@ package Model;
 
 public class DoubleCell extends Cell {
 
-    private int x;
-    private int y;
+    protected int x;
+    protected int y;
 
     public DoubleCell(Position pos){
         super(pos);
@@ -14,7 +14,7 @@ public class DoubleCell extends Cell {
         this.y = values[0];
     }
 
-    public boolean canChangeValue() {
-        return false;
-    }
+    //public boolean canChangeValue() {
+      //  return false;
+    //}
 }

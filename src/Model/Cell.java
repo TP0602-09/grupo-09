@@ -22,6 +22,6 @@ public abstract class Cell {
         return this.pos;
     }
 
-    public boolean canChangeValue() {return true; }
+    //public boolean canChangeValue() {return true; }
 
 }
