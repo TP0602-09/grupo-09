@@ -1,12 +1,9 @@
-package modelTest;
-
 import Model.*;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class AllDifferentRuleTest {
@@ -32,7 +29,7 @@ public class AllDifferentRuleTest {
         assertTrue(AllDifferentRule.getInstance().isValid(cells));
     }
 
-
+/*
     public void testValidateRuleWithInvalideData() {
         ArrayList<Cell> cells = new ArrayList<Cell>();
         DataCell cell1 = new DataCell(new Position(1, 1));
@@ -46,5 +43,5 @@ public class AllDifferentRuleTest {
         cells.add(cell3);
         assertFalse(AllDifferentRule.getInstance().isValid(cells));
     }
-
+*/
 }

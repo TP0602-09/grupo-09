@@ -1,14 +1,11 @@
-package modelTest;
 
 import Model.*;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-
 /**
  * Created by Lucía on 29/9/2016.
+ *
  */
 public class CellTest {
 

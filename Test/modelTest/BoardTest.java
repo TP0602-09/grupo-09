@@ -1,28 +1,28 @@
-package modelTest;
-
 import Model.Board;
 import Model.Cell;
 import Model.EditableCell;
 import Model.Position;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+
 import java.util.HashMap;
+
+import static org.junit.Assert.assertEquals;
 
 public class BoardTest {
 
     private Board board;
-    private HashMap<Position, Cell> cells;
+    private final ThreadLocal<HashMap<Position, Cell>> cells = new ThreadLocal<HashMap<Position, Cell>>();
 
     @Before
     public void setUp() {
-        cells = new HashMap<Position, Cell>();
+        cells.set(new HashMap<Position, Cell>());
         for (int i = 1; i < 10; i ++) {
             Cell cell = new EditableCell(new Position(i,i));
-            cells.put(new Position(i,i), cell);
+            cells.get().put(new Position(i,i), cell);
         }
 
-        board = new Board(9, 9, cells);
+        board = new Board(9, 9, cells.get());
     }
 
     @Test

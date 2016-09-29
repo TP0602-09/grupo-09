@@ -1,4 +1,3 @@
-package modelTest;
 
 import Model.Position;
 import org.junit.Before;
@@ -7,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Lucía on 29/9/2016.
+ *
  */
 public class PositionTest {
 
