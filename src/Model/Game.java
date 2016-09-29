@@ -11,16 +11,13 @@ public class Game {
 
     private Board board;
     protected CellLoader cellLoader;
-    //private SectorLoader sectorLoader;
     private JsonParser jsonParser;
     private List<Rule> rules;
 
-    public Game(ArrayList<Rule> rules){
+    public Game(List<Rule> rules) {
         this.jsonParser = JsonParser.instance();
         this.cellLoader = CellLoader.getInstance();
-     //   this.sectorLoader = SectorLoader.getInstance();
         this.rules = rules;
-
     }
 
     public void startConfiguration() {
@@ -30,13 +27,11 @@ public class Game {
         int rows = jsonParser.getRows();
         int cols = jsonParser.getColumns();
         HashMap<Position, Cell> allCells = cellLoader.fillWithEditableCell(cells, rows, cols);
-        //ArrayList<Sector> sectors = sectorLoader.loadSectors();
 
-
-
-        this.board = new Board(rows, cols, cells);
+        this.board = new Board(rows, cols, allCells);
     }
-    public void startGame(){
+
+    public void startGame() {
         System.out.println("Welcome");
         startConfiguration();
     }
@@ -46,10 +41,15 @@ public class Game {
     }
 
     public boolean isValid(Cell cell) {
-        //List<List<Cell>> sectores = this.board.getSectorsToValidate();
+        List<List<Cell>> sectors = this.board.getSectorsToValidate(cell);
 
-
-        return false;
+        for (List<Cell> sector : sectors) {
+            for (Rule rule : this.rules) {
+                if (!rule.isValid(sector))
+                    return false;
+            }
+        }
+        return true;
     }
 
 

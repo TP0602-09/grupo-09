@@ -11,10 +11,9 @@ import View.EditableCellView;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Observable;
-import java.util.Observer;
+
+import java.util.*;
+import java.util.List;
 
 
 public class ViewController implements Observer {
@@ -94,7 +93,7 @@ public class ViewController implements Observer {
     }
 
     public void update(Observable o, Object arg) {
-        ArrayList<Object> message = (ArrayList<Object>) arg;
+        List<Object> message = (ArrayList<Object>) arg;
         Integer value = (Integer) message.get(0);
         Position pos = (Position) message.get(1);
         System.out.print("Valor : ");
@@ -107,15 +106,13 @@ public class ViewController implements Observer {
 
         Cell recievedCell = new EditableCell(pos);
         recievedCell.setValue(value);
-        //TODO: descomentar cuando este lo del juego
-        boolean isValid = true;//this.game.isValid(recievedCell);
-        if (isValid) {
+        if (this.game.isValid(recievedCell)) {
             System.out.println("Adelante! Este numero es valido");
         } else {
             System.out.println("Lo sentimos, este valor es invalido, pruebe ingresando otro valor");
         }
     }
-    
+
     public void imprimirPosisicion(Position pos) {
         System.out.print(" Posicion: [ ");
         System.out.print(pos.getX());

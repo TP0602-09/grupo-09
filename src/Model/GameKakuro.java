@@ -1,13 +1,10 @@
 package Model;
 
-import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Created by mariagustina on 22/09/16.
- */
 public class GameKakuro extends Game {
 
-    public GameKakuro(ArrayList<Rule> rules){
+    public GameKakuro(List<Rule> rules){
         super(rules);
     }
 

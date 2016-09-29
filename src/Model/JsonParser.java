@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class JsonParser {
 
@@ -36,7 +37,7 @@ public class JsonParser {
         return INSTANCE;
     }
 
-    private ArrayList<HashMap<String, Object>> cells;
+    private List<HashMap<String, Object>> cells;
     private int rows;
     private int columns;
     private String gameName;
@@ -66,7 +67,7 @@ public class JsonParser {
         return gameName;
     }
 
-    public ArrayList<HashMap<String, Object>> getCells() {
+    public List<HashMap<String, Object>> getCells() {
         return cells;
     }
 
@@ -110,7 +111,7 @@ public class JsonParser {
         for (Object cell : cellsObjects) {
             JSONObject cellObject = (JSONObject) cell;
             JSONArray posObject = (JSONArray) cellObject.get(POS);
-            ArrayList<String> array = parsePosition(posObject);
+            List<String> array = parsePosition(posObject);
             HashMap<String, Object> cellMap = new HashMap<String, Object>();
             parseTYpeAndValue(cellObject, array, cellMap);
             parseDouble(cellObject, cellMap);
@@ -119,7 +120,7 @@ public class JsonParser {
     }
 
     private void parseTYpeAndValue(JSONObject cellObject,
-                                   ArrayList<String> array, HashMap<String, Object> cellMap) {
+                                   List<String> array, HashMap<String, Object> cellMap) {
         cellMap.put(POS, array);
         cellMap.put(TYPE, cellObject.get(TYPE).toString());
         if (cellObject.get(TYPE).equals(DAT))
@@ -133,8 +134,8 @@ public class JsonParser {
         }
     }
 
-    private ArrayList<String> parsePosition(JSONArray posObject) {
-        ArrayList<String> array = new ArrayList<String>();
+    private List<String> parsePosition(JSONArray posObject) {
+        List<String> array = new ArrayList<String>();
         array.add(posObject.get(0).toString());
         array.add(posObject.get(1).toString());
         return array;

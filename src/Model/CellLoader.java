@@ -2,6 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,7 +17,7 @@ public class CellLoader {
 
     private CellLoader() {}
 
-    public HashMap<Position,Cell> loadCells(ArrayList<HashMap<String, Object>> cellsArray) {
+    public HashMap<Position,Cell> loadCells(List<HashMap<String, Object>> cellsArray) {
         HashMap<Position,Cell> cells = new HashMap<Position, Cell>();
 
         for (HashMap<String, Object> cellMap : cellsArray) {
@@ -35,7 +36,7 @@ public class CellLoader {
         return cell;
     }
 
-    private Position formatPosition(ArrayList<String> posArray) {
+    private Position formatPosition(List<String> posArray) {
         return new Position(Integer.parseInt(posArray.get(1)), Integer.parseInt(posArray.get(0)));
     }
 
@@ -55,14 +56,14 @@ public class CellLoader {
         }
     }
 
-    public HashMap<Position,Cell> fillWithEditableCell(HashMap<Position,Cell> cells, int rows, int cols) {
+    HashMap<Position,Cell> fillWithEditableCell(HashMap<Position,Cell> cells, int rows, int cols) {
         HashMap<Position,Cell> allCells = getMissingPositions(cells.keySet(), rows, cols);
         allCells.putAll(cells);
         return allCells;
     }
 
     private HashMap<Position,Cell> getMissingPositions(Set<Position> positions, int rows, int cols) {
-        HashMap<Position,Cell> newcells = new HashMap<Position,Cell>();
+        HashMap<Position,Cell> newCells = new HashMap<Position,Cell>();
 
         for (int i = 1; i <= rows; i++) {
             for (int j = 1; j <= cols; j++) {
@@ -70,12 +71,12 @@ public class CellLoader {
                 if (!positionFound(positions, pos)) {
                     Cell cell = new EditableCell(pos);
                     cell.setValue(0);
-                    newcells.put(pos, cell);
+                    newCells.put(pos, cell);
                 }
             }
         }
 
-        return newcells;
+        return newCells;
     }
 
     private boolean positionFound(Set<Position> positions, Position pos) {

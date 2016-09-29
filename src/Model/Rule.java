@@ -1,10 +1,10 @@
 package Model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Lucía on 24/9/2016.
  */
 public abstract class Rule {
-    public abstract void validate(ArrayList<Cell> cells) throws InvalidMoveException;
+    public abstract boolean isValid(List<Cell> cells);
 }

@@ -2,10 +2,7 @@ package Control;
 
 import Model.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by mariagustina on 22/09/16.
@@ -14,12 +11,12 @@ public class EngineController {
 
     private ViewController viewController;
     private Game game;
-    private static final ArrayList<Rule> rulesSudoku;
+    private static final List<Rule> rulesSudoku;
     static {
         rulesSudoku = new ArrayList<Rule>();
         rulesSudoku.add(AllDifferentRule.getInstance());
     }
-    private static final ArrayList<Rule> rulesKakuro;
+    private static final List<Rule> rulesKakuro;
     static {
         rulesKakuro = new ArrayList<Rule>();
         rulesKakuro.add(AllDifferentRule.getInstance());
@@ -42,6 +39,7 @@ public class EngineController {
     private void initializeViews(){
         int numberOfRows = this.game.getBoard().getRows();
         this.viewController = new ViewController(numberOfRows);
+        this.viewController.setGame(this.game);
         HashMap<Position, Cell> cellsArray = game.getBoard().getCells();
         Iterator it = cellsArray.entrySet().iterator();
         HashMap<Integer,Cell> cellsViewArray = initializeViewBoard();

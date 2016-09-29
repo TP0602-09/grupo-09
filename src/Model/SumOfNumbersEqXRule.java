@@ -1,10 +1,7 @@
 package Model;
 
-import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Created by Lucía on 28/9/2016.
- */
 public class SumOfNumbersEqXRule extends Rule {
     private static SumOfNumbersEqXRule ourInstance = new SumOfNumbersEqXRule();
 
@@ -18,16 +15,16 @@ public class SumOfNumbersEqXRule extends Rule {
     private static final int RESULT_CELL_INDEX = 0;
 
     @Override
-    public void validate(ArrayList<Cell> cells) throws InvalidMoveException {
+    public boolean isValid(List<Cell> cells) {
         DataCell resultCell = (DataCell) cells.get(RESULT_CELL_INDEX);
         Integer result = resultCell.getValue();
         cells.remove(RESULT_CELL_INDEX);
         Integer sum = 0;
 
-        for (Cell cell: cells) {
+        for (Cell cell : cells) {
             sum += cell.getValue();
         }
 
-        if (sum > result) throw new InvalidMoveException();
+        return !(sum > result);
     }
 }

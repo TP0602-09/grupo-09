@@ -10,7 +10,7 @@ import java.util.logging.Level;
  */
 public class GameSudoku extends Game{
 
-    public GameSudoku(ArrayList<Rule> rules){
+    public GameSudoku(List<Rule> rules){
         super(rules);
     }
 }
