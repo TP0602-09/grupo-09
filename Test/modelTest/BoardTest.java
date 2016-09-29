@@ -7,14 +7,8 @@ import Model.Position;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-/**
- * Created by Lucía on 29/9/2016.
- */
 public class BoardTest {
 
     private Board board;
