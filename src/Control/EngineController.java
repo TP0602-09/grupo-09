@@ -47,19 +47,29 @@ public class EngineController {
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
             Cell cell = (Cell)pair.getValue();
-            System.out.println(cell);
             int x = cell.getPosition().getX();
             int y = cell.getPosition().getY();
-            System.out.print(x);
-            System.out.print(y);
-            int positionInMap = x*(this.game.getBoard().getRows()-1) + y;
-            System.out.println(positionInMap);
+            int positionInMap = (x-1)*(this.game.getBoard().getRows()) + y;
             cellsViewArray.put(positionInMap,cell);
         }
 
         //HashMap<Position, Cell> cellsArray = game.getBoard().getCells();
         this.viewController.setCells(cellsViewArray);
         this.viewController.render();
+    }
+
+    public void imprimirCelda(Cell cell) {
+
+
+        Position pos = cell.getPosition();
+        System.out.print("Value: ");
+        System.out.print(cell.getValue());
+        System.out.print(" Posicion: [ ");
+        System.out.print(pos.getX());
+        System.out.print(" , ");
+        System.out.print(pos.getY());
+        System.out.println(" ]");
+
     }
 
     public HashMap<Integer,Cell> initializeViewBoard(){
@@ -71,7 +81,6 @@ public class EngineController {
                 EditableCell ec = editableCell(pos);
                 cellsViewArray.put(counter,ec);
                 counter++;
-                System.out.print(ec);
             }
         }
         return cellsViewArray;
