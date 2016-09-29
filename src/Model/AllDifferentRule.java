@@ -5,9 +5,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by Lucía on 28/9/2016.
- */
 public class AllDifferentRule extends Rule {
     private static AllDifferentRule ourInstance = new AllDifferentRule();
 
@@ -19,17 +16,17 @@ public class AllDifferentRule extends Rule {
     }
 
     @Override
-    public void validate(ArrayList<Cell> cells) throws InvalidMoveException {
+    public boolean isValid(List<Cell> cells) {
         List<Integer> values = extractValues(cells);
 
         Set<Integer> set = new HashSet<Integer>(values);
 
-        if (set.size() < values.size()) { throw new InvalidMoveException(); }
+        return !(set.size() < values.size());
     }
 
-    private List<Integer> extractValues(ArrayList<Cell> cells) {
+    private List<Integer> extractValues(List<Cell> cells) {
         List<Integer> values = new ArrayList<Integer>();
-        for (Cell cell: cells) {
+        for (Cell cell : cells) {
             if (cell.hasValue()) {
                 values.add(cell.getValue());
             }
