@@ -12,7 +12,7 @@ import java.util.List;
 public class Game {
 
     private Board board;
-    private CellLoader cellLoader;
+    protected CellLoader cellLoader;
     private SectorLoader sectorLoader;
     private JsonParser jsonParser;
     private List<Rule> rules;
@@ -22,18 +22,21 @@ public class Game {
         this.cellLoader = CellLoader.getInstance();
         this.sectorLoader = SectorLoader.getInstance();
         this.rules = rules;
+
     }
 
-    public void startConfiguration(){
-        HashMap<Position,Cell> cells = cellLoader.loadCells(jsonParser.getCells());
+    public void startConfiguration() {
+
+        HashMap<Position, Cell> cells = cellLoader.loadCells(jsonParser.getCells());
+
         int rows = jsonParser.getRows();
         int cols = jsonParser.getColumns();
-        HashMap<Position,Cell> allCells = cellLoader.fillWithEditableCell(cells, rows, cols);
-        ArrayList<Sector> sectors = sectorLoader.loadSectors();
+        HashMap<Position, Cell> allCells = cellLoader.fillWithEditableCell(cells, rows, cols);
+        //ArrayList<Sector> sectors = sectorLoader.loadSectors();
 
 
 
-        this.board = new Board(rows, cols, cells, sectors);
+        this.board = new Board(rows, cols, cells);
     }
     public void startGame(){
         System.out.println("Welcome");
@@ -43,4 +46,13 @@ public class Game {
     public Board getBoard() {
         return this.board;
     }
+
+    public boolean isValid(Cell cell) {
+        //List<List<Cell>> sectores = this.board.getSectorsToValidate();
+
+
+        return false;
+    }
+
+
 }
