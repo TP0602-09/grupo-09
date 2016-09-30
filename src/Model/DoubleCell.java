@@ -10,8 +10,8 @@ public class DoubleCell extends Cell {
     }
     @Override
     public void setValue(int... values) {
-        this.x = values[1];
-        this.y = values[0];
+        this.x = values[0];
+        this.y = values[1];
     }
 
     //public boolean canChangeValue() {
