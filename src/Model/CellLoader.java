@@ -15,7 +15,7 @@ public class CellLoader {
     private CellLoader() {}
 
     public HashMap<Position,Cell> loadCells(List<HashMap<String, Object>> cellsArray) {
-        HashMap<Position,Cell> cells = new HashMap<Position, Cell>();
+        HashMap<Position,Cell> cells = new HashMap<>();
 
         for (HashMap<String, Object> cellMap : cellsArray) {
             Cell cell = formatCell(cellMap);
@@ -43,7 +43,7 @@ public class CellLoader {
         Cell cell;
         if ("dat".equals(type)) {
             cell = new DataCell(pos);
-            cell.setValue(Integer.parseInt((String) cellMap.get("value")));
+            cell.setValue(Integer.parseInt(cellMap.get("value").toString()));
             return cell;
         } else if ("Double".equals(type)) {
             cell = new DoubleCell(pos);
@@ -62,7 +62,7 @@ public class CellLoader {
     }
 
     private HashMap<Position,Cell> getMissingPositions(Set<Position> positions, int rows, int cols) {
-        HashMap<Position,Cell> newCells = new HashMap<Position,Cell>();
+        HashMap<Position,Cell> newCells = new HashMap<>();
 
         for (int i = 1; i <= rows; i++) {
             for (int j = 1; j <= cols; j++) {

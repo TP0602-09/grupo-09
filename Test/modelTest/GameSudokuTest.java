@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-public class SudokuGameTest {
+public class GameSudokuTest {
     private ArrayList<Rule> rulesSudoku;
 
     @Before
