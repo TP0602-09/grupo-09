@@ -1,5 +1,6 @@
 package Model;
 
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -63,9 +64,9 @@ public class JsonParser {
         return columns;
     }
 
-/*    public String getGameName() {
+    public String getGameName() {
         return gameName;
-    }*/
+    }
 
     public List<HashMap<String, Object>> getCells() {
         return cells;
@@ -85,13 +86,15 @@ public class JsonParser {
 
     public void parseElements(String path) {
         JSONObject gameObject;
+        if (path == null) {
+            return;
+        }
         try {
             gameObject = getGameObject(path);
-            parseGameName(gameObject);
             parseRowsAndColumnsValues(gameObject);
             JSONArray cellsObjects = (JSONArray)
                     (gameObject != null ? gameObject.get(CELLS) : null);
-            cells = new ArrayList<HashMap<String, Object>>();
+            cells = new ArrayList<>();
             buildCells(cellsObjects);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -112,7 +115,7 @@ public class JsonParser {
             JSONObject cellObject = (JSONObject) cell;
             JSONArray posObject = (JSONArray) cellObject.get(POS);
             List<String> array = parsePosition(posObject);
-            HashMap<String, Object> cellMap = new HashMap<String, Object>();
+            HashMap<String, Object> cellMap = new HashMap<>();
             parseTYpeAndValue(cellObject, array, cellMap);
             parseDouble(cellObject, cellMap);
             cells.add(cellMap);
@@ -135,7 +138,7 @@ public class JsonParser {
     }
 
     private List<String> parsePosition(JSONArray posObject) {
-        List<String> array = new ArrayList<String>();
+        List<String> array = new ArrayList<>();
         array.add(posObject.get(0).toString());
         array.add(posObject.get(1).toString());
         return array;
@@ -147,6 +150,7 @@ public class JsonParser {
         if (reader != null) {
             try {
                 JSONObject root = createJsonRoot();
+                parseGameName(root);
                 return (JSONObject) root.get(GAME);
             } catch (IOException e) {
                 e.printStackTrace();
