@@ -45,6 +45,5 @@ public class SumOfNumbersEqXRuleTest {
         cells.add(cell2);
         cells.add(cell3);
         assertFalse(SumOfNumbersEqXRule.getInstance().isValid(cells));
-
     }
 }

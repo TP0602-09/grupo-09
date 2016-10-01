@@ -24,7 +24,7 @@ public class Board {
 
     public List<List<Cell>> getSectorsToValidate(Cell cell) {
 
-        List<List<Cell>> sectors = new ArrayList<List<Cell>>();
+        List<List<Cell>> sectors = new ArrayList<>();
 
         sectors.add(getRow(cell));
         sectors.add(getColumn(cell));
@@ -34,7 +34,7 @@ public class Board {
     }
 
     private List<Cell> getColumn(Cell cell) {
-        List<Cell> cells = new ArrayList<Cell>();
+        List<Cell> cells = new ArrayList<>();
 
         int posX = cell.getPosition().getX();
         int posY = cell.getPosition().getY();
@@ -52,7 +52,7 @@ public class Board {
     }
 
     private List<Cell> getRow(Cell cell) {
-        List<Cell> cells = new ArrayList<Cell>();
+        List<Cell> cells = new ArrayList<>();
 
         int posX = cell.getPosition().getX();
         int posY = cell.getPosition().getY();
@@ -70,7 +70,7 @@ public class Board {
     }
 
     private List<Cell> getMatrix(Cell cell) {
-        List<Cell> cells = new ArrayList<Cell>();
+        List<Cell> cells = new ArrayList<>();
 
         int posX = cell.getPosition().getX();
         int posY = cell.getPosition().getY();
@@ -83,7 +83,7 @@ public class Board {
 
         for (int x = posIniX; x < posIniX + 3; x++) {
             for (int y = posIniY; y < posIniY + 3; y++) {
-                Position pos = new Position(x, y);
+                Position pos = new Position(x + 1, y + 1);
                 if (pos.equals(cell.getPosition())) {
                     cells.add(cell);
                 } else {
