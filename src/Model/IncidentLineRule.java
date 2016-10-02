@@ -17,7 +17,6 @@ public class IncidentLineRule extends Rule {
 
     @Override
     public boolean isValid(List<Cell> cells) {
-
         Cell cell = cells.get(0);
         cells.remove(cell);
         ArrayList<Cell> upperLeftCells = getUpperLeftCells(cells,cell);
@@ -25,7 +24,8 @@ public class IncidentLineRule extends Rule {
         ArrayList<Cell> downLeftCells = getDownLeftCells(cells,cell);
         ArrayList<Cell> downRightCells = getDownRightCells(cells,cell);
         return validateCorners(upperLeftCells, uppertRightCells,
-                downLeftCells, downRightCells,cell,cell.getPosition());
+                downLeftCells, downRightCells,cell.getValue(),
+                cell.getPosition());
 
 
     }
@@ -34,12 +34,12 @@ public class IncidentLineRule extends Rule {
                                     ArrayList<Cell> uppertRightCells,
                                     ArrayList<Cell> downLeftCells,
                                     ArrayList<Cell> downRightCells,
-                                    Cell cell,
+                                    int value,
                                     Position position) {
-        return validateUpperLeftCorner(upperLeftCells,position,cell.getValue()) &&
-            validateUpperRightCOrner(uppertRightCells, position, cell.getValue()) &&
-            validateDownLeftCorner(downLeftCells, position, cell.getValue())&&
-            validateDownRightCorner(downRightCells, position,cell.getValue());
+        return validateUpperLeftCorner(upperLeftCells,position,value) &&
+            validateUpperRightCOrner(uppertRightCells, position, value) &&
+            validateDownLeftCorner(downLeftCells, position, value)&&
+            validateDownRightCorner(downRightCells, position,value);
     }
 
     private boolean validateDownRightCorner(ArrayList<Cell> downRightCells,
