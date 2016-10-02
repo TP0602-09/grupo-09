@@ -1,7 +1,9 @@
-import Model.Board;
-import Model.Cell;
-import Model.EditableCell;
-import Model.Position;
+package modelTest;
+
+import model.Board;
+import model.Cell;
+import model.EditableCell;
+import model.Position;
 import org.junit.Before;
 import org.junit.Test;
 

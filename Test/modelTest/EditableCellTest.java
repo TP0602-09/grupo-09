@@ -1,8 +1,7 @@
 package modelTest;
 
-import Model.DoubleCell;
-import Model.EditableCell;
-import Model.Position;
+import model.EditableCell;
+import model.Position;
 import org.junit.Before;
 import org.junit.Test;
 

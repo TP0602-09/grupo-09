@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.util.*;
 
@@ -24,7 +24,7 @@ public class Board {
 
     public List<List<Cell>> getSectorsToValidate(Cell cell) {
 
-        List<List<Cell>> sectors = new ArrayList<>();
+        List<List<Cell>> sectors = new ArrayList<List<Cell>>();
 
         sectors.add(getRow(cell));
         sectors.add(getColumn(cell));
@@ -34,7 +34,7 @@ public class Board {
     }
 
     private List<Cell> getColumn(Cell cell) {
-        List<Cell> cells = new ArrayList<>();
+        List<Cell> cells = new ArrayList<Cell>();
 
         int posX = cell.getPosition().getX();
         int posY = cell.getPosition().getY();
@@ -52,7 +52,7 @@ public class Board {
     }
 
     private List<Cell> getRow(Cell cell) {
-        List<Cell> cells = new ArrayList<>();
+        List<Cell> cells = new ArrayList<Cell>();
 
         int posX = cell.getPosition().getX();
         int posY = cell.getPosition().getY();
@@ -70,7 +70,7 @@ public class Board {
     }
 
     private List<Cell> getMatrix(Cell cell) {
-        List<Cell> cells = new ArrayList<>();
+        List<Cell> cells = new ArrayList<Cell>();
 
         int posX = cell.getPosition().getX();
         int posY = cell.getPosition().getY();

@@ -1,6 +1,6 @@
 package modelTest;
 
-import Model.JsonParser;
+import model.JsonParser;
 import org.junit.Before;
 import org.junit.Test;
 

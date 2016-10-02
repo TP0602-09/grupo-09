@@ -1,9 +1,9 @@
 package modelTest;
 
-import Model.AllDifferentRule;
-import Model.Game;
-import Model.Rule;
-import Model.SumOfNumbersEqXRule;
+import model.AllDifferentRule;
+import model.Game;
+import model.Rule;
+import model.SumOfNumbersEqXRule;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ public class GameTest {
 
     @Before
     public void setUp() {
-        rules = new ArrayList<>();
+        rules = new ArrayList<Rule>();
         rules.add(AllDifferentRule.getInstance());
         rules.add(SumOfNumbersEqXRule.getInstance());
     }

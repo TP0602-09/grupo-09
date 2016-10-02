@@ -1,8 +1,8 @@
 package modelTest;
 
-import Model.AllDifferentRule;
-import Model.GameSudoku;
-import Model.Rule;
+import model.AllDifferentRule;
+import model.GameSudoku;
+import model.Rule;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class GameSudokuTest {
 
     @Before
     public void setUp() {
-        rulesSudoku = new ArrayList<>();
+        rulesSudoku = new ArrayList<Rule>();
         rulesSudoku.add(AllDifferentRule.getInstance());
     }
 

@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 
 import org.json.simple.JSONArray;
@@ -94,7 +94,7 @@ public class JsonParser {
             parseRowsAndColumnsValues(gameObject);
             JSONArray cellsObjects = (JSONArray)
                     (gameObject != null ? gameObject.get(CELLS) : null);
-            cells = new ArrayList<>();
+            cells = new ArrayList<HashMap<String, Object>>();
             buildCells(cellsObjects);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -115,7 +115,7 @@ public class JsonParser {
             JSONObject cellObject = (JSONObject) cell;
             JSONArray posObject = (JSONArray) cellObject.get(POS);
             List<String> array = parsePosition(posObject);
-            HashMap<String, Object> cellMap = new HashMap<>();
+            HashMap<String, Object> cellMap = new HashMap<String, Object>();
             parseTYpeAndValue(cellObject, array, cellMap);
             parseDouble(cellObject, cellMap);
             cells.add(cellMap);
@@ -138,7 +138,7 @@ public class JsonParser {
     }
 
     private List<String> parsePosition(JSONArray posObject) {
-        List<String> array = new ArrayList<>();
+        List<String> array = new ArrayList<String>();
         array.add(posObject.get(0).toString());
         array.add(posObject.get(1).toString());
         return array;

@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ public class CellLoader {
     private CellLoader() {}
 
     public HashMap<Position,Cell> loadCells(List<HashMap<String, Object>> cellsArray) {
-        HashMap<Position,Cell> cells = new HashMap<>();
+        HashMap<Position,Cell> cells = new HashMap<Position, Cell>();
 
         for (HashMap<String, Object> cellMap : cellsArray) {
             Cell cell = formatCell(cellMap);
@@ -62,7 +62,7 @@ public class CellLoader {
     }
 
     private HashMap<Position,Cell> getMissingPositions(Set<Position> positions, int rows, int cols) {
-        HashMap<Position,Cell> newCells = new HashMap<>();
+        HashMap<Position,Cell> newCells = new HashMap<Position, Cell>();
 
         for (int i = 1; i <= rows; i++) {
             for (int j = 1; j <= cols; j++) {

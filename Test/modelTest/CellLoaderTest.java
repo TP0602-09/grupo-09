@@ -1,8 +1,8 @@
 package modelTest;
 
-import Model.Cell;
-import Model.CellLoader;
-import Model.Position;
+import model.Cell;
+import model.CellLoader;
+import model.Position;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,10 +19,10 @@ public class CellLoaderTest {
     @Before
     public void setUp() {
 
-        validData = new ArrayList<>();
+        validData = new ArrayList<HashMap<String, Object>>();
         for (int i = 1; i < 9; i++) {
-            HashMap<String, Object> map = new HashMap<>();
-            ArrayList<String> array = new ArrayList<>();
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            ArrayList<String> array = new ArrayList<String>();
             array.add(String.valueOf(i));
             array.add(String.valueOf(i));
             map.put("pos", array);
@@ -31,10 +31,10 @@ public class CellLoaderTest {
             validData.add(map);
         }
 
-        invalidData = new ArrayList<>();
+        invalidData = new ArrayList<HashMap<String, Object>>();
         for (int i = 1; i < 9; i++) {
-            HashMap<String, Object> map = new HashMap<>();
-            ArrayList<String> array = new ArrayList<>();
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            ArrayList<String> array = new ArrayList<String>();
             array.add(String.valueOf(i));
             array.add(String.valueOf(i));
             map.put("pkk", array);

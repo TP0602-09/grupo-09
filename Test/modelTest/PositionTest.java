@@ -1,5 +1,6 @@
+package modelTest;
 
-import Model.Position;
+import model.Position;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
