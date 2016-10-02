@@ -2,9 +2,9 @@
  * Created by mariagustina on 24/09/16.
  *
  */
-package View;
+package view;
 
-import Model.Position;
+import model.Position;
 
 import javax.swing.*;
 import java.awt.*;

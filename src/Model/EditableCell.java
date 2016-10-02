@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class EditableCell extends Cell {
     public EditableCell(Position pos){

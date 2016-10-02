@@ -1,6 +1,6 @@
-package Control;
+package control;
 
-import Model.*;
+import model.*;
 
 import java.util.*;
 

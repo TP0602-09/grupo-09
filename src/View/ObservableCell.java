@@ -1,6 +1,6 @@
-package View;
+package view;
 
-import Model.Position;
+import model.Position;
 
 import java.util.ArrayList;
 import java.util.Observable;

@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 public class DataCell extends Cell {
     public DataCell(Position pos){

@@ -1,9 +1,9 @@
-package Control;
+package control;
 
-import Model.*;
-import View.CellView;
-import View.DataCellView;
-import View.EditableCellView;
+import model.*;
+import view.CellView;
+import view.DataCellView;
+import view.EditableCellView;
 
 import javax.swing.*;
 import java.awt.*;
