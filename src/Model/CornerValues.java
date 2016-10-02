@@ -33,10 +33,10 @@ public class CornerValues {
     }
 
     public void setUpperLeft(int upperLeft) {
-        cornersValues.put(Corner.UPPERRIGHT,upperLeft);
+        cornersValues.put(Corner.UPPERLEFT,upperLeft);
     }
     public void setDownRight(int downRight) {
-        cornersValues.put(Corner.UPPERRIGHT,downRight);
+        cornersValues.put(Corner.DOWNRIGHT,downRight);
     }
     public void setDownLeft(int downLeft) {
         cornersValues.put(Corner.DOWNLEFT,downLeft);
