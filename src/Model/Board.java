@@ -75,15 +75,15 @@ public class Board {
         int posX = cell.getPosition().getX();
         int posY = cell.getPosition().getY();
 
-        int modX = posX % 3;
-        int modY = posY % 3;
+        int modX = (posX - 1) % 3;
+        int modY = (posY - 1) % 3;
 
         int posIniX = posX - modX;
         int posIniY = posY - modY;
 
         for (int x = posIniX; x < posIniX + 3; x++) {
             for (int y = posIniY; y < posIniY + 3; y++) {
-                Position pos = new Position(x + 1, y + 1);
+                Position pos = new Position(x, y);
                 if (pos.equals(cell.getPosition())) {
                     cells.add(cell);
                 } else {

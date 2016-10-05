@@ -16,12 +16,14 @@ public class EngineController {
     static {
         rulesSudoku = new ArrayList<Rule>();
         rulesSudoku.add(AllDifferentRule.getInstance());
+        rulesSudoku.add(IsValidDigitRule.getInstance());
     }
     private static final List<Rule> rulesKakuro;
     static {
         rulesKakuro = new ArrayList<Rule>();
         rulesKakuro.add(AllDifferentRule.getInstance());
         rulesKakuro.add(SumOfNumbersEqXRule.getInstance());
+        rulesKakuro.add(IsValidDigitRule.getInstance());
     }
     private static final Map<String, Game> juegos;
     static {
