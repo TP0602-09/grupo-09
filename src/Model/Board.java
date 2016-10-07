@@ -24,7 +24,7 @@ public class Board {
 
     public List<List<Cell>> getSectorsToValidate(Cell cell) {
 
-        List<List<Cell>> sectors = new ArrayList<>();
+        List<List<Cell>> sectors = new ArrayList<List<Cell>>();
 
         sectors.add(getRow(cell));
         sectors.add(getColumn(cell));
@@ -34,7 +34,7 @@ public class Board {
     }
 
     private List<Cell> getColumn(Cell cell) {
-        List<Cell> cells = new ArrayList<>();
+        List<Cell> cells = new ArrayList<Cell>();
 
         int posX = cell.getPosition().getX();
         int posY = cell.getPosition().getY();
@@ -52,7 +52,7 @@ public class Board {
     }
 
     private List<Cell> getRow(Cell cell) {
-        List<Cell> cells = new ArrayList<>();
+        List<Cell> cells = new ArrayList<Cell>();
 
         int posX = cell.getPosition().getX();
         int posY = cell.getPosition().getY();
@@ -70,25 +70,27 @@ public class Board {
     }
 
     private List<Cell> getMatrix(Cell cell) {
-        List<Cell> cells = new ArrayList<>();
+        List<Cell> cells = new ArrayList<Cell>();
 
         int posX = cell.getPosition().getX();
         int posY = cell.getPosition().getY();
 
-        int modX = posX % 3;
-        int modY = posY % 3;
+        int modX = (posX + 2) % 3; //resultados = 0, 1, 2
+        int modY = (posY + 2) % 3;
 
         int posIniX = posX - modX;
         int posIniY = posY - modY;
 
         for (int x = posIniX; x < posIniX + 3; x++) {
             for (int y = posIniY; y < posIniY + 3; y++) {
-                Position pos = new Position(x + 1, y + 1);
+                Position pos = new Position(x, y);
                 if (pos.equals(cell.getPosition())) {
                     cells.add(cell);
                 } else {
+
                     cells.add(this.cells.get(pos));
                 }
+
             }
         }
         return cells;
@@ -97,4 +99,5 @@ public class Board {
     public int getCols(){
         return this.columns;
     }
+
 }

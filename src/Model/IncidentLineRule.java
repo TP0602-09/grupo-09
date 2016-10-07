@@ -227,7 +227,7 @@ public class IncidentLineRule extends Rule {
     }
 
     private ArrayList<Cell> getUpperLeftCells(List<Cell> cells, Cell cell) {
-        ArrayList<Cell> array = new ArrayList<>();
+        ArrayList<Cell> array = new ArrayList<Cell>();
         for (Cell adjacent: cells) {
             if ((adjacent.getPosition().getX() == cell.getPosition().getX() &&
                     adjacent.getPosition().getY() == cell.getPosition().getY() - 1) ||
@@ -243,7 +243,7 @@ public class IncidentLineRule extends Rule {
     }
 
     private ArrayList<Cell> getDownRightCells(List<Cell> cells, Cell cell) {
-        ArrayList<Cell> array = new ArrayList<>();
+        ArrayList<Cell> array = new ArrayList<Cell>();
         for (Cell adjacent: cells) {
             if ((adjacent.getPosition().getX() == cell.getPosition().getX() &&
                     adjacent.getPosition().getY() == cell.getPosition().getY() + 1) ||
@@ -259,7 +259,7 @@ public class IncidentLineRule extends Rule {
     }
 
     private ArrayList<Cell> getUpperRightCells(List<Cell> cells, Cell cell) {
-        ArrayList<Cell> array = new ArrayList<>();
+        ArrayList<Cell> array = new ArrayList<Cell>();
         for (Cell adjacent: cells) {
             if ((adjacent.getPosition().getX() == cell.getPosition().getX() - 1 &&
                     adjacent.getPosition().getY() == cell.getPosition().getY() ) ||
@@ -275,7 +275,7 @@ public class IncidentLineRule extends Rule {
     }
 
     private ArrayList<Cell> getDownLeftCells(List<Cell> cells, Cell cell) {
-        ArrayList<Cell> array = new ArrayList<>();
+        ArrayList<Cell> array = new ArrayList<Cell>();
         for (Cell adjacent: cells) {
             if ((adjacent.getPosition().getX() == cell.getPosition().getX() &&
                     adjacent.getPosition().getY() == cell.getPosition().getY() - 1) ||

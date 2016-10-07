@@ -6,7 +6,7 @@ public class CornerValues {
 
     private HashMap<Corner,Integer> cornersValues;
     public  CornerValues() {
-        cornersValues = new HashMap<>();
+        cornersValues = new HashMap<Corner,Integer>();
     }
 
     public int getUpperRight() {

@@ -18,7 +18,7 @@ public class SumOfNumbersEqXRuleTest {
 
     @Test
     public void testRuleValidateWithValidData() {
-        ArrayList<Cell> cells = new ArrayList<>();
+        ArrayList<Cell> cells = new ArrayList<Cell>();
         DataCell cell1 = new DataCell(new Position(1, 1));
         EditableCell cell2 = new EditableCell(new Position(1, 2));
         EditableCell cell3 = new EditableCell(new Position(1, 3));
@@ -34,7 +34,7 @@ public class SumOfNumbersEqXRuleTest {
 
     @Test
     public void testRuleValidateWithInvalidData() {
-        ArrayList<Cell> cells = new ArrayList<>();
+        ArrayList<Cell> cells = new ArrayList<Cell>();
         DataCell cell1 = new DataCell(new Position(1, 1));
         EditableCell cell2 = new EditableCell(new Position(1, 2));
         EditableCell cell3 = new EditableCell(new Position(1, 3));
