@@ -105,8 +105,10 @@ public class ViewController implements Observer {
         Cell recievedCell = new EditableCell(pos);
         recievedCell.setValue(value);
         if (this.game.isValid(recievedCell)) {
+            this.game.addValidCell(recievedCell);
             System.out.println("Adelante! Este numero es valido");
         } else {
+            //TODO: borrar el numero en las vistas
             System.out.println("Lo sentimos, este valor es invalido, pruebe ingresando otro valor");
         }
     }

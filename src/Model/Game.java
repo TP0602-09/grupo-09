@@ -16,6 +16,24 @@ public class Game {
         this.rules = rules;
     }
 
+    public void addValidCell(Cell cell){
+        this.board.addCell(cell);
+        if (this.hasWon()){
+            System.out.println("FELICIDADES USTED HA GANADO EL JUEGO!!!");
+        }
+    }
+
+    private boolean hasWon(){
+        HashMap<Position, Cell> cells = this.board.getCells();
+        for (Position pos : cells.keySet()) {
+            Cell cell = cells.get(pos);
+            if (cell.getValue() == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void startConfiguration() {
 
         HashMap<Position, Cell> cells = cellLoader.loadCells(jsonParser.getCells());

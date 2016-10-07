@@ -14,6 +14,10 @@ public class Board {
         this.cells = cells;
     }
 
+    public void addCell(Cell cell){
+        this.cells.put(cell.getPosition(),cell);
+    }
+
     public int getRows() {
         return this.rows;
     }
