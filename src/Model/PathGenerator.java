@@ -14,11 +14,11 @@ public class PathGenerator {
         ArrayList<Edge> array = new ArrayList<>();
         buildPath(cell, array, board.getCells(), graphSize);
         Graph graph = new Graph(graphSize);
-        genearteGraphEdges(array, graph);
+        generateGraphEdges(array, graph);
         return graph;
     }
 
-    private void genearteGraphEdges(ArrayList<Edge> array, Graph graph) {
+    private void generateGraphEdges(ArrayList<Edge> array, Graph graph) {
         for (Edge edge : array) {
             graph.addEdge(edge.x, edge.y);
         }
@@ -26,11 +26,11 @@ public class PathGenerator {
 
     private void buildPath(Cell cell, ArrayList<Edge> array, HashMap<Position, Cell> cells, int graphSize) {
         if (cell.getValue() == RIGHT_SLASH) {
-            graphSize++;
+            graphSize += 2;
             buildRight(cell, array, cells, graphSize);
         } else {
             if (cell.getValue() == LEFT_SLASH) {
-                graphSize++;
+                graphSize += 2;
                 buildLeft(cell, array, cells, graphSize);
             }
         }
