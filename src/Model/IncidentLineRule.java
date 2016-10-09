@@ -13,25 +13,18 @@ public class IncidentLineRule extends Rule {
 
     private static IncidentLineRule ourInstance = null;
 
-    public static IncidentLineRule getInstance(
-            HashMap<Position, CornerValues> cornerValues) {
-        if (ourInstance == null) {
-            ourInstance = new IncidentLineRule(cornerValues);
-        } else {
-            ourInstance.setCorners(cornerValues);
-        }
-        return ourInstance;
-    }
-
     public static IncidentLineRule getInstance() {
         if (ourInstance == null) {
-            throw new NullPointerException(
-                    "IncidentLineRule instance is null");
+            ourInstance = new IncidentLineRule();
         }
         return ourInstance;
     }
 
-    private IncidentLineRule(HashMap<Position, CornerValues> corners) {
+    private IncidentLineRule() {
+        corners = null;
+    }
+
+    public void setCorners(HashMap<Position, CornerValues> corners) {
         this.corners = corners;
     }
 
@@ -290,9 +283,5 @@ public class IncidentLineRule extends Rule {
             }
         }
         return array;
-    }
-
-    private void setCorners(HashMap<Position, CornerValues> corners) {
-        this.corners = corners;
     }
 }

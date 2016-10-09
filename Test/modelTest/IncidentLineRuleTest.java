@@ -27,7 +27,8 @@ public class IncidentLineRuleTest {
 
     @Test
     public void testUpperLeftIncidentLinesShouldReturnTrue() {
-        IncidentLineRule rule = IncidentLineRule.getInstance(cornerValuesSet);
+        IncidentLineRule rule = IncidentLineRule.getInstance();
+        rule.setCorners(cornerValuesSet);
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
         aCell.setValue(1);
@@ -48,7 +49,8 @@ public class IncidentLineRuleTest {
 
     @Test
     public void testDownLeftIncidentLinesShouldReturnTrue() {
-        IncidentLineRule rule = IncidentLineRule.getInstance(cornerValuesSet);
+        IncidentLineRule rule = IncidentLineRule.getInstance();
+        rule.setCorners(cornerValuesSet);
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
         aCell.setValue(2);
@@ -68,7 +70,8 @@ public class IncidentLineRuleTest {
 
     @Test
     public void testMoreUpperLeftIncidentLinesShouldReturnFalse() {
-        IncidentLineRule rule = IncidentLineRule.getInstance(cornerValuesSet);
+        IncidentLineRule rule = IncidentLineRule.getInstance();
+        rule.setCorners(cornerValuesSet);
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
         aCell.setValue(1);
@@ -88,7 +91,8 @@ public class IncidentLineRuleTest {
 
     @Test
     public void testMoreUpperRightIncidentLinesShouldReturnFalse() {
-        IncidentLineRule rule = IncidentLineRule.getInstance(cornerValuesSet);
+        IncidentLineRule rule = IncidentLineRule.getInstance();
+        rule.setCorners(cornerValuesSet);
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
         aCell.setValue(2);
@@ -109,7 +113,8 @@ public class IncidentLineRuleTest {
 
     @Test
     public void testMoreDownLeftIncidentLinesShouldReturnFalse() {
-        IncidentLineRule rule = IncidentLineRule.getInstance(cornerValuesSet);
+        IncidentLineRule rule = IncidentLineRule.getInstance();
+        rule.setCorners(cornerValuesSet);
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
         aCell.setValue(2);
