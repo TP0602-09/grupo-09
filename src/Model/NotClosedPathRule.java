@@ -27,24 +27,6 @@ public class NotClosedPathRule extends Rule {
 
     @Override
     public boolean isValid(List<Cell> cells) {
-        if (cells.size() > 0) {
-            return false;
-        }
         return path.isCyclic();
-    }
-
-
-    private int min(int x, int y) {
-        if (x <= y) {
-            return x;
-        }
-        return y;
-    }
-
-    private int max(int x, int y) {
-        if (y <= x) {
-            return x;
-        }
-        return y;
     }
 }

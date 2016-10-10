@@ -24,7 +24,7 @@ public class ViewController implements Observer {
     protected HashMap<Integer, CellView> cells;
 
     public ViewController(int numberOfRows) {
-        this.cells = new HashMap<Integer, CellView>();
+        this.cells = new HashMap<>();
         createMainPain(numberOfRows);
     }
 
@@ -49,7 +49,7 @@ public class ViewController implements Observer {
             int posX = cellObj.getPosition().getX();
             int posY = cellObj.getPosition().getY();
             if (cellObj instanceof DataCell) {
-                cellView = new DataCellView(posX, posY, cellObj.getValue());
+                cellView = new DataCellView(posX, posY, cellObj.getValue()[0]);
                 this.cells.put(count, cellView);
                 //TODO: CREAR FACTORY KAKURO
             } else {
@@ -70,11 +70,7 @@ public class ViewController implements Observer {
     }
 
     public void render() {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        javax.swing.SwingUtilities.invokeLater(this::createAndShowGUI);
     }
 
     private void createAndShowGUI() {

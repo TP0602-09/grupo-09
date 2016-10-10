@@ -9,7 +9,6 @@ import java.util.List;
 public class IncidentLineRule extends Rule {
     private static final int LEFT_SLASH = 1;
     private static final int RIGHT_SLASH = 2;
-    private HashMap<Position, CornerValues> corners;
 
     private static IncidentLineRule ourInstance = null;
 
@@ -21,80 +20,60 @@ public class IncidentLineRule extends Rule {
     }
 
     private IncidentLineRule() {
-        corners = null;
-    }
-
-    public void setCorners(HashMap<Position, CornerValues> corners) {
-        this.corners = corners;
     }
 
     @Override
     public boolean isValid(List<Cell> cells) {
         Cell cell = cells.get(0);
         cells.remove(cell);
-        Position position = getCellPosition(cell.getPosition());
-        if (position == null) {
-            return false;
-        }
         ArrayList<Cell> upperLeftCells = getUpperLeftCells(cells, cell);
         ArrayList<Cell> uppertRightCells = getUpperRightCells(cells, cell);
         ArrayList<Cell> downLeftCells = getDownLeftCells(cells, cell);
         ArrayList<Cell> downRightCells = getDownRightCells(cells, cell);
         return validateCorners(upperLeftCells, uppertRightCells,
-                downLeftCells, downRightCells, cell.getValue(),
-                position);
-    }
-
-    private Position getCellPosition(Position position) {
-        Iterator<Position> iterator = corners.keySet().iterator();
-        for (Position next : corners.keySet()) {
-            if (next.getX() == position.getX() && next.getY() ==
-                    position.getY()) {
-                return next;
-            }
-        }
-        return null;
+                downLeftCells, downRightCells, cell,
+                cell.getPosition());
     }
 
     private boolean validateCorners(ArrayList<Cell> upperLeftCells,
                                     ArrayList<Cell> uppertRightCells,
                                     ArrayList<Cell> downLeftCells,
                                     ArrayList<Cell> downRightCells,
-                                    int value,
+                                    Cell cell,
                                     Position position) {
-        return validateUpperLeftCorner(upperLeftCells, position, value) &&
-                validateUpperRightCorner(uppertRightCells, position, value) &&
-                validateDownLeftCorner(downLeftCells, position, value) &&
-                validateDownRightCorner(downRightCells, position, value);
+        return validateUpperLeftCorner(upperLeftCells, position, cell) &&
+                validateUpperRightCorner(uppertRightCells, position, cell) &&
+                validateDownLeftCorner(downLeftCells, position, cell) &&
+                validateDownRightCorner(downRightCells, position, cell);
     }
 
     private boolean validateDownRightCorner(ArrayList<Cell> downRightCells,
-                                            Position position, int value) {
-        int incidentCount = actualIncidentLinesDownRight(downRightCells, position, value);
-        return incidentCount <= (corners.get(position) != null ?
-                corners.get(position).getDownRight() : 0);
+                                            Position position, Cell cell) {
+        int incidentCount = actualIncidentLinesDownRight(downRightCells, position,
+                cell.getValue()[0]);
+        return incidentCount <= cell.getValue()[4];
     }
 
     private boolean validateDownLeftCorner(ArrayList<Cell> downLeftCells,
-                                           Position position, int value) {
-        int incidentCount = actualIncidentLinesDownLeft(downLeftCells, position, value);
-        return incidentCount <= (corners.get(position) != null ?
-                corners.get(position).getDowmLeft() : 0);
+                                           Position position, Cell cell) {
+        int incidentCount = actualIncidentLinesDownLeft(downLeftCells, position,
+                cell.getValue()[0]);
+        return incidentCount <= cell.getValue()[3];
     }
 
     private boolean validateUpperRightCorner(ArrayList<Cell>
                                                      uppertRightCells,
-                                             Position position, int value) {
-        int incidentCount = actualIncidentLinesUpperRight(uppertRightCells, position, value);
-        return incidentCount <= (corners.get(position) != null ?
-                corners.get(position).getUpperRight() : 0);
+                                             Position position, Cell cell) {
+        int incidentCount = actualIncidentLinesUpperRight(uppertRightCells, position,
+                cell.getValue()[0]);
+        return incidentCount <= cell.getValue()[2];
     }
 
     private boolean validateUpperLeftCorner(ArrayList<Cell> upperLeftCells,
-                                            Position position, int value) {
-        int incidentCount = actualIncidentLinesUpperLeft(upperLeftCells, position, value);
-        return incidentCount <= (corners.get(position) != null ?
-                corners.get(position).getUpperLeft() : 0);
+                                            Position position, Cell cell) {
+        int incidentCount = actualIncidentLinesUpperLeft(upperLeftCells, position,
+                cell.getValue()[0]);
+        return incidentCount <= cell.getValue()[1];
 
 
     }
@@ -109,20 +88,20 @@ public class IncidentLineRule extends Rule {
         for (Cell cell : cells) {
             if ((cell.getPosition().getX() == position.getX() - 1) &&
                     (cell.getPosition().getY() == position.getY() - 1)) {
-                if (cell.getValue() == LEFT_SLASH) {
+                if (cell.getValue()[0] == LEFT_SLASH) {
                     count++;
                 }
             }
 
             if ((cell.getPosition().getX() == position.getX()) &&
                     (cell.getPosition().getY() == position.getY() - 1)) {
-                if (cell.getValue() == RIGHT_SLASH) {
+                if (cell.getValue()[0] == RIGHT_SLASH) {
                     count++;
                 }
             }
             if ((cell.getPosition().getX() == position.getX() - 1) &&
                     (cell.getPosition().getY() == position.getY())) {
-                if (cell.getValue() == RIGHT_SLASH) {
+                if (cell.getValue()[0] == RIGHT_SLASH) {
                     count++;
                 }
             }
@@ -141,20 +120,20 @@ public class IncidentLineRule extends Rule {
         for (Cell cell : cells) {
             if ((cell.getPosition().getX() == position.getX() - 1) &&
                     (cell.getPosition().getY() == position.getY())) {
-                if (cell.getValue() == LEFT_SLASH) {
+                if (cell.getValue()[0] == LEFT_SLASH) {
                     count++;
                 }
             }
 
             if ((cell.getPosition().getX() == position.getX() - 1) &&
                     (cell.getPosition().getY() == position.getY() + 1)) {
-                if (cell.getValue() == RIGHT_SLASH) {
+                if (cell.getValue()[0] == RIGHT_SLASH) {
                     count++;
                 }
             }
             if ((cell.getPosition().getX() == position.getX()) &&
                     (cell.getPosition().getY() == position.getY() + 1)) {
-                if (cell.getValue() == LEFT_SLASH) {
+                if (cell.getValue()[0] == LEFT_SLASH) {
                     count++;
                 }
             }
@@ -173,20 +152,20 @@ public class IncidentLineRule extends Rule {
         for (Cell cell : cells) {
             if ((cell.getPosition().getX() == position.getX()) &&
                     (cell.getPosition().getY() == position.getY() - 1)) {
-                if (cell.getValue() == LEFT_SLASH) {
+                if (cell.getValue()[0] == LEFT_SLASH) {
                     count++;
                 }
             }
 
             if ((cell.getPosition().getX() == position.getX() + 1) &&
                     (cell.getPosition().getY() == position.getY() - 1)) {
-                if (cell.getValue() == RIGHT_SLASH) {
+                if (cell.getValue()[0] == RIGHT_SLASH) {
                     count++;
                 }
             }
             if ((cell.getPosition().getX() == position.getX() + 1) &&
                     (cell.getPosition().getY() == position.getY())) {
-                if (cell.getValue() == LEFT_SLASH) {
+                if (cell.getValue()[0] == LEFT_SLASH) {
                     count++;
                 }
             }
@@ -204,20 +183,20 @@ public class IncidentLineRule extends Rule {
         for (Cell cell : cells) {
             if ((cell.getPosition().getX() == position.getX()) &&
                     (cell.getPosition().getY() == position.getY() + 1)) {
-                if (cell.getValue() == RIGHT_SLASH) {
+                if (cell.getValue()[0] == RIGHT_SLASH) {
                     count++;
                 }
             }
 
             if ((cell.getPosition().getX() == position.getX() + 1) &&
                     (cell.getPosition().getY() == position.getY())) {
-                if (cell.getValue() == RIGHT_SLASH) {
+                if (cell.getValue()[0] == RIGHT_SLASH) {
                     count++;
                 }
             }
             if ((cell.getPosition().getX() == position.getX() + 1) &&
                     (cell.getPosition().getY() == position.getY() + 1)) {
-                if (cell.getValue() == LEFT_SLASH) {
+                if (cell.getValue()[0] == LEFT_SLASH) {
                     count++;
                 }
             }

@@ -2,19 +2,19 @@ package Model;
 
 public abstract class Cell {
     private Position pos;
-    private int value;
+    private int[] value;
 
     public Cell(Position pos){
         this.pos = pos;
     }
 
     public void setValue(int... value){
-        this.value = value[0];
+        this.value = value;
     }
 
-    public boolean hasValue() { return this.value != 0; }
+    public boolean hasValue() { return this.value[0] != 0; }
 
-    public int getValue(){
+    public int[] getValue(){
         return this.value;
     }
 

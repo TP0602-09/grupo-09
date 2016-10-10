@@ -17,12 +17,12 @@ public class SumOfNumbersEqXRule extends Rule {
     @Override
     public boolean isValid(List<Cell> cells) {
         DataCell resultCell = (DataCell) cells.get(RESULT_CELL_INDEX);
-        Integer result = resultCell.getValue();
+        Integer result = resultCell.getValue()[0];
         cells.remove(RESULT_CELL_INDEX);
         Integer sum = 0;
 
         for (Cell cell : cells) {
-            sum += cell.getValue();
+            sum += cell.getValue()[0];
         }
 
         return !(sum > result);

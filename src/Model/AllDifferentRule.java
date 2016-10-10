@@ -19,16 +19,16 @@ public class AllDifferentRule extends Rule {
     public boolean isValid(List<Cell> cells) {
         List<Integer> values = extractValues(cells);
 
-        Set<Integer> set = new HashSet<Integer>(values);
+        Set<Integer> set = new HashSet<>(values);
 
         return !(set.size() < values.size());
     }
 
     private List<Integer> extractValues(List<Cell> cells) {
-        List<Integer> values = new ArrayList<Integer>();
+        List<Integer> values = new ArrayList<>();
         for (Cell cell : cells) {
             if (cell.hasValue()) {
-                values.add(cell.getValue());
+                values.add(cell.getValue()[0]);
             }
         }
         return values;
