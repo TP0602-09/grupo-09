@@ -3,9 +3,6 @@ package Model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.lang.Math.*;
-
-import static java.lang.Math.log;
 
 public abstract class PathGenerator {
 
@@ -22,8 +19,7 @@ public abstract class PathGenerator {
     }
 
     private int vertexCount(ArrayList<Edge> array) {
-        Double result = log(array.size());
-        return result.intValue();
+        return array.size()*2;
     }
 
     protected abstract void buildPath(Cell cell, ArrayList<Edge> array,
