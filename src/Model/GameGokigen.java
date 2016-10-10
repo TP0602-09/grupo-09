@@ -5,10 +5,8 @@ import java.util.List;
 
 
 public class GameGokigen extends Game {
-    private HashMap<Position, CornerValues> corners;
 
-    public GameGokigen(List<Rule> rules, HashMap<Position, CornerValues> corners) {
+    public GameGokigen(List<Rule> rules) {
         super(rules);
-        this.corners = corners;
     }
 }

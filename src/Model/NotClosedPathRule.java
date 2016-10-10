@@ -27,6 +27,6 @@ public class NotClosedPathRule extends Rule {
 
     @Override
     public boolean isValid(List<Cell> cells) {
-        return path.isCyclic();
+        return !path.isCyclic();
     }
 }

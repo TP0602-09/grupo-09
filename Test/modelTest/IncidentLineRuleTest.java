@@ -10,28 +10,21 @@ import java.util.HashMap;
 import static org.junit.Assert.*;
 
 public class IncidentLineRuleTest {
-    private HashMap<Position, CornerValues> cornerValuesSet;
+
     private Position position;
 
     @Before
     public void setUp() {
-        cornerValuesSet = new HashMap<>();
-        CornerValues cornerValues = new CornerValues();
-        cornerValues.setUpperLeft(2);
-        cornerValues.setUpperRight(4);
-        cornerValues.setDownLeft(3);
-        cornerValues.setDownRight(4);
         position = new Position(2, 2);
-        cornerValuesSet.put(position, cornerValues);
     }
 
     @Test
     public void testUpperLeftIncidentLinesShouldReturnTrue() {
         IncidentLineRule rule = IncidentLineRule.getInstance();
-        rule.setCorners(cornerValuesSet);
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
-        aCell.setValue(1);
+        int[] array = {1,2,4,3,4};
+        aCell.setValue(array);
         cells.add(aCell);
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < 4; j++) {
@@ -50,10 +43,11 @@ public class IncidentLineRuleTest {
     @Test
     public void testDownLeftIncidentLinesShouldReturnTrue() {
         IncidentLineRule rule = IncidentLineRule.getInstance();
-        rule.setCorners(cornerValuesSet);
+
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
-        aCell.setValue(2);
+        int[] array = {2,2,4,3,4};
+        aCell.setValue(array);
         cells.add(aCell);
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < 4; j++) {
@@ -71,10 +65,10 @@ public class IncidentLineRuleTest {
     @Test
     public void testMoreUpperLeftIncidentLinesShouldReturnFalse() {
         IncidentLineRule rule = IncidentLineRule.getInstance();
-        rule.setCorners(cornerValuesSet);
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
-        aCell.setValue(1);
+        int[] array = {1,2,4,3,4};
+        aCell.setValue(array);
         cells.add(aCell);
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < 4; j++) {
@@ -92,11 +86,10 @@ public class IncidentLineRuleTest {
     @Test
     public void testMoreUpperRightIncidentLinesShouldReturnFalse() {
         IncidentLineRule rule = IncidentLineRule.getInstance();
-        rule.setCorners(cornerValuesSet);
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
-        aCell.setValue(2);
-        cornerValuesSet.get(position).setUpperRight(2);
+        int[] array = {2,2,2,3,4};
+        aCell.setValue(array);
         cells.add(aCell);
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < 4; j++) {
@@ -114,11 +107,10 @@ public class IncidentLineRuleTest {
     @Test
     public void testMoreDownLeftIncidentLinesShouldReturnFalse() {
         IncidentLineRule rule = IncidentLineRule.getInstance();
-        rule.setCorners(cornerValuesSet);
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
-        aCell.setValue(2);
-        cornerValuesSet.get(position).setDownLeft(2);
+        int[] array = {2,2,4,2,4};
+        aCell.setValue(array);
         cells.add(aCell);
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < 4; j++) {
