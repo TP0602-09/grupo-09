@@ -32,9 +32,13 @@ public class EngineController {
         juegos.put("KAKURO", new GameKakuro(rulesKakuro));
     }
 
-    public EngineController(String gameType) {
+    public EngineController(String gameType)  {
         this.game = createGame(gameType);
-        this.game.startGame();
+        try {
+            this.game.startGame(gameType);
+        } catch (Exception e) {
+            System.out.print("El juego " + gameType + " no existe.");
+        }
         this.initializeViews();
 
     }
