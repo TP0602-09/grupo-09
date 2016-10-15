@@ -1,6 +1,7 @@
 package modelTest;
 
 import model.AllDifferentRule;
+import model.GameNotFoundException;
 import model.GameSudoku;
 import model.Rule;
 import org.junit.Before;
@@ -20,28 +21,28 @@ public class GameSudokuTest {
     }
 
     @Test
-    public void testStartGame() {
+    public void testStartGame() throws GameNotFoundException {
         GameSudoku gameSudoku = new GameSudoku(rulesSudoku);
         assertNull(gameSudoku.getBoard());
-        gameSudoku.startGame();
+        gameSudoku.startGame("sudoku");
         assertNotNull(gameSudoku.getBoard());
         assertEquals(9, gameSudoku.getBoard().getRows());
         assertNotNull(gameSudoku.getBoard().getCells());
     }
 
     @Test
-    public void testStartConfiguration() {
+    public void testStartConfiguration() throws GameNotFoundException {
         GameSudoku gameSudoku = new GameSudoku(rulesSudoku);
         assertNull(gameSudoku.getBoard());
-        gameSudoku.startConfiguration();
+        gameSudoku.startConfiguration("sudoku");
         assertNotNull(gameSudoku.getBoard());
         assertNotNull(gameSudoku.getBoard().getCells());
     }
 
     @Test
-    public void testSudokuGameHasCorrectRowSize() {
+    public void testSudokuGameHasCorrectRowSize() throws GameNotFoundException{
         GameSudoku gameSudoku = new GameSudoku(rulesSudoku);
-        gameSudoku.startGame();
+        gameSudoku.startGame("sudoku");
         assertEquals(9, gameSudoku.getBoard().getRows());
     }
 

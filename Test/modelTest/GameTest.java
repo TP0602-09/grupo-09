@@ -1,9 +1,6 @@
 package modelTest;
 
-import model.AllDifferentRule;
-import model.Game;
-import model.Rule;
-import model.SumOfNumbersEqXRule;
+import model.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -24,18 +21,18 @@ public class GameTest {
     }
 
     @Test
-    public void testStartConfiguration() {
+    public void testStartConfiguration() throws GameNotFoundException {
         Game game = new Game(rules);
         assertNull(game.getBoard());
-        game.startConfiguration();
+        game.startConfiguration("sudoku");
         assertNotNull(game.getBoard());
     }
 
     @Test
-    public void testStartGame() {
+    public void testStartGame() throws GameNotFoundException {
         Game game = new Game(rules);
         assertNull(game.getBoard());
-        game.startGame();
+        game.startGame("sudoku");
         assertNotNull(game.getBoard());
     }
 }

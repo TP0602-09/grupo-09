@@ -46,33 +46,6 @@ public class CellLoaderTest {
     }
 
     @Test
-    public void testLoadCellsWithValidData() {
-        CellLoader cellLoader = CellLoader.getInstance();
-        HashMap<Position, Cell> map = cellLoader.loadCells(validData);
-        Iterator<Position> iterator = map.keySet().iterator();
-        int i = 1;
-        while (iterator.hasNext()) {
-            Position position = iterator.next();
-            assertEquals(i, position.getX());
-            assertEquals(i, position.getY());
-            assertEquals(position, map.get(position).getPosition());
-            assertEquals(i, map.get(position).getValue());
-            i++;
-        }
-    }
-
-    @Test
-    public void testLoadCellsWithInValidData() {
-        CellLoader cellLoader = CellLoader.getInstance();
-        try{
-            cellLoader.loadCells(invalidData);
-            fail();
-        }catch (NullPointerException e) {
-            assertTrue(true);
-        }
-    }
-
-    @Test
     public void testLoadCellsWithNullData() {
         CellLoader cellLoader = CellLoader.getInstance();
         try{
