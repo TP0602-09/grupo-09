@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -20,7 +19,7 @@ public class IncidentLineRuleTest {
 
     @Test
     public void testUpperLeftIncidentLinesShouldReturnTrue() {
-        IncidentLineRule rule = IncidentLineRule.getInstance();
+        IncidentLineRule rule = new IncidentLineRule();
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
         int[] array = {1,2,4,3,4};
@@ -42,7 +41,7 @@ public class IncidentLineRuleTest {
 
     @Test
     public void testDownLeftIncidentLinesShouldReturnTrue() {
-        IncidentLineRule rule = IncidentLineRule.getInstance();
+        IncidentLineRule rule = new IncidentLineRule();
 
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
@@ -64,7 +63,7 @@ public class IncidentLineRuleTest {
 
     @Test
     public void testMoreUpperLeftIncidentLinesShouldReturnFalse() {
-        IncidentLineRule rule = IncidentLineRule.getInstance();
+        IncidentLineRule rule = new IncidentLineRule();
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
         int[] array = {1,2,4,3,4};
@@ -85,7 +84,7 @@ public class IncidentLineRuleTest {
 
     @Test
     public void testMoreUpperRightIncidentLinesShouldReturnFalse() {
-        IncidentLineRule rule = IncidentLineRule.getInstance();
+        IncidentLineRule rule = new IncidentLineRule();
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
         int[] array = {2,2,2,3,4};
@@ -106,7 +105,7 @@ public class IncidentLineRuleTest {
 
     @Test
     public void testMoreDownLeftIncidentLinesShouldReturnFalse() {
-        IncidentLineRule rule = IncidentLineRule.getInstance();
+        IncidentLineRule rule = new IncidentLineRule();
         ArrayList<Cell> cells = new ArrayList<>();
         EditableCell aCell = new EditableCell(new Position(2, 2));
         int[] array = {2,2,4,2,4};

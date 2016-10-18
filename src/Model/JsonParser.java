@@ -31,13 +31,6 @@ public class JsonParser {
     private static final String NAME = "name";
     private static JsonParser INSTANCE = null;
 
-    public static JsonParser instance() {
-        if (INSTANCE == null) {
-            INSTANCE = new JsonParser();
-        }
-        return INSTANCE;
-    }
-
     private List<HashMap<String, Object>> cells;
     private int rows;
     private int columns;
@@ -46,7 +39,7 @@ public class JsonParser {
     private String jsonPath;
 
 
-    private JsonParser() {
+    public JsonParser() {
         rows = 0;
         columns = 0;
         gameName = null;

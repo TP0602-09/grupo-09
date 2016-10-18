@@ -47,7 +47,7 @@ public class CellLoaderTest {
 
     @Test
     public void testLoadCellsWithValidData() {
-        CellLoader cellLoader = CellLoader.getInstance();
+        CellLoader cellLoader = new  CellLoader();
         HashMap<Position, Cell> map = cellLoader.loadCells(validData);
         Iterator<Position> iterator = map.keySet().iterator();
         int i = 1;
@@ -56,14 +56,13 @@ public class CellLoaderTest {
             assertEquals(i, position.getX());
             assertEquals(i, position.getY());
             assertEquals(position, map.get(position).getPosition());
-            assertEquals(i, map.get(position).getValue());
             i++;
         }
     }
 
     @Test
     public void testLoadCellsWithInValidData() {
-        CellLoader cellLoader = CellLoader.getInstance();
+        CellLoader cellLoader = new CellLoader();
         try{
             cellLoader.loadCells(invalidData);
             fail();
@@ -74,7 +73,7 @@ public class CellLoaderTest {
 
     @Test
     public void testLoadCellsWithNullData() {
-        CellLoader cellLoader = CellLoader.getInstance();
+        CellLoader cellLoader = new CellLoader();
         try{
             cellLoader.loadCells(null);
             fail();

@@ -1,20 +1,16 @@
 package Model;
 
+import sun.dc.pr.PRError;
+
 import java.util.List;
 
 public class BorderCountRule extends Rule {
-    private static BorderCountRule ourInstance = null;
-
-    public static BorderCountRule getInstance() {
-        if (ourInstance == null) {
-            ourInstance = new BorderCountRule();
-        }
-        return ourInstance;
-    }
-
-    private BorderCountRule() {
-
-    }
+    private static final int BORDER_COUNT = -1;
+    private static final int BORDER_COUNT_INDEX = 0;
+    private static final int LEFT = 1;
+    private static final int RIGHT = 2;
+    private static final int UP = 3;
+    private static final int DOWN = 4;
 
     @Override
     public boolean isValid(List<Cell> cells) {
@@ -25,7 +21,11 @@ public class BorderCountRule extends Rule {
     }
 
     private boolean isValid(Cell cell) {
-        int borderCount = cell.getValue()[0];
-        return borderCount == -1 || borderCount == cell.getValue()[1] + cell.getValue()[2] + cell.getValue()[3] + cell.getValue()[4];
+        int borderCount = cell.getValue()[BORDER_COUNT_INDEX];
+        return borderCount == BORDER_COUNT ||
+                borderCount == cell.getValue()[LEFT] +
+                cell.getValue()[RIGHT] +
+                cell.getValue()[UP] +
+                cell.getValue()[DOWN];
     }
 }

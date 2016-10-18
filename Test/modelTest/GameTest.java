@@ -19,8 +19,8 @@ public class GameTest {
     @Before
     public void setUp() {
         rules = new ArrayList<>();
-        rules.add(AllDifferentRule.getInstance());
-        rules.add(SumOfNumbersEqXRule.getInstance());
+        rules.add( new AllDifferentRule());
+        rules.add(new SumOfNumbersEqXRule());
     }
 
     @Test

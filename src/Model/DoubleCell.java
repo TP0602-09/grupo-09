@@ -14,7 +14,4 @@ public class DoubleCell extends Cell {
         this.y = values[1];
     }
 
-    //public boolean canChangeValue() {
-      //  return false;
-    //}
 }

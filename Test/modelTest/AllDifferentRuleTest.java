@@ -29,7 +29,8 @@ public class AllDifferentRuleTest {
         cells.add(cell1);
         cells.add(cell2);
         cells.add(cell3);
-        assertTrue(AllDifferentRule.getInstance().isValid(cells));
+        AllDifferentRule rule = new AllDifferentRule();
+        assertTrue(rule.isValid(cells));
     }
 
     @Test
@@ -44,7 +45,8 @@ public class AllDifferentRuleTest {
         cells.add(cell1);
         cells.add(cell2);
         cells.add(cell3);
-        assertFalse(AllDifferentRule.getInstance().isValid(cells));
+        AllDifferentRule rule = new AllDifferentRule();
+        assertFalse(rule.isValid(cells));
     }
 
 }

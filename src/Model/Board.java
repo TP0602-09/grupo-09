@@ -7,7 +7,7 @@ public class Board {
     private int rows;
     private int columns;
     private HashMap<Position, Cell> cells;
-
+    private SectorBuilderStrategy strategy;
     public Board(int rows, int cols, HashMap<Position, Cell> cells) {
         this.rows = rows;
         this.columns = cols;
@@ -22,15 +22,9 @@ public class Board {
         return this.cells;
     }
 
-    public List<List<Cell>> getSectorsToValidate(Cell cell) {
-
-        List<List<Cell>> sectors = new ArrayList<>();
-
-        sectors.add(getRow(cell));
-        sectors.add(getColumn(cell));
-        sectors.add(getMatrix(cell));
-
-        return sectors;
+    public List<List<Cell>> getSectorsToValidate(Cell cell,Game game) {
+        strategy = game.currentStrategy();
+        return strategy.getSectorsToValidate(cell,cells);
     }
 
     private List<Cell> getColumn(Cell cell) {

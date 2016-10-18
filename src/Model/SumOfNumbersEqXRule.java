@@ -3,14 +3,6 @@ package Model;
 import java.util.List;
 
 public class SumOfNumbersEqXRule extends Rule {
-    private static SumOfNumbersEqXRule ourInstance = new SumOfNumbersEqXRule();
-
-    public static SumOfNumbersEqXRule getInstance() {
-        return ourInstance;
-    }
-
-    private SumOfNumbersEqXRule() {
-    }
 
     private static final int RESULT_CELL_INDEX = 0;
 

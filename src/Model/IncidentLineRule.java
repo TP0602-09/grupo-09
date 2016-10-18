@@ -10,39 +10,27 @@ public class IncidentLineRule extends Rule {
     private static final int LEFT_SLASH = 1;
     private static final int RIGHT_SLASH = 2;
 
-    private static IncidentLineRule ourInstance = null;
-
-    public static IncidentLineRule getInstance() {
-        if (ourInstance == null) {
-            ourInstance = new IncidentLineRule();
-        }
-        return ourInstance;
-    }
-
-    private IncidentLineRule() {
-    }
-
     @Override
     public boolean isValid(List<Cell> cells) {
         Cell cell = cells.get(0);
         cells.remove(cell);
         ArrayList<Cell> upperLeftCells = getUpperLeftCells(cells, cell);
-        ArrayList<Cell> uppertRightCells = getUpperRightCells(cells, cell);
+        ArrayList<Cell> upperRightCells = getUpperRightCells(cells, cell);
         ArrayList<Cell> downLeftCells = getDownLeftCells(cells, cell);
         ArrayList<Cell> downRightCells = getDownRightCells(cells, cell);
-        return validateCorners(upperLeftCells, uppertRightCells,
+        return validateCorners(upperLeftCells, upperRightCells,
                 downLeftCells, downRightCells, cell,
                 cell.getPosition());
     }
 
     private boolean validateCorners(ArrayList<Cell> upperLeftCells,
-                                    ArrayList<Cell> uppertRightCells,
+                                    ArrayList<Cell> upperRightCells,
                                     ArrayList<Cell> downLeftCells,
                                     ArrayList<Cell> downRightCells,
                                     Cell cell,
                                     Position position) {
         return validateUpperLeftCorner(upperLeftCells, position, cell) &&
-                validateUpperRightCorner(uppertRightCells, position, cell) &&
+                validateUpperRightCorner(upperRightCells, position, cell) &&
                 validateDownLeftCorner(downLeftCells, position, cell) &&
                 validateDownRightCorner(downRightCells, position, cell);
     }
@@ -62,9 +50,9 @@ public class IncidentLineRule extends Rule {
     }
 
     private boolean validateUpperRightCorner(ArrayList<Cell>
-                                                     uppertRightCells,
+                                                     upperRightCells,
                                              Position position, Cell cell) {
-        int incidentCount = actualIncidentLinesUpperRight(uppertRightCells, position,
+        int incidentCount = actualIncidentLinesUpperRight(upperRightCells, position,
                 cell.getValue()[0]);
         return incidentCount <= cell.getValue()[2];
     }

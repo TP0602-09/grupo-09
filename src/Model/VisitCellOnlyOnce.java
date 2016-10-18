@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VisitCellOnlyOnce extends Rule {
@@ -10,38 +11,42 @@ public class VisitCellOnlyOnce extends Rule {
     private static final int UP = 3;
     private static final int DOWN = 4;
 
-    private static VisitCellOnlyOnce ourInstance = null;
-
-    public static VisitCellOnlyOnce getInstance() {
-        if (ourInstance == null) {
-            ourInstance = new VisitCellOnlyOnce();
-        }
-        return ourInstance;
-    }
-
-    private VisitCellOnlyOnce() {
-
-    }
 
     @Override
     public boolean isValid(List<Cell> cells) {
-        Cell cell = cells.get(CELL_POS);
-        if (cell.getValue()[LEFT] == 1 && cell.getValue()[RIGHT] == 1) {
-            return cell.getValue()[DOWN] == 0 && cell.getValue()[UP] == 0;
-        }
-        if (cell.getValue()[UP] == 1 && cell.getValue()[DOWN] == 1) {
-            return cell.getValue()[LEFT] == 0 && cell.getValue()[RIGHT] == 0;
-        }
-        if (cell.getValue()[UP] == 1 && cell.getValue()[RIGHT] == 1) {
-            return cell.getValue()[DOWN] == 0 && cell.getValue()[LEFT] == 0;
-        }
+        int[] value = cells.get(CELL_POS).getValue();
+        return validateLeftRight(value) ||validateUpDown(value)||
+                validateUpRight(value) || validateRightDown(value) ||
+                validateLeftUp(value)|| validateDownLeft(value);
+    }
 
-        if (cell.getValue()[DOWN] == 1 && cell.getValue()[RIGHT] == 1) {
-            return cell.getValue()[UP] == 0 && cell.getValue()[LEFT] == 0;
-        }
-        if (cell.getValue()[UP] == 1 && cell.getValue()[LEFT] == 1) {
-            return cell.getValue()[DOWN] == 0 && cell.getValue()[RIGHT] == 0;
-        }
-        return !(cell.getValue()[DOWN] == 1 && cell.getValue()[LEFT] == 1) || cell.getValue()[UP] == 0 && cell.getValue()[RIGHT] == 0;
+    private boolean validateUpRight(int[] value) {
+        return (value[UP] == 1 && value[RIGHT] == 1)&&
+                (value[DOWN] == 0 && value[LEFT] == 0);
+    }
+
+    private boolean validateDownLeft(int[] value) {
+        return !(value[DOWN] == 1 && value[LEFT] == 1) &&
+                (value[UP] == 0 && value[RIGHT] == 0);
+    }
+
+    private boolean validateLeftUp(int[] value) {
+        return  (value[UP] == 1 && value[LEFT] == 1)&&
+                (value[DOWN] == 0 && value[RIGHT] == 0);
+    }
+
+    private boolean validateRightDown(int[] value) {
+        return  (value[DOWN] == 1 && value[RIGHT] == 1) &&
+                (value[UP] == 0 && value[LEFT] == 0);
+    }
+
+    private boolean validateUpDown(int[] value) {
+        return (value[UP] == 1 && value[DOWN] == 1) &&
+                (value[LEFT] == 0 && value[RIGHT] == 0);
+    }
+
+    private boolean validateLeftRight(int[] value) {
+       return (value[LEFT] == 1 && value[RIGHT] == 1) &&
+        (value[DOWN] == 0 && value[UP] == 0);
     }
 }

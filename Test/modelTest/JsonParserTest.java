@@ -18,8 +18,7 @@ public class JsonParserTest {
 
     @Test
     public void testCreateParser() {
-        JsonParser parser = JsonParser.instance();
-        assertNotNull(parser);
+        JsonParser parser = new JsonParser();
         assertEquals("sudoku", parser.getGameName());
         assertEquals(9, parser.getRows());
         assertEquals(9, parser.getColumns());
@@ -28,7 +27,7 @@ public class JsonParserTest {
 
     @Test
     public void testParseNullPath() {
-        JsonParser parser = JsonParser.instance();
+        JsonParser parser = new JsonParser();
         parser.parseElements(null);
         assertEquals(9, parser.getRows());
         assertEquals(9, parser.getColumns());

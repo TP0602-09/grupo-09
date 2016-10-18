@@ -1,8 +1,12 @@
 package Model;
 
+import org.omg.CORBA.*;
+
+import java.lang.Object;
 import java.util.List;
 
 public class NumberAreMultiple extends Rule {
+
     @Override
     public boolean isValid(List<Cell> cells) {
         int value = cells.get(0).getValue()[0];
@@ -13,6 +17,7 @@ public class NumberAreMultiple extends Rule {
         }
         return numberIsValidMultiple(cells, value);
     }
+
 
     private boolean numberIsValidMultiple(List<Cell> cells, int value) {
         for (Cell cell : cells) {

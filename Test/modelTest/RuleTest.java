@@ -1,4 +1,4 @@
-
+package modelTest;
 
 import Model.*;
 import org.junit.Before;
@@ -22,8 +22,8 @@ public class RuleTest {
 
     @Before
     public void setUp() {
-        rowCells = new ArrayList<Cell>();
-        colCells = new ArrayList<Cell>();
+        rowCells = new ArrayList<>();
+        colCells = new ArrayList<>();
 
         for (int i = 1; i < 10; i ++) {
             Cell rowCell = new EditableCell(new Position(i, 1));
@@ -44,7 +44,7 @@ public class RuleTest {
         colCells.get(6).setValue(1);
         colCells.get(8).setValue(7);
 
-        allDifferentRule = AllDifferentRule.getInstance();
+        allDifferentRule = new AllDifferentRule();
     }
 
     @Test

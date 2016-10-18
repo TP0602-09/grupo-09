@@ -14,18 +14,18 @@ public class EngineController {
     private Game game;
     private static final List<Rule> rulesSudoku;
     static {
-        rulesSudoku = new ArrayList<Rule>();
-        rulesSudoku.add(AllDifferentRule.getInstance());
+        rulesSudoku = new ArrayList<>();
+        rulesSudoku.add(new AllDifferentRule());
     }
     private static final List<Rule> rulesKakuro;
     static {
-        rulesKakuro = new ArrayList<Rule>();
-        rulesKakuro.add(AllDifferentRule.getInstance());
-        rulesKakuro.add(SumOfNumbersEqXRule.getInstance());
+        rulesKakuro = new ArrayList<>();
+        rulesKakuro.add(new AllDifferentRule());
+        rulesKakuro.add(new SumOfNumbersEqXRule());
     }
     private static final Map<String, Game> juegos;
     static {
-        juegos = new HashMap<String, Game>();
+        juegos = new HashMap<>();
         juegos.put("SUDOKU", new GameSudoku(rulesSudoku));
         juegos.put("KAKURO", new GameKakuro(rulesKakuro));
     }
@@ -75,7 +75,7 @@ public class EngineController {
     }
 */
     public HashMap<Integer,Cell> initializeViewBoard(){
-        HashMap<Integer,Cell> cellsViewArray = new HashMap<Integer,Cell>();
+        HashMap<Integer,Cell> cellsViewArray = new HashMap<>();
         int counter = 1;
         for(int i = 1; i<=this.game.getBoard().getRows(); i++){
             for(int j = 1; j<=this.game.getBoard().getRows(); j++){

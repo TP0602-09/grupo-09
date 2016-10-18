@@ -28,7 +28,8 @@ public class SumOfNumbersEqXRuleTest {
         cells.add(cell1);
         cells.add(cell2);
         cells.add(cell3);
-        assertTrue(SumOfNumbersEqXRule.getInstance().isValid(cells));
+        SumOfNumbersEqXRule rule = new SumOfNumbersEqXRule();
+        assertTrue(rule.isValid(cells));
 
     }
 
@@ -44,6 +45,7 @@ public class SumOfNumbersEqXRuleTest {
         cells.add(cell1);
         cells.add(cell2);
         cells.add(cell3);
-        assertFalse(SumOfNumbersEqXRule.getInstance().isValid(cells));
+        SumOfNumbersEqXRule rule = new SumOfNumbersEqXRule();
+        assertFalse(rule.isValid(cells));
     }
 }

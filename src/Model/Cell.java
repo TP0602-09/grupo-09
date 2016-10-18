@@ -12,7 +12,6 @@ public abstract class Cell {
         this.value = value;
     }
 
-    public boolean hasValue() { return this.value[0] != 0; }
 
     public int[] getValue(){
         return this.value;

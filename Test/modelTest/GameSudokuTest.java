@@ -16,7 +16,8 @@ public class GameSudokuTest {
     @Before
     public void setUp() {
         rulesSudoku = new ArrayList<>();
-        rulesSudoku.add(AllDifferentRule.getInstance());
+
+        rulesSudoku.add(new AllDifferentRule());
     }
 
     @Test

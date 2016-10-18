@@ -5,7 +5,4 @@ public class DataCell extends Cell {
         super(pos);
     }
 
-   // public boolean canChangeValue() {
-    //    return false;
-    //}
 }

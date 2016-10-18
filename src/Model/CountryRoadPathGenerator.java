@@ -18,7 +18,6 @@ public class CountryRoadPathGenerator extends PathGenerator {
                              HashMap<Position, Cell> cells, int boardSize) {
         if (cell != null) {
 
-
             if (cell.getValue()[LEFT] == 1) {
                 buildLeft(cell.getPosition(), array, cells, boardSize);
             }

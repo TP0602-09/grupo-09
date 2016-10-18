@@ -3,27 +3,18 @@ package Model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.lang.Math.*;
-
-import static java.lang.Math.log;
 
 public abstract class PathGenerator {
+
+    private static final int MAX_GRAPH_SIZE = 100;
 
     public Graph generatePath(Position position, Board board) {
         Cell cell = board.getCells().get(position);
         ArrayList<Edge> array = new ArrayList<>();
         buildPath(cell, array, board.getCells(), board.getRows());
-
-        removeDuplicateEdges(array);
-        int graphSize = vertexCount(array);
-        Graph graph = new Graph(graphSize);
+        Graph graph = new Graph(MAX_GRAPH_SIZE);
         generateGraphEdges(array, graph);
         return graph;
-    }
-
-    private int vertexCount(ArrayList<Edge> array) {
-        Double result = log(array.size()*2)/log(2);
-        return result.intValue();
     }
 
     protected abstract void buildPath(Cell cell, ArrayList<Edge> array,
@@ -32,6 +23,7 @@ public abstract class PathGenerator {
 
 
     private void generateGraphEdges(ArrayList<Edge> array, Graph graph) {
+        removeDuplicateEdges(array);
         for (Edge edge : array) {
             graph.addEdge(edge.x, edge.y);
         }

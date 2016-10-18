@@ -6,13 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 public class CellLoader {
-    private static CellLoader ourInstance = new CellLoader();
 
-    public static CellLoader getInstance() {
-        return ourInstance;
-    }
-
-    private CellLoader() {}
 
     public HashMap<Position,Cell> loadCells(List<HashMap<String, Object>> cellsArray) {
         HashMap<Position,Cell> cells = new HashMap<>();
