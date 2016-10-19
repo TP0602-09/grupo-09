@@ -26,8 +26,8 @@ public class GameReader {
 
         try {
 
-            String path = System.getProperty("user.dir") + "/resources/Model/" + gameName + "/" +
-                    gameName + "_enunciado.json";
+            String path = System.getProperty("user.dir") + "/resources/Model/" + gameName + "/"
+                    + gameName + "_enunciado.json";
 
             InputStreamReader jsonFile = new InputStreamReader(new FileInputStream(path), "UTF-8");
 

@@ -11,8 +11,9 @@ public abstract class Rule {
     public boolean areSectorsValid(Board board) {
         List<Sector> sectors = board.getSectors();
         for (Sector aSector : sectors) {
-            if (!validSectorSpecificRule(aSector))
+            if (!validSectorSpecificRule(aSector)) {
                 return false;
+            }
         }
         return true;
     }
@@ -21,7 +22,7 @@ public abstract class Rule {
 
     public ArrayList<Integer> extractCellValues(Sector sector) {
         ArrayList<Integer> values = new ArrayList<Integer>();
-        for(BoardElement aCell: sector.getBoardElements()) {
+        for (BoardElement aCell: sector.getBoardElements()) {
             Cell cell = (Cell) aCell;
             if (cell.hasValue()) {
                 values.add(cell.getValue());
@@ -30,3 +31,5 @@ public abstract class Rule {
         return values;
     }
 }
+
+

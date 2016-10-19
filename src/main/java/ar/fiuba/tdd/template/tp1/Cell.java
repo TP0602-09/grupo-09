@@ -9,23 +9,27 @@ public class Cell extends BoardElement{
     private int value;
     private boolean hasValue;
 
-    public Cell(Position pos){
+    public Cell(Position pos) {
         super(pos);
+        this.pos = pos;
         this.hasValue = false;
     }
 
-    public void setValue(int value){
+    public void setValue(int value) {
         this.value = value;
         this.hasValue = true;
     }
 
-    public boolean hasValue() { return this.hasValue; }
+    public boolean hasValue() {
+        return this.hasValue;
+    }
 
-    public int getValue(){
+    public int getValue() {
+
         return this.value;
     }
 
-    public Position getPosition (){
+    public Position getPosition() {
         return this.pos;
     }
 }

@@ -14,7 +14,7 @@ public class Game {
     private InputFileReader inputFileReader;
     private OutputFileMaker outputFileMaker;
 
-    public Game (Board board, String inputType, String unionType) {
+    public Game(Board board, String inputType, String unionType) {
         this.board = board;
         this.inputType = inputType;
         this.unionType = unionType;
@@ -35,7 +35,7 @@ public class Game {
         try {
             InputData inputData = inputFileReader.read(path);
             System.out.print("Playing...");
-            for(Play aPlay : inputData.getPlays()) {
+            for (Play aPlay : inputData.getPlays()) {
                 if (make(aPlay)) {
                     board.update(aPlay);
                 }
@@ -47,4 +47,13 @@ public class Game {
         }
 
     }
+
+    public String getInputType() {
+        return this.inputType;
+    }
+
+    public String getUnionType() {
+        return this.unionType;
+    }
+
 }

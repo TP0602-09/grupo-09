@@ -38,7 +38,7 @@ public class Board {
         return this.elements;
     }
 
-    public int getCols(){
+    public int getCols() {
         return this.columns;
     }
 

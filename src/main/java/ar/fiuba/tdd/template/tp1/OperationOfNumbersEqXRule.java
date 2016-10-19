@@ -10,7 +10,7 @@ public abstract class OperationOfNumbersEqXRule extends Rule {
     public boolean validSectorSpecificRule(Sector sector) {
         ArrayList<Integer> values = this.extractCellValues(sector);
         Integer op = operation(values);
-        if(isComplete(sector, values)) {
+        if (isComplete(sector, values)) {
             return op == sector.getValue();
         } else {
             return op <= sector.getValue();
