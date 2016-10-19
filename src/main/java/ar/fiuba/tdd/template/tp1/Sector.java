@@ -8,9 +8,11 @@ import java.util.List;
 public class Sector {
 
     private List<BoardElement> boardElements;
+    private Integer value;
 
-    public Sector(List<BoardElement> boardElements) {
+    public Sector(List<BoardElement> boardElements, Integer value) {
         this.boardElements = boardElements;
+        this.value = value;
     }
 
     public List<BoardElement> getBoardElements() {

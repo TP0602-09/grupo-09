@@ -6,7 +6,7 @@ package ar.fiuba.tdd.template.tp1;
 public class SumOfNumbersEqXRule extends Rule {
 
     @Override
-    public boolean validSectorEspecificRule(Sector sector) {
+    public boolean validSectorSpecificRule(Sector sector) {
         //TODO implement method (chequear que la suma sea la correcta)
         return false;
     }
