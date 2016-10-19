@@ -1,45 +1,43 @@
 package ar.fiuba.tdd.template.tp1;
+@SuppressWarnings("Default File template")
 
-/**
- * Created by Lucía on 16/10/2016.
- */
 public class Position {
 
-    private int x;
-    private int y;
+    private int xcoordinate;
+    private int ycoordinate;
 
-    public Position(int x,int y) {
-        this.x = x;
-        this.y = y;
+    public Position(int xcoordinate,int ycoordinate) {
+        this.xcoordinate = xcoordinate;
+        this.ycoordinate = ycoordinate;
     }
 
-    public int getX() {
-        return this.x;
+    public int getXcoordinate() {
+        return this.xcoordinate;
     }
 
-    public int getY() {
-        return this.y;
+    public int getYcoordinate() {
+        return this.ycoordinate;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (object == null || getClass() != object.getClass()) {
             return false;
         }
 
-        Position position = (Position) o;
+        Position position = (Position) object;
 
-        return x == position.getX() && y == position.getY();
+        return xcoordinate == position.getXcoordinate() && ycoordinate == position.getYcoordinate();
 
     }
 
     @Override
     public int hashCode() {
-        int result = x;
-        result = 31 * result + y;
+        int result = xcoordinate;
+        result = 31 * result + ycoordinate;
         return result;
     }
 
