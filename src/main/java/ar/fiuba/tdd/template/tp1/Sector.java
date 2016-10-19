@@ -19,4 +19,7 @@ public class Sector {
         return boardElements;
     }
 
+    public Integer getValue() {
+        return value;
+    }
 }
