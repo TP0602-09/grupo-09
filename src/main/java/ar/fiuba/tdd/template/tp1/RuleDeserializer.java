@@ -6,9 +6,6 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Lucía on 20/10/2016.
- */
 public class RuleDeserializer implements JsonDeserializer<Rule> {
 
     private static final Map<String,Rule> rules;

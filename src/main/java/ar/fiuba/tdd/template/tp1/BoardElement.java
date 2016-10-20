@@ -11,6 +11,7 @@ public abstract class BoardElement {
     }
 
     @Override
+    @SuppressWarnings("CPD-START")
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -23,6 +24,7 @@ public abstract class BoardElement {
 
         return position.equals(that.position);
     }
+    @SuppressWarnings("CPD-END")
 
     @Override
     public int hashCode() {

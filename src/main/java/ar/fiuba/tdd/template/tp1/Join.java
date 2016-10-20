@@ -18,9 +18,7 @@ public class Join {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-
         Join join = (Join) obj;
-
         if (firstElement.equals(join.firstElement) && secondElement.equals(join.secondElement)) {
             return true;
         }
