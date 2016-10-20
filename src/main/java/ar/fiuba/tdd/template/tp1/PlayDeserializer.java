@@ -6,6 +6,7 @@ import java.lang.reflect.Type;
 
 public class PlayDeserializer implements JsonDeserializer<Play> {
 
+    @SuppressWarnings("CPD-START")
     @Override
     public Play deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
@@ -25,6 +26,8 @@ public class PlayDeserializer implements JsonDeserializer<Play> {
         }
         return play;
     }
+
+    @SuppressWarnings("CPD-END")
 
     private Position getPosition(JsonObject jsonObject, String key) {
         int posX = jsonObject.get(key).getAsJsonArray().get(0).getAsInt();
