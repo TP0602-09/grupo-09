@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public abstract class OperationOfNumbersEqXRule extends Rule {
     @Override
-    public boolean validSectorSpecificRule(Sector sector) {
+    public boolean isValidSector(Sector sector) {
         ArrayList<Integer> values = this.extractCellValues(sector);
         Integer op = operation(values);
         if(isComplete(sector, values)) {

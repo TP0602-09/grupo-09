@@ -8,16 +8,16 @@ import java.util.List;
  */
 public abstract class Rule {
 
-    public boolean areSectorsValid(Board board) {
+    public boolean isValidBoard(Board board) {
         List<Sector> sectors = board.getSectors();
         for (Sector aSector : sectors) {
-            if (!validSectorSpecificRule(aSector))
+            if (!isValidSector(aSector))
                 return false;
         }
         return true;
     }
 
-    public abstract boolean validSectorSpecificRule(Sector sector);
+    public abstract boolean isValidSector(Sector sector);
 
     public ArrayList<Integer> extractCellValues(Sector sector) {
         ArrayList<Integer> values = new ArrayList<Integer>();

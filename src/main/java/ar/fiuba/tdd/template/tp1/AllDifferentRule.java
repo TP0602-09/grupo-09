@@ -11,7 +11,7 @@ import java.util.Set;
 public class AllDifferentRule extends Rule {
 
     @Override
-    public boolean validSectorSpecificRule(Sector sector) {
+    public boolean isValidSector(Sector sector) {
         ArrayList<Integer> values = this.extractCellValues(sector);
         if (values.isEmpty())
             return true;
