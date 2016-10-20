@@ -1,4 +1,5 @@
 package ar.fiuba.tdd.template.tp1;
+
 @SuppressWarnings("Default File template")
 
 public class Position {
