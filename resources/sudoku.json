@@ -55,9 +55,9 @@
 	}
 	],
 	everyPlayRules: [
-		rule: "AllDifferentRule"
+		{rule: "AllDifferentRule"}
 	],
 	finalRules: [
-		rule: "AllDifferentRule"
+		{rule: "AllDifferentRule"}
 	]
 }
