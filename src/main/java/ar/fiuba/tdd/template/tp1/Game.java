@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.template.tp1;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -9,19 +10,33 @@ public class Game {
     private String inputType;
     private String unionType;
     private InputFileReader inputFileReader;
-    private OutputFileWriter outputFileMaker;
+    private OutputFileMaker outputFileMaker;
+    private List<Rule> everyPlayRules;
+    private List<Rule> finalRules;
 
-    public Game(Board board, String inputType, String unionType) {
+    public Game(Board board, String inputType, String unionType,
+                List<Rule> everyPlayRules, List<Rule> finalRules) {
         this.board = board;
+        this.everyPlayRules = everyPlayRules;
+        this.finalRules = finalRules;
         this.inputType = inputType;
         this.unionType = unionType;
         this.inputFileReader = new InputFileReader();
-        this.outputFileMaker = new OutputFileWriter();
+        this.outputFileMaker = new OutputFileMaker();
     }
 
     public boolean make(Play play) {
         play.doIt(board);
-        return board.validate();
+        return validateBoard(everyPlayRules);
+    }
+
+    private boolean validateBoard(List<Rule> rules) {
+        for (Rule rule : rules) {
+            if (!rule.isValidBoard(board)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void play() {
@@ -35,10 +50,13 @@ public class Game {
             for (Play onePlay : inputData.getPlays()) {
                 if (make(onePlay)) {
                     board.update(onePlay);
+                } else {
+                    onePlay.isInvalid();
                 }
             }
-            System.out.print("Generating output file in directory 'C:/Users/'");
-            outputFileMaker.make(board);
+            System.out.print("Generating final status");
+
+            outputFileMaker.make(board, inputData.getPlays(), validateBoard(finalRules));
         } catch (IOException e) {
             System.out.print("Input not found");
         }

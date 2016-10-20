@@ -13,14 +13,11 @@ public class GameData {
     private String elementType;
     private String inputType;
     private String unionType;
-    private List<Sector> sectors;
-    private List<Rule> rules;
+    private List<Sector> sectors = new ArrayList<Sector>();
+    private List<Rule> everyPlayRules = new ArrayList<Rule>();
+    private List<Rule> finalRules = new ArrayList<Rule>();
 
-    public GameData() {
-        this.name = "";
-        this.sectors = new ArrayList<Sector>();
-        this.rules = new ArrayList<Rule>();
-    }
+    public GameData() {}
 
     public String getName() {
         return name;
@@ -54,13 +51,6 @@ public class GameData {
         sectors = sector;
     }
 
-    public List<Rule> getRules() {
-        return rules;
-    }
-
-    public void setRules(List<Rule> rules) {
-        this.rules = rules;
-    }
 
     public String getElementType() {
         return elementType;
@@ -84,5 +74,21 @@ public class GameData {
 
     public void setUnionType(String unionTyp) {
         unionType = unionTyp;
+    }
+
+    public List<Rule> getEveryPlayRules() {
+        return everyPlayRules;
+    }
+
+    public void setEveryPlayRules(List<Rule> everyPlayRules) {
+        this.everyPlayRules = everyPlayRules;
+    }
+
+    public List<Rule> getFinalRules() {
+        return finalRules;
+    }
+
+    public void setFinalRules(List<Rule> finalRules) {
+        this.finalRules = finalRules;
     }
 }

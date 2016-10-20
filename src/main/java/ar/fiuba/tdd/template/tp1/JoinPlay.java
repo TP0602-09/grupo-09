@@ -1,16 +1,18 @@
 package ar.fiuba.tdd.template.tp1;
 
-public class JoinPlay implements Play {
+public class JoinPlay extends Play {
 
-    /*private Vorterix vortetix1;
+
+   /* private Vorterix vortetix1;
     private Vorterix vorterix2;
-    private Join join;
+    private Join join;*/
 
     public JoinPlay(Vorterix vortetix1, Vorterix vorterix2, Join join) {
-        this.vortetix1 = vortetix1;
+        super();
+        /*this.vortetix1 = vortetix1;
         this.vorterix2 = vorterix2;
-        this.join = join;
-    }*/
+        this.join = join;*/
+    }
 
     @Override
     public void doIt(Board board) {

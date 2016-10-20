@@ -7,8 +7,8 @@ public class Sector {
     private List<BoardElement> boardElements;
     private int value;
 
-    public Sector(List<BoardElement> boardElements, Integer value) {
-        this.boardElements = boardElements;
+    public Sector(List<BoardElement> elements, int value) {
+        this.boardElements = elements;
         this.value = value;
     }
 

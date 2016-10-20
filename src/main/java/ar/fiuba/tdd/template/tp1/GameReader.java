@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
  */
 public class GameReader {
     private static GameReader ourInstance = new GameReader();
-    private static String gameName = "sudoku";
 
     public static GameReader getInstance() {
         return ourInstance;
@@ -21,7 +20,7 @@ public class GameReader {
     private GameReader() {
     }
 
-    public GameData readGameConfiguration() throws GameNotFoundException {
+    public GameData readGameConfiguration(String gameName) throws GameNotFoundException {
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
 
         try {
