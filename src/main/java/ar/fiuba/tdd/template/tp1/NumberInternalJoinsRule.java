@@ -29,7 +29,8 @@ public class NumberInternalJoinsRule extends JoinRule {
         Set<Join> joinsPossibles = new HashSet<>();
 
         for (BoardElement firstElement : elements) {
-            joinsPossibles.addAll(elements.stream().map(secondElement -> new Join(firstElement, secondElement)).collect(Collectors.toList()));
+            joinsPossibles.addAll(elements.stream().map(secondElement ->
+                    new Join(firstElement, secondElement)).collect(Collectors.toList()));
         }
 
         return joinsPossibles;

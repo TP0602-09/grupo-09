@@ -11,11 +11,16 @@ import java.util.Map;
  */
 public class RuleDeserializer implements JsonDeserializer<Rule> {
 
-    private static final Map<String,Rule> reglas;
+    private static final Map<String,Rule> rules;
+
     static {
-        reglas = new HashMap<String, Rule>();
-        reglas.put("AllDifferentRule", new AllDifferentRule());
-        reglas.put("SumOfNumbersEqXRule", new SumOfNumbersEqXRule());
+        rules = new HashMap<String, Rule>();
+        rules.put("AllDifferentRule", new AllDifferentRule());
+        rules.put("SumOfNumbersEqXRule", new SumOfNumbersEqXRule());
+        rules.put("MultiplyOfNumbersEqXRule", new SumOfNumbersEqXRule());
+        rules.put("NumberElementVisitedRule", new NumberElementVisitedRule());
+        rules.put("NumberInternalJoinsRule", new NumberInternalJoinsRule());
+
     }
 
     @Override
@@ -25,6 +30,6 @@ public class RuleDeserializer implements JsonDeserializer<Rule> {
         JsonElement jsonType = jsonObject.get("rule");
         String rule = jsonType.getAsString();
 
-        return reglas.get(rule);
+        return rules.get(rule);
     }
 }
