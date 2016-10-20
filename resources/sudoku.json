@@ -1,63 +1,63 @@
 {
-	name: "sudoku",
-	rows: 4,
-	columns: 4,
-	elementType: "Cell",
-	inputType: "value",
-	unionType: "NA",
-	sectors:[{
-		value: 0,
-		boardElements:[{
-				type: "cell",
-				position:[1,1],
-				value: 0
+	"name": "sudoku",
+	"rows": 4,
+	"columns": 4,
+	"elementType": "Cell",
+	"inputType": "value",
+	"unionType": "NA",
+	"sectors":[{
+		"value": 0,
+		"boardElements":[{
+				"type": "cell",
+				"position":[1,1],
+				"value": 0
 			},
 			{
-				type: "cell",
-				position:[1,2],
-				value: 0
+				"type": "cell",
+				"position":[1,2],
+				"value": 0
 			},
 			{
-				type: "cell",
-				position:[1,3],
-				value: 0
+				"type": "cell",
+				"position":[1,3],
+				"value": 0
 			},
 			{
-				type: "cell",
-				position:[1,4],
-				value: 0
+				"type": "cell",
+				"position":[1,4],
+				"value": 0
 			}
 		]
 	},
 	{
-		value: 0,
-		boardElements:[{
-			type: "cell",
-			position:[2,1],
-			value: 4
+		"value": 0,
+		"boardElements":[{
+			"type": "cell",
+			"position":[2,1],
+			"value": 4
 			},
 			{
-				type: "cell",
-				position:[2,2],
-				value: 0
+				"type": "cell",
+				"position":[2,2],
+				"value": 0
 			},
 			{
-				type: "cell",
-				position:[2,3],
-				value: 2
+				"type": "cell",
+				"position":[2,3],
+				"value": 2
 			},
 			{
-				type: "cell",
-				position:[2,4],
-				value: 0
+				"type": "cell",
+				"position":[2,4],
+				"value": 0
 			}
 		]
 	}
 	],
-	everyPlayRules: [
-		rule: "AllDifferentRule"
+	"everyPlayRules": [
+		{"rule": "AllDifferentRule"}
 	],
-	finalRules: [
-		rule: "AllDifferentRule"
+	"finalRules": [
+		{"rule": "AllDifferentRule"}
 	]
 }

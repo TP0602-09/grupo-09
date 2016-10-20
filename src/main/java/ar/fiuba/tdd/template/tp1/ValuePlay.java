@@ -4,6 +4,7 @@ public class ValuePlay extends Play {
 
     private Position position;
     private int value;
+    private int lastValue = 0;
 
     public ValuePlay() {
     }
@@ -18,6 +19,14 @@ public class ValuePlay extends Play {
 
     @Override
     public void doIt(Board board) {
-        //TODO implement method
+        Cell oneCell = (Cell) board.getElement(position);
+        lastValue = oneCell.getValue();
+        oneCell.setValue(value);
+    }
+
+    @Override
+    public void rollback(Board board) {
+        Cell oneCell = (Cell) board.getElement(position);
+        oneCell.setValue(lastValue);
     }
 }

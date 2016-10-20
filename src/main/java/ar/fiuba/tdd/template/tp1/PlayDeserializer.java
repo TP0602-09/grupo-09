@@ -32,7 +32,7 @@ public class PlayDeserializer implements JsonDeserializer<Play> {
             joinPlay.setFirstPosition(new Position(x,y));
             x = jsonObject.get("secondPosition").getAsJsonArray().get(0).getAsInt();
             y = jsonObject.get("secondPosition").getAsJsonArray().get(1).getAsInt();
-            joinPlay.setFirstPosition(new Position(x,y));
+            joinPlay.setSecondPosition(new Position(x,y));
             play = joinPlay;
         }
 

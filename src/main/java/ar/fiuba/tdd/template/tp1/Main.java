@@ -2,9 +2,6 @@ package ar.fiuba.tdd.template.tp1;
 
 import java.util.Scanner;
 
-/**
- * Created by Lucía on 17/10/2016.
- */
 public class Main {
 
     public static void main(String[] args) {

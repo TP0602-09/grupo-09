@@ -2,9 +2,6 @@ package ar.fiuba.tdd.template.tp1;
 
 import java.util.List;
 
-/**
- * Created by Agata on 19/10/2016.
- */
 public class NumberElementVisitedRule extends JoinRule {
 
     @Override
@@ -17,6 +14,7 @@ public class NumberElementVisitedRule extends JoinRule {
             for (Join join : joins) {
                 if (join.hasBoardElement(element)) {
                     count += 1;
+                    break;
                 }
             }
         }

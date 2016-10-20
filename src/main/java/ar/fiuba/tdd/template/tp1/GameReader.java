@@ -22,8 +22,8 @@ public class GameReader {
 
     public GameData readGameConfiguration(String gameName) throws GameNotFoundException {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(BoardElementDeserializer.class, new BoardElementDeserializer());
-        gsonBuilder.registerTypeAdapter(RuleDeserializer.class, new RuleDeserializer());
+        gsonBuilder.registerTypeAdapter(BoardElement.class, new BoardElementDeserializer());
+        gsonBuilder.registerTypeAdapter(Rule.class, new RuleDeserializer());
         Gson gson = gsonBuilder.create();
 
         try {

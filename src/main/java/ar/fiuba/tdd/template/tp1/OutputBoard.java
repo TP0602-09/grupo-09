@@ -3,9 +3,6 @@ package ar.fiuba.tdd.template.tp1;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Lucía on 20/10/2016.
- */
 public class OutputBoard {
 
     private boolean status;
