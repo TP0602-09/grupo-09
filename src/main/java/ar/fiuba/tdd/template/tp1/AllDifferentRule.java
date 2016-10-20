@@ -1,13 +1,9 @@
 package ar.fiuba.tdd.template.tp1;
 
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by Lucía on 17/10/2016.
- */
 public class AllDifferentRule extends Rule {
 
     @Override
@@ -16,7 +12,7 @@ public class AllDifferentRule extends Rule {
         if (values.isEmpty()) {
             return true;
         }
-        Set<Integer> set = new HashSet<Integer>(values);
+        Set<Integer> set = new HashSet<>(values);
         return !(set.size() < values.size());
     }
 }

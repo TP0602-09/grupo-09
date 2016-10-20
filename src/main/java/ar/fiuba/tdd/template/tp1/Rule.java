@@ -8,7 +8,7 @@ public abstract class Rule {
     public boolean isValidBoard(Board board) {
         List<Sector> sectors = board.getSectors();
         for (Sector sector : sectors) {
-            if (!isValidSector(sector) {
+            if (!isValidSector(sector)) {
                 return false;
             }
         }
