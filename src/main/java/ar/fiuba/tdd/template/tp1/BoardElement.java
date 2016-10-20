@@ -4,7 +4,9 @@ public abstract class BoardElement {
 
     protected Position position;
 
-    public BoardElement(Position position) {
+    public BoardElement() {}
+
+    public void setPosition(Position position) {
         this.position = position;
     }
 

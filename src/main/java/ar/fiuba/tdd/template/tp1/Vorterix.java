@@ -5,7 +5,9 @@ package ar.fiuba.tdd.template.tp1;
  */
 public class Vorterix extends BoardElement {
 
-    public Vorterix(Position position) {
-        super(position);
+    public Vorterix() {
+        super();
     }
+
+
 }

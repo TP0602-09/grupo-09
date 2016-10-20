@@ -5,19 +5,17 @@ package ar.fiuba.tdd.template.tp1;
  */
 public class Cell extends BoardElement{
 
-    private Position pos;
     private int value;
     private boolean hasValue;
 
-    public Cell(Position pos) {
-        super(pos);
-        this.pos = pos;
+    public Cell() {
+        super();
         this.hasValue = false;
     }
 
     public void setValue(int value) {
         this.value = value;
-        this.hasValue = true;
+        this.hasValue = (value != -1);
     }
 
     public boolean hasValue() {
@@ -27,9 +25,5 @@ public class Cell extends BoardElement{
     public int getValue() {
 
         return this.value;
-    }
-
-    public Position getPosition() {
-        return this.pos;
     }
 }

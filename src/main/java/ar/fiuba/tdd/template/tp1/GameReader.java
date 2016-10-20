@@ -21,12 +21,14 @@ public class GameReader {
     }
 
     public GameData readGameConfiguration(String gameName) throws GameNotFoundException {
-        Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(BoardElementDeserializer.class, new BoardElementDeserializer());
+        gsonBuilder.registerTypeAdapter(RuleDeserializer.class, new RuleDeserializer());
+        Gson gson = gsonBuilder.create();
 
         try {
 
-            String path = System.getProperty("user.dir") + "/resources/Model/" + gameName + "/"
-                    + gameName + "_enunciado.json";
+            String path = System.getProperty("user.dir") + "/resources/" + gameName + ".json";
 
             InputStreamReader jsonFile = new InputStreamReader(new FileInputStream(path), "UTF-8");
 
