@@ -26,32 +26,32 @@ public class GameData {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String nam) {
+        name = nam;
     }
 
     public Integer getRows() {
         return rows;
     }
 
-    public void setRows(Integer rows) {
-        this.rows = rows;
+    public void setRows(Integer row) {
+        rows = row;
     }
 
     public Integer getColumns() {
         return columns;
     }
 
-    public void setColumns(Integer columns) {
-        this.columns = columns;
+    public void setColumns(Integer column) {
+        columns = column;
     }
 
     public List<Sector> getSectors() {
         return sectors;
     }
 
-    public void setSectors(List<Sector> sectors) {
-        this.sectors = sectors;
+    public void setSectors(List<Sector> sector) {
+        sectors = sector;
     }
 
     public List<Rule> getRules() {
@@ -66,8 +66,8 @@ public class GameData {
         return elementType;
     }
 
-    public void setElementType(String elementType) {
-        this.elementType = elementType;
+    public void setElementType(String elementTyp) {
+        elementType = elementTyp;
     }
 
     public String getInputType() {
@@ -82,7 +82,7 @@ public class GameData {
         return unionType;
     }
 
-    public void setUnionType(String unionType) {
-        this.unionType = unionType;
+    public void setUnionType(String unionTyp) {
+        unionType = unionTyp;
     }
 }

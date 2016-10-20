@@ -1,11 +1,8 @@
 package ar.fiuba.tdd.template.tp1;
 
-/**
- * Created by Lucía on 17/10/2016.
- */
 public class JoinPlay implements Play {
 
-    private Vorterix vortetix1;
+    /*private Vorterix vortetix1;
     private Vorterix vorterix2;
     private Join join;
 
@@ -13,7 +10,7 @@ public class JoinPlay implements Play {
         this.vortetix1 = vortetix1;
         this.vorterix2 = vorterix2;
         this.join = join;
-    }
+    }*/
 
     @Override
     public void doIt(Board board) {

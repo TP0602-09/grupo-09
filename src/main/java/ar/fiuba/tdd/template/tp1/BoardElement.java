@@ -8,7 +8,7 @@ public abstract class BoardElement {
 
     protected Position position;
 
-    public BoardElement (Position position) {
+    public BoardElement(Position position) {
         this.position = position;
     }
 

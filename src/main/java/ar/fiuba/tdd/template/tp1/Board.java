@@ -3,9 +3,6 @@ package ar.fiuba.tdd.template.tp1;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by Lucía on 16/10/2016.
- */
 public class Board {
 
     private int rows;
@@ -21,9 +18,9 @@ public class Board {
     }
 
     private HashMap<Position, BoardElement> obtainElements() {
-        HashMap<Position, BoardElement> elements = new HashMap<Position, BoardElement>();
-        for (Sector aSector : sectors) {
-            for (BoardElement anElement : aSector.getBoardElements()) {
+        HashMap<Position, BoardElement> elements = new HashMap<>();
+        for (Sector sector : sectors) {
+            for (BoardElement anElement : sector.getBoardElements()) {
                 elements.put(anElement.getPosition(), anElement);
             }
         }
@@ -38,7 +35,7 @@ public class Board {
         return this.elements;
     }
 
-    public int getCols(){
+    public int getCols() {
         return this.columns;
     }
 
