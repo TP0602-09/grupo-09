@@ -9,14 +9,14 @@ public class Game {
     private String inputType;
     private String unionType;
     private InputFileReader inputFileReader;
-    private OutputFileMaker outputFileMaker;
+    private OutputFileWriter outputFileMaker;
 
     public Game(Board board, String inputType, String unionType) {
         this.board = board;
         this.inputType = inputType;
         this.unionType = unionType;
         this.inputFileReader = new InputFileReader();
-        this.outputFileMaker = new OutputFileMaker();
+        this.outputFileMaker = new OutputFileWriter();
     }
 
     public boolean make(Play play) {

@@ -2,13 +2,10 @@ package ar.fiuba.tdd.template.tp1;
 
 import java.util.List;
 
-/**
- * Created by Lucía on 16/10/2016.
- */
 public class Sector {
 
     private List<BoardElement> boardElements;
-    private Integer value;
+    private int value;
 
     public Sector(List<BoardElement> boardElements, Integer value) {
         this.boardElements = boardElements;
@@ -19,7 +16,7 @@ public class Sector {
         return boardElements;
     }
 
-    public Integer getValue() {
+    public int getValue() {
         return value;
     }
 }

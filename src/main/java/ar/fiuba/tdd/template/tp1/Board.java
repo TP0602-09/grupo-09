@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.template.tp1;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -9,12 +10,14 @@ public class Board {
     private int columns;
     private HashMap<Position, BoardElement> elements;
     private List<Sector> sectors;
+    private List<Join> joins;
 
     public Board(int rows, int cols, List<Sector> sectors) {
         this.rows = rows;
         this.columns = cols;
         this.sectors = sectors;
         this.elements = obtainElements();
+        this.joins = new ArrayList<>();
     }
 
     private HashMap<Position, BoardElement> obtainElements() {
@@ -50,5 +53,13 @@ public class Board {
 
     public void update(Play play) {
 
+    }
+
+    public List<Join> getJoins() {
+        return joins;
+    }
+
+    public void addJoin(Join join) {
+        this.joins.add(join);
     }
 }
