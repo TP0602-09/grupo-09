@@ -11,6 +11,7 @@ public class Join {
     }
 
     @Override
+    @SuppressWarnings("CPD-START")
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -19,13 +20,14 @@ public class Join {
             return false;
         }
         Join join = (Join) obj;
-        if (firstElement.equals(join.firstElement) && secondElement.equals(join.secondElement)) {
-            return true;
-        }
-        if (firstElement.equals(join.secondElement) && secondElement.equals(join.firstElement)) {
-            return true;
-        }
-        return false;
+
+        return hasSameElements(join);
+    }
+    @SuppressWarnings("CPD-END")
+
+    private boolean hasSameElements(Join join) {
+        return ((firstElement.equals(join.firstElement) && secondElement.equals(join.secondElement))
+                || (firstElement.equals(join.secondElement) && secondElement.equals(join.firstElement)));
     }
 
     @Override
