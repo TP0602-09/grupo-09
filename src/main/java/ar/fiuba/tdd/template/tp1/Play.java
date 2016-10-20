@@ -1,8 +1,5 @@
 package ar.fiuba.tdd.template.tp1;
 
-/**
- * Created by Lucía on 17/10/2016.
- */
 public abstract class Play {
     private boolean valid;
 
@@ -12,7 +9,9 @@ public abstract class Play {
 
     public abstract void doIt(Board board);
 
-    public void isInvalid() {
+    public abstract void rollback(Board board);
+
+    public void setInvalid() {
         this.valid = false;
     }
 

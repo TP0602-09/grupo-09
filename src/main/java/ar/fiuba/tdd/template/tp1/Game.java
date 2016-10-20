@@ -25,9 +25,12 @@ public class Game {
         this.outputFileMaker = new OutputFileMaker();
     }
 
-    public boolean make(Play play) {
+    public void makePlay(Play play) {
         play.doIt(board);
-        return validateBoard(everyPlayRules);
+        if (!validateBoard(everyPlayRules)) {
+            play.rollback(board);
+            play.setInvalid();
+        }
     }
 
     private boolean validateBoard(List<Rule> rules) {
@@ -41,18 +44,14 @@ public class Game {
 
     public void play() {
         Scanner sc = new Scanner(System.in, "UTF-8");
-        System.out.print("Enter your input file destination");
-        String path = sc.nextLine();
+        System.out.print("Enter your input file name");
+        String name = sc.nextLine();
         System.out.print("Reading input file...");
         try {
-            InputData inputData = inputFileReader.read(path);
+            InputData inputData = inputFileReader.read(name);
             System.out.print("Playing...");
             for (Play onePlay : inputData.getPlays()) {
-                if (make(onePlay)) {
-                    board.update(onePlay);
-                } else {
-                    onePlay.isInvalid();
-                }
+                makePlay(onePlay);
             }
             System.out.print("Generating final status");
 

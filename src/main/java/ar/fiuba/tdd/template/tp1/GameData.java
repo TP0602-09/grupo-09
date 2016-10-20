@@ -13,9 +13,9 @@ public class GameData {
     private String elementType;
     private String inputType;
     private String unionType;
-    private List<Sector> sectors = new ArrayList<Sector>();
-    private List<Rule> everyPlayRules = new ArrayList<Rule>();
-    private List<Rule> finalRules = new ArrayList<Rule>();
+    private List<Sector> sectors = new ArrayList<>();
+    private List<Rule> everyPlayRules = new ArrayList<>();
+    private List<Rule> finalRules = new ArrayList<>();
 
     public GameData() {}
 

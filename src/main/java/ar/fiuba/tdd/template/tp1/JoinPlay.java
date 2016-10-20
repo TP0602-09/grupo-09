@@ -4,8 +4,10 @@ public class JoinPlay extends Play {
 
     private Position firstPosition;
     private Position secondPosition;
+    private Join join;
 
-    public JoinPlay() {}
+    public JoinPlay() {
+    }
 
     public void setFirstPosition(Position firstPosition) {
         this.firstPosition = firstPosition;
@@ -17,6 +19,14 @@ public class JoinPlay extends Play {
 
     @Override
     public void doIt(Board board) {
-        //TODO implement method
+        BoardElement firstElement = board.getElement(this.firstPosition);
+        BoardElement secondElement = board.getElement(this.secondPosition);
+        join = new Join(firstElement, secondElement);
+        board.addJoin(join);
+    }
+
+    @Override
+    public void rollback(Board board) {
+        board.deleteJoin(join);
     }
 }

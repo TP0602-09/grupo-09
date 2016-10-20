@@ -20,19 +20,19 @@ public class PlayDeserializer implements JsonDeserializer<Play> {
 
         if ("value".equals(type)) {
             ValuePlay valuePlay = new ValuePlay();
-            int x = jsonObject.get("position").getAsJsonArray().get(0).getAsInt();
-            int y = jsonObject.get("position").getAsJsonArray().get(1).getAsInt();
-            valuePlay.setPosition(new Position(x,y));
+            int posX = jsonObject.get("position").getAsJsonArray().get(0).getAsInt();
+            int posY = jsonObject.get("position").getAsJsonArray().get(1).getAsInt();
+            valuePlay.setPosition(new Position(posX,posY));
             valuePlay.setValue(jsonObject.get("value").getAsInt());
             play = valuePlay;
         } else if ("join".equals(type)) {
             JoinPlay joinPlay = new JoinPlay();
-            int x = jsonObject.get("firstPosition").getAsJsonArray().get(0).getAsInt();
-            int y = jsonObject.get("firstPosition").getAsJsonArray().get(1).getAsInt();
-            joinPlay.setFirstPosition(new Position(x,y));
-            x = jsonObject.get("secondPosition").getAsJsonArray().get(0).getAsInt();
-            y = jsonObject.get("secondPosition").getAsJsonArray().get(1).getAsInt();
-            joinPlay.setFirstPosition(new Position(x,y));
+            int posX = jsonObject.get("firstPosition").getAsJsonArray().get(0).getAsInt();
+            int posY = jsonObject.get("firstPosition").getAsJsonArray().get(1).getAsInt();
+            joinPlay.setFirstPosition(new Position(posX,posY));
+            posX = jsonObject.get("secondPosition").getAsJsonArray().get(0).getAsInt();
+            posY = jsonObject.get("secondPosition").getAsJsonArray().get(1).getAsInt();
+            joinPlay.setSecondPosition(new Position(posX,posY));
             play = joinPlay;
         }
 
