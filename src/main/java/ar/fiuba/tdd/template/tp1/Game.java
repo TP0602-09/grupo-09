@@ -1,6 +1,7 @@
 package ar.fiuba.tdd.template.tp1;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -10,9 +11,14 @@ public class Game {
     private String unionType;
     private InputFileReader inputFileReader;
     private OutputFileMaker outputFileMaker;
+    private List<Rule> everyPlayRules;
+    private List<Rule> finalRules;
 
-    public Game(Board board, String inputType, String unionType) {
+    public Game(Board board, String inputType, String unionType,
+                List<Rule> everyPlayRules, List<Rule> finalRules) {
         this.board = board;
+        this.everyPlayRules = everyPlayRules;
+        this.finalRules = finalRules;
         this.inputType = inputType;
         this.unionType = unionType;
         this.inputFileReader = new InputFileReader();
@@ -21,15 +27,14 @@ public class Game {
 
     public boolean make(Play play) {
         play.doIt(board);
-        return validate(board);
+        return validateBoard(everyPlayRules);
     }
 
-    public boolean validate(Board board) {
-        //TODO implement method
-        return true;
-    }
-
-    private boolean validateFinal(Board board) {
+    private boolean validateBoard(List<Rule> rules) {
+        for(Rule aRule: rules) {
+            if (!aRule.isValidBoard(board))
+                return false;
+        }
         return true;
     }
 
@@ -50,7 +55,7 @@ public class Game {
             }
             System.out.print("Generating final status");
 
-            outputFileMaker.make(board, inputData.getPlays(), validateFinal(board));
+            outputFileMaker.make(board, inputData.getPlays(), validateBoard(finalRules));
         } catch (IOException e) {
             System.out.print("Input not found");
         }

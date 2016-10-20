@@ -12,7 +12,7 @@ public class AllDifferentRule extends Rule {
         if (values.isEmpty()) {
             return true;
         }
-        Set<Integer> set = new HashSet<>(values);
+        Set<Integer> set = new HashSet<Integer>(values);
         return !(set.size() < values.size());
     }
 }
