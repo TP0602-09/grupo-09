@@ -31,9 +31,10 @@ public class Game {
     }
 
     private boolean validateBoard(List<Rule> rules) {
-        for(Rule aRule: rules) {
-            if (!aRule.isValidBoard(board))
+        for (Rule rule : rules) {
+            if (!rule.isValidBoard(board)) {
                 return false;
+            }
         }
         return true;
     }
