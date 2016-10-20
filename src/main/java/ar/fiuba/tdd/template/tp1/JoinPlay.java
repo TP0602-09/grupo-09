@@ -2,16 +2,17 @@ package ar.fiuba.tdd.template.tp1;
 
 public class JoinPlay extends Play {
 
+    private Position firstPosition;
+    private Position secondPosition;
 
-   /* private Vorterix vortetix1;
-    private Vorterix vorterix2;
-    private Join join;*/
+    public JoinPlay() {}
 
-    public JoinPlay(Vorterix vortetix1, Vorterix vorterix2, Join join) {
-        super();
-        /*this.vortetix1 = vortetix1;
-        this.vorterix2 = vorterix2;
-        this.join = join;*/
+    public void setFirstPosition(Position firstPosition) {
+        this.firstPosition = firstPosition;
+    }
+
+    public void setSecondPosition(Position secondPosition) {
+        this.secondPosition = secondPosition;
     }
 
     @Override

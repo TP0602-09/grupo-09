@@ -25,9 +25,9 @@ public class BoardElementDeserializer implements JsonDeserializer<BoardElement> 
             boardElement = new Vorterix();
         }
 
-        int x = jsonObject.get("position").getAsJsonArray().get(0).getAsInt();
-        int y = jsonObject.get("position").getAsJsonArray().get(1).getAsInt();
-        boardElement.setPosition(new Position(x,y));
+        int posX = jsonObject.get("position").getAsJsonArray().get(0).getAsInt();
+        int posY = jsonObject.get("position").getAsJsonArray().get(1).getAsInt();
+        boardElement.setPosition(new Position(posX,posY));
 
         return boardElement;
     }

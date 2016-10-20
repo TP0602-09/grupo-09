@@ -17,7 +17,7 @@ public class Board {
         this.columns = cols;
         this.sectors = sectors;
         this.elements = obtainElements();
-        this.joins = new ArrayList<>();
+        this.joins = new ArrayList<Join>();
     }
 
     private HashMap<Position, BoardElement> obtainElements() {

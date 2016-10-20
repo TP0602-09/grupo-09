@@ -2,17 +2,18 @@ package ar.fiuba.tdd.template.tp1;
 
 public class ValuePlay extends Play {
 
-    /*agregar los campos al constructor y a la clase
-        private Position position;
-        private Integer value;
+    private Position position;
+    private int value;
 
-        public ValuePlay(Position position, Integer value) {
-            this.position = position;
-            this.value = value;
-        }
-    */
     public ValuePlay() {
-        super();
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 
     @Override

@@ -13,7 +13,9 @@ import java.io.InputStreamReader;
 public class InputFileReader {
 
     public InputData read(String path) throws IOException {
-        Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Play.class, new PlayDeserializer());
+        Gson gson = gsonBuilder.create();
 
         try {
             InputStreamReader jsonFile = new InputStreamReader(new FileInputStream(path), "UTF-8");

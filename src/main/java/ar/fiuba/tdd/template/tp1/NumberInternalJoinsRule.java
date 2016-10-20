@@ -24,7 +24,7 @@ public class NumberInternalJoinsRule extends JoinRule {
 
     private List<Join> makeAllJoinsPossibles(List<BoardElement> elements) {
 
-        List<Join> joinsPossibles = new ArrayList<>();
+        List<Join> joinsPossibles = new ArrayList<Join>();
 
         for (BoardElement firstElement : elements) {
             for (BoardElement secondElement : elements) {
