@@ -23,6 +23,7 @@ public class Join {
 
         return hasSameElements(join);
     }
+
     @SuppressWarnings("CPD-END")
 
     private boolean hasSameElements(Join join) {
