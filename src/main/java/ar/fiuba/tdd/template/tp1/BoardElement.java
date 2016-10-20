@@ -24,6 +24,7 @@ public abstract class BoardElement {
 
         return position.equals(that.position);
     }
+
     @SuppressWarnings("CPD-END")
 
     @Override
