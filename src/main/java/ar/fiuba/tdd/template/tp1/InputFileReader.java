@@ -12,11 +12,11 @@ import java.io.InputStreamReader;
  */
 public class InputFileReader {
 
-    public InputData read(String path) throws IOException {
+    public InputData read(String name) throws IOException {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(Play.class, new PlayDeserializer());
         Gson gson = gsonBuilder.create();
-
+        String path = System.getProperty("user.dir") + "/resources/" + name + ".json";
         try {
             InputStreamReader jsonFile = new InputStreamReader(new FileInputStream(path), "UTF-8");
 
