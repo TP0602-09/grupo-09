@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.template.tp1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,11 +8,11 @@ import java.util.List;
  */
 public class Sector {
 
-    private List<BoardElement> boardElements;
+    private List<BoardElement> boardElements = new ArrayList<BoardElement>();
     private Integer value;
 
-    public Sector(List<BoardElement> boardElements, Integer value) {
-        this.boardElements = boardElements;
+    public Sector(List<BoardElement> elements, Integer value) {
+        this.boardElements = elements;
         this.value = value;
     }
 

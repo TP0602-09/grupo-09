@@ -1,5 +1,6 @@
 package ar.fiuba.tdd.template.tp1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,9 +8,7 @@ import java.util.List;
  */
 public class InputData {
 
-    private List<Play> plays;
-
-    public InputData(){}
+    private List<Play> plays = new ArrayList<Play>();
 
     public List<Play> getPlays() {
         return plays;

@@ -13,14 +13,8 @@ public class GameData {
     private String elementType;
     private String inputType;
     private String unionType;
-    private List<Sector> sectors;
-    private List<Rule> rules;
-
-    public GameData() {
-        this.name = "";
-        this.sectors = new ArrayList<Sector>();
-        this.rules = new ArrayList<Rule>();
-    }
+    private List<Sector> sectors = new ArrayList<Sector>();
+    private List<Rule> rules = new ArrayList<Rule>();
 
     public String getName() {
         return name;

@@ -18,7 +18,7 @@ public class Board {
     }
 
     private HashMap<Position, BoardElement> obtainElements() {
-        HashMap<Position, BoardElement> elements = new HashMap<>();
+        HashMap<Position, BoardElement> elements = new HashMap<Position, BoardElement>();
         for (Sector sector : sectors) {
             for (BoardElement anElement : sector.getBoardElements()) {
                 elements.put(anElement.getPosition(), anElement);
@@ -43,10 +43,6 @@ public class Board {
         return this.sectors;
     }
 
-    public boolean validate() {
-        //TODO implement method
-        return true;
-    }
 
     public void update(Play play) {
 

@@ -21,7 +21,16 @@ public class Game {
 
     public boolean make(Play play) {
         play.doIt(board);
-        return board.validate();
+        return validate(board);
+    }
+
+    public boolean validate(Board board) {
+        //TODO implement method
+        return true;
+    }
+
+    private boolean validateFinal(Board board) {
+        return true;
     }
 
     public void play() {
@@ -35,10 +44,13 @@ public class Game {
             for (Play onePlay : inputData.getPlays()) {
                 if (make(onePlay)) {
                     board.update(onePlay);
+                } else {
+                    onePlay.isInvalid();
                 }
             }
-            System.out.print("Generating output file in directory 'C:/Users/'");
-            outputFileMaker.make(board);
+            System.out.print("Generating final status");
+
+            outputFileMaker.make(board, inputData.getPlays(), validateFinal(board));
         } catch (IOException e) {
             System.out.print("Input not found");
         }

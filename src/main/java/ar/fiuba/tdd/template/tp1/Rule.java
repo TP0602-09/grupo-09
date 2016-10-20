@@ -18,7 +18,7 @@ public abstract class Rule {
     public abstract boolean isValidSector(Sector sector);
 
     public ArrayList<Integer> extractCellValues(Sector sector) {
-        ArrayList<Integer> values = new ArrayList<>();
+        ArrayList<Integer> values = new ArrayList<Integer>();
         for (BoardElement oneCell: sector.getBoardElements()) {
             Cell cell = (Cell) oneCell;
             if (cell.hasValue()) {
