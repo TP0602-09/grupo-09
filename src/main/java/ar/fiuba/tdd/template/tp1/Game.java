@@ -25,7 +25,7 @@ public class Game {
         this.outputFileMaker = new OutputFileMaker();
     }
 
-    public void makePlay(Play play) {
+    private void makePlay(Play play) {
         play.doIt(board);
         if (!validateBoard(everyPlayRules)) {
             play.rollback(board);

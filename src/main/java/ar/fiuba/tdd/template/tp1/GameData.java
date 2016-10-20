@@ -3,9 +3,6 @@ package ar.fiuba.tdd.template.tp1;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Lucía on 16/10/2016.
- */
 public class GameData {
     private String name;
     private Integer rows;

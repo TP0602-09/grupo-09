@@ -6,7 +6,7 @@ import java.util.List;
 public class OutputBoard {
 
     private boolean status;
-    private List<Sector> sectors = new ArrayList<Sector>();
+    private List<Sector> sectors = new ArrayList<>();
 
     public OutputBoard() {}
 

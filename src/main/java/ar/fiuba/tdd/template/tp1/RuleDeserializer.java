@@ -17,7 +17,7 @@ public class RuleDeserializer implements JsonDeserializer<Rule> {
         rules = new HashMap<String, Rule>();
         rules.put("AllDifferentRule", new AllDifferentRule());
         rules.put("SumOfNumbersEqXRule", new SumOfNumbersEqXRule());
-        rules.put("MultiplyOfNumbersEqXRule", new SumOfNumbersEqXRule());
+        rules.put("MultiplyNumbersEqXRule", new MultiplyNumbersEqXRule());
         rules.put("NumberElementVisitedRule", new NumberElementVisitedRule());
         rules.put("NumberInternalJoinsRule", new NumberInternalJoinsRule());
 

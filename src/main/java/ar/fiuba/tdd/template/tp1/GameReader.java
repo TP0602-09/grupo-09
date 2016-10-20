@@ -7,9 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * Created by Lucía on 16/10/2016.
- */
+
 public class GameReader {
     private static GameReader ourInstance = new GameReader();
 

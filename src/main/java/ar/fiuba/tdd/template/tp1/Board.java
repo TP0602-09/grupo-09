@@ -19,7 +19,7 @@ public class Board {
     }
 
     private HashMap<Position, BoardElement> obtainElements() {
-        HashMap<Position, BoardElement> elements = new HashMap<Position, BoardElement>();
+        HashMap<Position, BoardElement> elements = new HashMap<>();
         for (Sector sector : sectors) {
             for (BoardElement anElement : sector.getBoardElements()) {
                 elements.put(anElement.getPosition(), anElement);

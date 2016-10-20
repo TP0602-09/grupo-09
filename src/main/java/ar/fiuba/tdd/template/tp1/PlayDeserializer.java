@@ -4,9 +4,6 @@ import com.google.gson.*;
 
 import java.lang.reflect.Type;
 
-/**
- * Created by Lucía on 20/10/2016.
- */
 public class PlayDeserializer implements JsonDeserializer<Play> {
 
     @Override
