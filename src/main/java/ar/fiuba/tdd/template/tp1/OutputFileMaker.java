@@ -4,10 +4,7 @@ import com.google.gson.Gson;
 
 import java.util.List;
 
-/**
- * Created by Lucía on 18/10/2016.
- */
-public class OutputFileWriter {
+public class OutputFileMaker {
 
     public void make(Board board, List<Play> plays, boolean finalStatus) {
         OutputBoard outputBoard = new OutputBoard();
