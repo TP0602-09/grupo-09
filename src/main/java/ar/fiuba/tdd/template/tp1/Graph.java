@@ -36,7 +36,9 @@ public class Graph {
             if ((!visited[next]) && (isCyclicUtil(next, visited, vertex))) {
                 return true;
             } else {
-                return (next != parent);
+                if (next != parent) {
+                    return true;
+                }
             }
         }
         return false;
