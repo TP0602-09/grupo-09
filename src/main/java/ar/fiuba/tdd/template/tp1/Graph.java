@@ -7,16 +7,19 @@ import java.util.List;
 
 public class Graph {
 
-    public static final int NO_PARENT = -1;
-    private int vertexCount;
+    private static final int NO_PARENT = -1;
+    private static final int MAX_VERTEX = 100;
     private List<LinkedList<Integer>> adjacents;
 
-    // Constructor
-    Graph(int vertexCount) {
-        this.vertexCount = vertexCount;
+    Graph() {
+        createAdjacentsList();
+    }
+
+    private void createAdjacentsList() {
         adjacents = new ArrayList<>();
-        for (int i = 0; i < vertexCount; ++i)
+        for (int i = 0; i < MAX_VERTEX; ++i) {
             adjacents.add(new LinkedList<>());
+        }
     }
 
 
@@ -25,46 +28,32 @@ public class Graph {
         adjacents.get(vertex2).add(vertex1);
     }
 
-    // A recursive function that uses visited[] and parent to detect
-    // cycle in subgraph reachable from vertex vertex.
-    Boolean isCyclicUtil(int vertex, Boolean visited[], int parent) {
-        // Mark the current node as visited
+    boolean isCyclicUtil(int vertex, boolean[] visited, int parent) {
+
         visited[vertex] = true;
 
-        // Recur for all the vertices adjacent to this vertex
         for (int next : adjacents.get(vertex)) {
-
-            // If an adjacent is not visited, then recur for that
-            // adjacent
-            if (!visited[next]) {
-                if (isCyclicUtil(next, visited, vertex))
-                    return true;
-            }
-
-            // If an adjacent is visited and not parent of current
-            // vertex, then there is a cycle.
-            else if (next != parent)
+            if ((!visited[next]) && (isCyclicUtil(next, visited, vertex))) {
                 return true;
+            } else {
+                return (next != parent);
+            }
         }
         return false;
     }
 
-    // Returns true if the graph contains a cycle, else false.
-    Boolean isCyclic() {
-        // Mark all the vertices as not visited and not part of
-        // recursion stack
-        Boolean visited[] = new Boolean[vertexCount];
-        for (int i = 0; i < vertexCount; i++)
+    boolean isCyclic() {
+
+        boolean[] visited = new boolean[MAX_VERTEX];
+        for (int i = 0; i < MAX_VERTEX; i++) {
             visited[i] = false;
+        }
 
-        // Call the recursive helper function to detect cycle in
-        // different DFS trees
-        for (int u = 0; u < vertexCount; u++)
-            if (!visited[u]) // Don't recur for u if already visited
-                if (isCyclicUtil(u, visited, NO_PARENT))
-                    return true;
-
+        for (int u = 0; u < MAX_VERTEX; u++) {
+            if (!visited[u] && isCyclicUtil(u, visited, NO_PARENT)) {
+                return true;
+            }
+        }
         return false;
     }
-
 }
