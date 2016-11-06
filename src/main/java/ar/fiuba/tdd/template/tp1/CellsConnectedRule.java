@@ -11,7 +11,7 @@ public class CellsConnectedRule extends ConnectionRule {
     private static  final int WHITE = 1;
 
     public CellsConnectedRule() {
-        neighbourCellsRetriever = new CompleteNeighbourCellsRetriever();
+        neighbourCellsRetriever = new SimpleNeighbourCellsRetriever();
     }
 
     @Override
