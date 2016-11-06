@@ -8,7 +8,7 @@ import java.util.Set;
  * Created by Ignacio on 6/11/2016.
  */
 public class NotReapetedRule extends Rule {
-    private final int BLACK = 0;
+    private static final int BLACK = 0;
 
     @Override
     public boolean isValidSector(Sector sector) {
