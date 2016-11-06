@@ -19,7 +19,14 @@ public class BoardElementDeserializer implements JsonDeserializer<BoardElement> 
             cell.setValue(jsonObject.get("value").getAsInt());
             boardElement = cell;
         } else {
-            boardElement = new Vorterix();
+            if ("doubleValueCell".equals(type)) {
+                DoubleValueCell doubleValueCell = new DoubleValueCell();
+                doubleValueCell.setValues(jsonObject.get("value").getAsInt(), jsonObject.get("doubleValue").getAsInt());
+                boardElement = doubleValueCell;
+            } else {
+                boardElement = new Vorterix();
+            }
+
         }
 
         int posX = jsonObject.get("position").getAsJsonArray().get(0).getAsInt();

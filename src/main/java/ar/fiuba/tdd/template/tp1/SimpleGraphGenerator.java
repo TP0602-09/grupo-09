@@ -3,7 +3,7 @@ package ar.fiuba.tdd.template.tp1;
 /**
  * Created by Ignacio on 23/10/2016.
  */
-public class GraphGenerator {
+public class SimpleGraphGenerator implements IGraphGenerator {
 
     public Graph generateGraph(Board board) {
         Graph graph = new Graph();

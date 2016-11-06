@@ -8,8 +8,8 @@ public class NotClosedPathRule extends Rule {
 
     @Override
     public boolean isValidBoard(Board board) {
-        GraphGenerator graphGenerator = new GraphGenerator();
-        Graph graph = graphGenerator.generateGraph(board);
+        SimpleGraphGenerator simpleGraphGenerator = new SimpleGraphGenerator();
+        Graph graph = simpleGraphGenerator.generateGraph(board);
         return !graph.isCyclic();
     }
 
