@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * Created by Ignacio on 6/11/2016.
  */
-public class NotReapetedRule extends Rule {
+public class NotReapeatedRule extends Rule {
     private static final int BLACK = 0;
 
     @Override
