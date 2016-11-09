@@ -4,6 +4,7 @@ package ar.fiuba.tdd.template.tp1; /**
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class GraphTest {
@@ -13,22 +14,20 @@ public class GraphTest {
 
     }
 
-/*    @Test
+    @Test
     public void testGraphIsNotCyclic() {
-        Graph graph = new Graph();
-        graph.addEdge(1,2);
-        graph.addEdge(2,3);
-        graph.addEdge(2,4);
+        Graph graph = new Graph(2);
+        graph.addEdge(new Position(1,1), new Position(1,2));
+        graph.addEdge(new Position(1,2), new Position(2,1));
         assertFalse(graph.isCyclic());
-    }*/
+    }
 
     @Test
     public void testGraphIsCyclic() {
-        Graph graph = new Graph();
-        graph.addEdge(1,2);
-        graph.addEdge(2,3);
-        graph.addEdge(3,4);
-        graph.addEdge(4,1);
+        Graph graph = new Graph(2);
+        graph.addEdge(new Position(1,1), new Position(1,2));
+        graph.addEdge(new Position(1,2), new Position(2,1));
+        graph.addEdge(new Position(2,1), new Position(1,1));
         assertTrue(graph.isCyclic());
     }
 }

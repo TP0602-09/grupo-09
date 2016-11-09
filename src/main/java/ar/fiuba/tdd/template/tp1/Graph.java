@@ -1,42 +1,62 @@
 package ar.fiuba.tdd.template.tp1;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 
 public class Graph {
 
-    private static final int NO_PARENT = -1;
-    private static final int MAX_VERTEX = 100;
-    private List<LinkedList<Integer>> adjacents;
+    private Map<Position, LinkedList<Position>> adjacents;
+    private Map<Position, Boolean> visited;
 
-    Graph() {
-        createAdjacentsList();
-    }
-
-    private void createAdjacentsList() {
-        adjacents = new ArrayList<>();
-        for (int i = 0; i < MAX_VERTEX; ++i) {
-            adjacents.add(new LinkedList<>());
+    public Graph(int dimension) {
+        this.visited = new HashMap<>();
+        this.adjacents = new HashMap<>();
+        for (int i = 1; i <= dimension; i ++) {
+            for (int j = 1; j <= dimension; j ++) {
+                this.adjacents.put(new Position(i,j), new LinkedList<>());
+                this.visited.put(new Position(i,j), false);
+            }
         }
     }
 
-
-    public void addEdge(int vertex1, int vertex2) {
-        adjacents.get(vertex1).add(vertex2);
-        adjacents.get(vertex2).add(vertex1);
+    public void addEdge(Position vertex1, Position vertex2) {
+        if (!existsAdjacency(vertex1, vertex2)) {
+            adjacents.get(vertex1).add(vertex2);
+            adjacents.get(vertex2).add(vertex1);
+        }
     }
 
-    public boolean isCyclicUtil(int vertex, boolean[] visited, int parent) {
+    public boolean isCyclicUtil(Position vertex, Position parent) {
 
-        visited[vertex] = true;
+        visited.put(vertex, true);
+        Position next;
 
-        for (int next : adjacents.get(vertex)) {
-            if ((!visited[next]) && (isCyclicUtil(next, visited, vertex))) {
+        Iterator<Position> iterator = adjacents.get(vertex).iterator();
+        while (iterator.hasNext()) {
+            next = iterator.next();
+            if (!visited.get(next)) {
+                if (isCyclicUtil(next, vertex)) {
+                    System.out.print("cycle with vertex");
+                    System.out.print(" (" + vertex.getXcoordinate() + "," + vertex.getYcoordinate() + ")");
+                    System.out.println(" (" + next.getXcoordinate() + "," + next.getYcoordinate() + ")");
+                    return true;
+                }
+            } else if (!next.equals(parent)) {
                 return true;
-            } else {
-                if (next != parent) {
+            }
+
+        }
+        return false;
+    }
+
+    public boolean isCyclic() {
+        putVisitedInFalse();
+        Iterator entries = adjacents.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry thisEntry = (Map.Entry) entries.next();
+            Position position = (Position) thisEntry.getKey();
+            if (!visited.get(position)) {
+                if (isCyclicUtil(position, new Position(0,0))) {
                     return true;
                 }
             }
@@ -44,15 +64,18 @@ public class Graph {
         return false;
     }
 
-    public boolean isCyclic() {
-
-        boolean[] visited = new boolean[MAX_VERTEX];
-        for (int i = 0; i < MAX_VERTEX; i++) {
-            visited[i] = false;
+    private void putVisitedInFalse() {
+        Iterator entries = visited.entrySet().iterator();
+        while (entries.hasNext()) {
+            Map.Entry thisEntry = (Map.Entry) entries.next();
+            Position position = (Position) thisEntry.getKey();
+            visited.put(position, false);
         }
+    }
 
-        for (int u = 0; u < MAX_VERTEX; u++) {
-            if (!visited[u] && isCyclicUtil(u, visited, NO_PARENT)) {
+    private boolean existsAdjacency(Position vertex1, Position vertex2) {
+        for (Position vertex : this.adjacents.get(vertex1)) {
+            if (vertex.equals(vertex2)) {
                 return true;
             }
         }
