@@ -22,7 +22,12 @@ public class JoinPlay extends Play {
         BoardElement firstElement = board.getElement(this.firstPosition);
         BoardElement secondElement = board.getElement(this.secondPosition);
         join = new Join(firstElement, secondElement);
+        System.out.print("You are going to join position (" + firstPosition.getXcoordinate()
+                + "," + firstPosition.getYcoordinate() + ") ");
+        System.out.println("whit position (" + secondPosition.getXcoordinate() + ","
+                + secondPosition.getYcoordinate() + ")");
         board.addJoin(join);
+        board.getMadePlays().push(this);
     }
 
     @Override

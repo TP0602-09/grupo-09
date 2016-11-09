@@ -1,0 +1,129 @@
+{
+  "plays": [
+	{
+		"type": "join",
+		"firstPosition": [1,2],
+		"secondPosition": [2,1]
+	},
+	{
+		"type": "join",
+		"firstPosition": [2,1],
+		"secondPosition": [3,2]
+	},
+    {
+		"type": "join",
+		"firstPosition": [3,2],
+		"secondPosition": [4,3]
+	},
+	{
+		"type": "join",
+		"firstPosition": [3,1],
+		"secondPosition": [4,2]
+	},
+	{
+		"type": "join",
+		"firstPosition": [4,2],
+		"secondPosition": [5,1]
+	},
+	{
+		"type": "join",
+		"firstPosition": [4,2],
+		"secondPosition": [5,3]
+	},
+	{
+		"type": "join",
+		"firstPosition": [5,2],
+		"secondPosition": [6,1]
+	},
+	{
+		"type": "join",
+		"firstPosition": [5,2],
+		"secondPosition": [6,3]
+	},
+	{
+		"type": "join",
+		"firstPosition": [2,2],
+		"secondPosition": [1,3]
+	},
+	{
+		"type": "join",
+		"firstPosition": [3,2],
+		"secondPosition": [2,3]
+	},
+	{
+		"type": "join",
+		"firstPosition": [1,3],
+		"secondPosition": [2,4]
+	},
+	{
+		"type": "join",
+		"firstPosition": [2,3],
+		"secondPosition": [3,4]
+	},
+	{
+		"type": "join",
+		"firstPosition": [3,3],
+		"secondPosition": [4,4]
+	},
+	{
+		"type": "join",
+		"firstPosition": [5,3],
+		"secondPosition": [4,4]
+	},
+	{
+		"type": "join",
+		"firstPosition": [6,3],
+		"secondPosition": [5,4]
+	},
+	{
+		"type": "join",
+		"firstPosition": [1,4],
+		"secondPosition": [2,5]
+	},
+	{
+		"type": "join",
+		"firstPosition": [2,5],
+		"secondPosition": [3,4]
+	},
+	{
+		"type": "join",
+		"firstPosition": [3,4],
+		"secondPosition": [4,5]
+	},
+	{
+		"type": "join",
+		"firstPosition": [4,4],
+		"secondPosition": [5,5]
+	},
+	{
+		"type": "join",
+		"firstPosition": [6,4],
+		"secondPosition": [5,5]
+	},
+	{
+		"type": "join",
+		"firstPosition": [1,6],
+		"secondPosition": [2,5]
+	},
+	{
+		"type": "join",
+		"firstPosition": [2,6],
+		"secondPosition": [3,5]
+	},
+	{
+		"type": "join",
+		"firstPosition": [3,6],
+		"secondPosition": [4,5]
+	},
+	{
+		"type": "join",
+		"firstPosition": [4,5],
+		"secondPosition": [5,6]
+	},
+	{
+		"type": "join",
+		"firstPosition": [5,5],
+		"secondPosition": [6,6]
+	}
+  ]
+}

@@ -22,6 +22,9 @@ public class ValuePlay extends Play {
         Cell oneCell = (Cell) board.getElement(position);
         lastValue = oneCell.getValue();
         oneCell.setValue(value);
+        System.out.println("You are going to set value " + value + " into position ("
+                + position.getXcoordinate() + "," + position.getYcoordinate() + ")");
+        board.getMadePlays().push(this);
     }
 
     @Override

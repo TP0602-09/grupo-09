@@ -23,12 +23,12 @@ public class Graph {
     }
 
 
-    void addEdge(int vertex1, int vertex2) {
+    public void addEdge(int vertex1, int vertex2) {
         adjacents.get(vertex1).add(vertex2);
         adjacents.get(vertex2).add(vertex1);
     }
 
-    boolean isCyclicUtil(int vertex, boolean[] visited, int parent) {
+    public boolean isCyclicUtil(int vertex, boolean[] visited, int parent) {
 
         visited[vertex] = true;
 
@@ -44,7 +44,7 @@ public class Graph {
         return false;
     }
 
-    boolean isCyclic() {
+    public boolean isCyclic() {
 
         boolean[] visited = new boolean[MAX_VERTEX];
         for (int i = 0; i < MAX_VERTEX; i++) {

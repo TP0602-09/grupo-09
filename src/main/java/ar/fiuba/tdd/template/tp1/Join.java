@@ -10,6 +10,14 @@ public class Join {
         this.secondElement = secondElement;
     }
 
+    public BoardElement getFirstElement() {
+        return firstElement;
+    }
+
+    public BoardElement getSecondElement() {
+        return secondElement;
+    }
+
     @Override
     @SuppressWarnings("CPD-START")
     public boolean equals(Object obj) {

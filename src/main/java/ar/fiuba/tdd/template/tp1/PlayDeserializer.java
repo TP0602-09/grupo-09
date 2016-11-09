@@ -10,8 +10,7 @@ public class PlayDeserializer implements JsonDeserializer<Play> {
     @Override
     public Play deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
-        JsonElement jsonType = jsonObject.get("type");
-        String type = jsonType.getAsString();
+        String type = jsonObject.get("type").getAsString();
         Play play = null;
         if ("value".equals(type)) {
             ValuePlay valuePlay = new ValuePlay();
@@ -23,6 +22,9 @@ public class PlayDeserializer implements JsonDeserializer<Play> {
             joinPlay.setFirstPosition(getPosition(jsonObject, "firstPosition"));
             joinPlay.setSecondPosition(getPosition(jsonObject, "secondPosition"));
             play = joinPlay;
+        } else if ("undo".equals(type)) {
+            UndoPlay undoPlay = new UndoPlay();
+            play = undoPlay;
         }
         return play;
     }

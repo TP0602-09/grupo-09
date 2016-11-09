@@ -11,13 +11,13 @@ public class RuleDeserializer implements JsonDeserializer<Rule> {
     private static final Map<String,Rule> rules;
 
     static {
-        rules = new HashMap<String, Rule>();
+        rules = new HashMap<>();
         rules.put("AllDifferentRule", new AllDifferentRule());
         rules.put("SumOfNumbersEqXRule", new SumOfNumbersEqXRule());
         rules.put("MultiplyNumbersEqXRule", new MultiplyNumbersEqXRule());
         rules.put("NumberElementVisitedRule", new NumberElementVisitedRule());
         rules.put("NumberInternalJoinsRule", new NumberInternalJoinsRule());
-
+        rules.put("NotClosedPathRule", new NotClosedPathRule());
     }
 
     @Override

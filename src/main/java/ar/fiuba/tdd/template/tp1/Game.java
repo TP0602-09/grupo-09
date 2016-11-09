@@ -28,7 +28,7 @@ public class Game {
     private void makePlay(Play play) {
         play.doIt(board);
         if (!validateBoard(everyPlayRules)) {
-            play.rollback(board);
+            System.out.println("That was an invalid move");
             play.setInvalid();
         }
     }
@@ -44,16 +44,21 @@ public class Game {
 
     public void play() {
         Scanner sc = new Scanner(System.in, "UTF-8");
-        System.out.print("Enter your input file name");
+        System.out.println("Enter your input file name");
         String name = sc.nextLine();
-        System.out.print("Reading input file...");
+        System.out.println("Reading input file...");
         try {
             InputData inputData = inputFileReader.read(name);
-            System.out.print("Playing...");
+            System.out.println("Playing...");
             inputData.getPlays().forEach(this::makePlay);
-            System.out.print("Generating final status");
-
-            outputFileMaker.make(board, inputData.getPlays(), validateBoard(finalRules));
+            System.out.println("Generating final status");
+            boolean finalStatus = validateBoard(finalRules);
+            if (finalStatus) {
+                System.out.println("Congratulations! You won!!");
+            } else {
+                System.out.println("Sorry you lost... May be next time");
+            }
+            outputFileMaker.make(board, inputData.getPlays(), finalStatus);
         } catch (IOException e) {
             System.out.print("Input not found");
         }

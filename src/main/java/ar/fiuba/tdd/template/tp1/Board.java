@@ -9,6 +9,7 @@ public class Board {
     private HashMap<Position, BoardElement> elements;
     private List<Sector> sectors;
     private Set<Join> joins;
+    private Stack<Play> madePlays;
 
     public Board(int rows, int cols, List<Sector> sectors) {
         this.rows = rows;
@@ -16,6 +17,11 @@ public class Board {
         this.sectors = sectors;
         this.elements = obtainElements();
         this.joins = new HashSet<>();
+        this.madePlays = new Stack<>();
+    }
+
+    public Stack<Play> getMadePlays() {
+        return madePlays;
     }
 
     private HashMap<Position, BoardElement> obtainElements() {

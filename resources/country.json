@@ -94,7 +94,21 @@
         "value": -1
       }
     ]
-  }    
+  },
+  {
+	  "value": 2,
+	  "boardElements": [{
+		  "type": "cell",
+		  "position": [1,4],
+		  "value": -1
+	  },
+	  {
+		  "type": "cell",
+		  "position": [2,4],
+		  "value": -1
+	  }
+	  ]
+  }
   ],
   "everyPlayRules": [
     {"rule": "NumberElementVisitedRule"}

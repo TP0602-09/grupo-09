@@ -9,7 +9,7 @@ public class MultiplyNumbersEqXRule extends OperationOfNumbersEqXRule {
 
     @Override
     public Integer operation(ArrayList<Integer> values) {
-        Integer sum = 0;
+        Integer sum = 1;
         for (Integer value: values) {
             sum *= value;
         }

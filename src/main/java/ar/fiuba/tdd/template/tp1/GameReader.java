@@ -31,12 +31,12 @@ public class GameReader {
             InputStreamReader jsonFile = new InputStreamReader(new FileInputStream(path), "UTF-8");
 
             GameData game = gson.fromJson(jsonFile, GameData.class);
-            System.out.println("Configuracion del juego \'" + gameName + "\' leida exitosamente!");
+            System.out.println("Configuration of game \'" + gameName + "\' successfully read!");
 
             return game;
 
         } catch (IOException e) {
-            throw new GameNotFoundException("No se ha encontrado el juego requerido");
+            throw new GameNotFoundException("We haven't found your game =(");
         }
 
     }
