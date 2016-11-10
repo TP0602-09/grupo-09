@@ -12,6 +12,11 @@ public class Sector {
         this.value = value;
     }
 
+    public Sector(List<BoardElement> elements) {
+        this.boardElements = elements;
+        this.value = 0;
+    }
+
     public List<BoardElement> getBoardElements() {
         return boardElements;
     }
