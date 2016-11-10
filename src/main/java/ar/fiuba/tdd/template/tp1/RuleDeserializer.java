@@ -20,6 +20,7 @@ public class RuleDeserializer implements JsonDeserializer<Rule> {
         rules.put("NotClosedPathRule", new NotClosedPathRule());
         rules.put("CellsBetweenGECellValueRule", new CellsBetweenGECellValueRule());
         rules.put("TwoConsecutiveBlackCellRule", new TwoConsecutiveBlackCellRule());
+        rules.put("ConsecutiveNumbersRule", new ConsecutiveNumbersRule());
     }
 
     @Override

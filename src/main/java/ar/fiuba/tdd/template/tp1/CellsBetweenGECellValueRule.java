@@ -29,12 +29,20 @@ class CellsBetweenGECellValueRule extends Rule {
             for (BoardElement otherElement : elements) {
                 int oneValue = oneCell.getValue();
                 int otherValue = ((Cell) otherElement).getValue();
-                if (!oneElement.equals(otherElement) && oneValue == otherValue) {
-                    int cellsBetween = getCellsBetweenPositions(oneElement.getPosition(), otherElement.getPosition());
-                    if (cellsBetween < oneValue) {
-                        return false;
-                    }
+                if (elementsTooClose(oneElement, otherElement, oneValue, otherValue)) {
+                    return false;
                 }
+            }
+        }
+        return true;
+    }
+
+    private boolean elementsTooClose(BoardElement oneElement, BoardElement otherElement,
+                                    int oneValue, int otherValue) {
+        if (!oneElement.equals(otherElement) && oneValue == otherValue) {
+            int cellsBetween = getCellsBetweenPositions(oneElement.getPosition(), otherElement.getPosition());
+            if (cellsBetween < oneValue) {
+                return false;
             }
         }
         return true;
