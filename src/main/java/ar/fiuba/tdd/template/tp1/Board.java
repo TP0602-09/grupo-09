@@ -65,9 +65,9 @@ public class Board {
     public List<Sector> getColumnsSectors() {
         List<Sector> columns = new ArrayList<>();
 
-        for (int x = 0; x < this.columns; x++) {
+        for (int x = 1; x <= this.columns; x++) {
             List<BoardElement> elements = new ArrayList<>();
-            for (int y = 0; y < this.rows; y++) {
+            for (int y = 1; y <= this.rows; y++) {
                 Position position = new Position(x,y);
                 BoardElement element = this.elements.get(position);
                 elements.add(element);
@@ -80,9 +80,9 @@ public class Board {
     public List<Sector> getRowsSectors() {
         List<Sector> rows = new ArrayList<>();
 
-        for (int y = 0; y < this.columns; y++) {
+        for (int y = 1; y <= this.columns; y++) {
             List<BoardElement> elements = new ArrayList<>();
-            for (int x = 0; x < this.rows; x++) {
+            for (int x = 1; x <= this.rows; x++) {
                 Position position = new Position(y,x);
                 BoardElement element = this.elements.get(position);
                 elements.add(element);

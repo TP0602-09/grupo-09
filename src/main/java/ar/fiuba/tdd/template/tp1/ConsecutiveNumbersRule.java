@@ -12,6 +12,7 @@ public class ConsecutiveNumbersRule extends Rule {
         for (BoardElement elem : sector.getBoardElements()) {
             Cell cell = (Cell) elem;
             if (cell.getValue() > maxValue) {
+                System.out.println("No consecutive numbers starting from 1");
                 return false;
             }
         }

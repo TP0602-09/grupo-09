@@ -29,7 +29,8 @@ class CellsBetweenGECellValueRule extends Rule {
             for (BoardElement otherElement : elements) {
                 int oneValue = oneCell.getValue();
                 int otherValue = ((Cell) otherElement).getValue();
-                if (elementsTooClose(oneElement, otherElement, oneValue, otherValue)) {
+                if (!elementsTooClose(oneElement, otherElement, oneValue, otherValue)) {
+                    System.out.println("Elements with same value are too close");
                     return false;
                 }
             }
