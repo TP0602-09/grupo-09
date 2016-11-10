@@ -50,9 +50,7 @@ public class Game {
         try {
             InputData inputData = inputFileReader.read(name);
             System.out.print("Playing...");
-            for (Play onePlay : inputData.getPlays()) {
-                makePlay(onePlay);
-            }
+            inputData.getPlays().forEach(this::makePlay);
             System.out.print("Generating final status");
 
             outputFileMaker.make(board, inputData.getPlays(), validateBoard(finalRules));
