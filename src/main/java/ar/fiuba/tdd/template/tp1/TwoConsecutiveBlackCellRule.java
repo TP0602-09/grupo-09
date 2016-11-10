@@ -34,8 +34,8 @@ class TwoConsecutiveBlackCellRule extends Rule {
     private List<Sector> getSectorsToValidate(Board board) {
         List<Sector> sectors = new ArrayList<>();
 
-        for (int x = 0; x < board.getCols(); x++) {
-            for (int y = 0; y < board.getRows(); y++) {
+        for (int x = 1; x <= board.getCols(); x++) {
+            for (int y = 1; y <= board.getRows(); y++) {
                 List<BoardElement> elements = getConsecutiveCellsIfBlack(board, new Position(x,y));
                 sectors.add(new Sector(elements));
             }

@@ -28,7 +28,7 @@ public class Game {
     private void makePlay(Play play) {
         play.doIt(board);
         if (!validateBoard(everyPlayRules)) {
-            System.out.println("That was an invalid move");
+            System.out.println("The state is invalid now. Try to undo.");
             play.setInvalid();
         }
     }
